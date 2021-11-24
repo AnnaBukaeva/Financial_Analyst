@@ -18,5 +18,23 @@ namespace Financial_Analyst.View
         {
             InitializeComponent();
         }
+
+        //private void RefreshForm()     //метод обновления инфы в форме нужно прописать
+        
+        private void btnAddExpenses_Click(object sender, EventArgs e)
+        {
+            frmEditExpenses form = new frmEditExpenses();
+            form.ShowDialog();
+        }
+
+        private void btnChangeExpenses_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteExpenses_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
