@@ -1,0 +1,12 @@
+C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\UnitTests\bin\Debug\UnitTests.dll
+C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\UnitTests\bin\Debug\UnitTests.pdb
+C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\UnitTests\bin\Debug\Financial_Analyst.exe
+C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\UnitTests\bin\Debug\Financial_Analyst.pdb
+C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\UnitTests\bin\Debug\Financial_Analyst.exe.config
+C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\UnitTests\obj\Debug\UnitTests.csproj.AssemblyReference.cache
+C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\UnitTests\obj\Debug\UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\UnitTests\obj\Debug\UnitTests.csproj.CopyComplete
+C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\UnitTests\obj\Debug\UnitTests.dll
+C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\UnitTests\obj\Debug\UnitTests.pdb

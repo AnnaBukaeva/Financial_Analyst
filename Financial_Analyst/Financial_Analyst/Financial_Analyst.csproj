@@ -47,7 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Class2.cs" />
-    <Compile Include="Logic\Class1.cs" />
+    <Compile Include="Logic\Account.cs" />
+    <Compile Include="Logic\ExpensesTransaction.cs" />
+    <Compile Include="Logic\IAccount.cs" />
+    <Compile Include="Logic\ITransaction.cs" />
+    <Compile Include="Logic\IUser.cs" />
+    <Compile Include="Logic\IncomTransaction.cs" />
+    <Compile Include="Logic\User.cs" />
     <Compile Include="View\frmEditExpenses.cs">
       <SubType>Form</SubType>
     </Compile>
