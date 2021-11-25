@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace Financial_Analyst.Logic
     {
         public string Name { get; set; }
         public decimal Balance { get; private set; } //приватный так как лучше ограничить возможность изменения баланса из других классов
-        public List<ITransaction> Transactions { get; set; }
+        private List<ITransaction> _transactions;
 
         public Account(string name, decimal balance, List<ITransaction> transactions)
         {
@@ -24,14 +25,12 @@ namespace Financial_Analyst.Logic
             }
             Name = name;
             Balance = balance;
-            Transactions = transactions;
+            _transactions = transactions;
         }
-
         public Account(string name, decimal balance) // транзакций может не быть при создании аккаунта
             :this(name, balance, new List<ITransaction>())
         {
         }
-
         public void AddTransaction(ITransaction transaction)
         {
             if (transaction == null)
@@ -39,7 +38,11 @@ namespace Financial_Analyst.Logic
                 throw new ArgumentNullException("Transactions should not be null!");
             }
             Balance += transaction.PaymentSum;  // одной строкой решили поведение для двух типов транзакций списание(+ * - = -) и поступление
-            Transactions.Add(transaction);
+            _transactions.Add(transaction);
+        }
+        public ReadOnlyCollection<ITransaction> GetTransactions()
+        {
+            return _transactions.AsReadOnly();
         }
     }
 }
