@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="AccountUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

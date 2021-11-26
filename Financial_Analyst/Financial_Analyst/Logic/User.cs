@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Financial_Analyst.Logic
 {
-    class User : IUser
+    public class User : IUser
     {
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
-        private List<IAccount> _accounts;           
+        private List<IAccount> _accounts;
 
-        public User (string firstName, string lastName, List<IAccount> accounts)
+        public User(string firstName, string lastName, List<IAccount> accounts)
         {
             if (string.IsNullOrEmpty(firstName))
             {
@@ -36,7 +36,12 @@ namespace Financial_Analyst.Logic
         public User (string firstName, string lastName) // транзакций может не быть при создании аккаунта
            : this(firstName, lastName, new List<IAccount>())
         {
-        }        
+        }
+
+        public User()
+        {
+        }
+
         public void AddAccount(IAccount account)
         {
             if (account == null)
@@ -51,8 +56,7 @@ namespace Financial_Analyst.Logic
                 }             
             }
             _accounts.Add(account);
-        }
-        
+        }        
         public ReadOnlyCollection<IAccount> GetAccount()
         {
             return _accounts.AsReadOnly();
