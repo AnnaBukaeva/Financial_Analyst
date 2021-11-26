@@ -24,5 +24,7 @@ namespace UnitTests
             Assert.AreEqual(expectedBalance, account.Balance);
             Assert.AreEqual(expectedTransactionCollections, account.GetTransactions());
         }
+           
+
     }
 }

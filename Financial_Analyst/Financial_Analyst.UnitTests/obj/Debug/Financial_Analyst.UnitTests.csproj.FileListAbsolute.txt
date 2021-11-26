@@ -1,2 +1,0 @@
-C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\Financial_Analyst.UnitTests\obj\Debug\Financial_Analyst.UnitTests.csproj.AssemblyReference.cache
-C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\Financial_Analyst.UnitTests\obj\Debug\Financial_Analyst.UnitTests.csproj.CoreCompileInputs.cache

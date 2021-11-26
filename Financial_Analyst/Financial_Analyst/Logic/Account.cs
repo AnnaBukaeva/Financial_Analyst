@@ -27,7 +27,7 @@ namespace Financial_Analyst.Logic
             Balance = balance;
             _transactions = transactions;
         }
-        public Account(string name, decimal balance) // транзакций может не быть при создании аккаунта
+        public Account(string name, decimal balance) // счетов может не быть при создании аккаунта
             :this(name, balance, new List<ITransaction>())
         {
         }
