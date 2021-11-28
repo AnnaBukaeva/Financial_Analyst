@@ -13,7 +13,6 @@ C:\АННА ОБУЧЕНИЕ\ПРОЕКТ\Financial_Analyst\Financial_Analyst\Fi
 C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\Financial_Analyst\bin\Debug\Financial_Analyst.exe.config
 C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\Financial_Analyst\bin\Debug\Financial_Analyst.exe
 C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\Financial_Analyst\bin\Debug\Financial_Analyst.pdb
-C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\Financial_Analyst\obj\Debug\Financial_Analyst.View.frmEditExpenses.resources
 C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\Financial_Analyst\obj\Debug\Financial_Analyst.View.frmMain.resources
 C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\Financial_Analyst\obj\Debug\Financial_Analyst.Properties.Resources.resources
 C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\Financial_Analyst\obj\Debug\Financial_Analyst.csproj.GenerateResource.cache
