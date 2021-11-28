@@ -30,26 +30,35 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabExpenses = new System.Windows.Forms.TabPage();
-            this.tabIncome = new System.Windows.Forms.TabPage();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.dgvExpenses = new System.Windows.Forms.DataGridView();
             this.panelBtnExpenses = new System.Windows.Forms.Panel();
-            this.btnAddExpenses = new System.Windows.Forms.Button();
-            this.btnChangeExpenses = new System.Windows.Forms.Button();
             this.btnDeleteExpenses = new System.Windows.Forms.Button();
+            this.btnChangeExpenses = new System.Windows.Forms.Button();
+            this.btnAddExpenses = new System.Windows.Forms.Button();
+            this.tabIncome = new System.Windows.Forms.TabPage();
+            this.dgvIncome = new System.Windows.Forms.DataGridView();
             this.panelBtnIncome = new System.Windows.Forms.Panel();
             this.btnDeliteIncome = new System.Windows.Forms.Button();
             this.btnChangeIncome = new System.Windows.Forms.Button();
             this.btnAddIncome = new System.Windows.Forms.Button();
             this.tabStatistics = new System.Windows.Forms.TabPage();
-            this.dgvExpenses = new System.Windows.Forms.DataGridView();
-            this.dgvIncome = new System.Windows.Forms.DataGridView();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.grboxUser = new System.Windows.Forms.GroupBox();
+            this.picAddUser = new System.Windows.Forms.PictureBox();
+            this.ColumnSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnComment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabExpenses.SuspendLayout();
-            this.tabIncome.SuspendLayout();
-            this.panelBtnExpenses.SuspendLayout();
-            this.panelBtnIncome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).BeginInit();
+            this.panelBtnExpenses.SuspendLayout();
+            this.tabIncome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncome)).BeginInit();
+            this.panelBtnIncome.SuspendLayout();
+            this.grboxUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAddUser)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -64,7 +73,7 @@
             this.tabControl.Location = new System.Drawing.Point(13, 99);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(799, 393);
+            this.tabControl.Size = new System.Drawing.Size(799, 428);
             this.tabControl.TabIndex = 0;
             // 
             // tabExpenses
@@ -77,29 +86,25 @@
             this.tabExpenses.Location = new System.Drawing.Point(4, 29);
             this.tabExpenses.Name = "tabExpenses";
             this.tabExpenses.Padding = new System.Windows.Forms.Padding(3);
-            this.tabExpenses.Size = new System.Drawing.Size(791, 360);
+            this.tabExpenses.Size = new System.Drawing.Size(791, 395);
             this.tabExpenses.TabIndex = 0;
             this.tabExpenses.Text = "Расходы";
             // 
-            // tabIncome
+            // dgvExpenses
             // 
-            this.tabIncome.Controls.Add(this.dgvIncome);
-            this.tabIncome.Controls.Add(this.panelBtnIncome);
-            this.tabIncome.Location = new System.Drawing.Point(4, 29);
-            this.tabIncome.Name = "tabIncome";
-            this.tabIncome.Padding = new System.Windows.Forms.Padding(3);
-            this.tabIncome.Size = new System.Drawing.Size(791, 360);
-            this.tabIncome.TabIndex = 1;
-            this.tabIncome.Text = "Доходы";
-            this.tabIncome.UseVisualStyleBackColor = true;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 510);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(824, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
+            this.dgvExpenses.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvExpenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExpenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnSum,
+            this.ColumnBill,
+            this.ColumnaCategory,
+            this.ColumnComment,
+            this.ColumnDate});
+            this.dgvExpenses.Location = new System.Drawing.Point(7, 76);
+            this.dgvExpenses.Name = "dgvExpenses";
+            this.dgvExpenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvExpenses.Size = new System.Drawing.Size(778, 273);
+            this.dgvExpenses.TabIndex = 1;
             // 
             // panelBtnExpenses
             // 
@@ -112,16 +117,16 @@
             this.panelBtnExpenses.Size = new System.Drawing.Size(779, 63);
             this.panelBtnExpenses.TabIndex = 0;
             // 
-            // btnAddExpenses
+            // btnDeleteExpenses
             // 
-            this.btnAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddExpenses.Location = new System.Drawing.Point(13, 15);
-            this.btnAddExpenses.Name = "btnAddExpenses";
-            this.btnAddExpenses.Size = new System.Drawing.Size(92, 36);
-            this.btnAddExpenses.TabIndex = 0;
-            this.btnAddExpenses.Text = "Добавить";
-            this.btnAddExpenses.UseVisualStyleBackColor = true;
-            this.btnAddExpenses.Click += new System.EventHandler(this.btnAddExpenses_Click);
+            this.btnDeleteExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDeleteExpenses.Location = new System.Drawing.Point(234, 15);
+            this.btnDeleteExpenses.Name = "btnDeleteExpenses";
+            this.btnDeleteExpenses.Size = new System.Drawing.Size(92, 36);
+            this.btnDeleteExpenses.TabIndex = 2;
+            this.btnDeleteExpenses.Text = "Удалить";
+            this.btnDeleteExpenses.UseVisualStyleBackColor = true;
+            this.btnDeleteExpenses.Click += new System.EventHandler(this.btnDeleteExpenses_Click);
             // 
             // btnChangeExpenses
             // 
@@ -134,16 +139,40 @@
             this.btnChangeExpenses.UseVisualStyleBackColor = true;
             this.btnChangeExpenses.Click += new System.EventHandler(this.btnChangeExpenses_Click);
             // 
-            // btnDeleteExpenses
+            // btnAddExpenses
             // 
-            this.btnDeleteExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDeleteExpenses.Location = new System.Drawing.Point(234, 15);
-            this.btnDeleteExpenses.Name = "btnDeleteExpenses";
-            this.btnDeleteExpenses.Size = new System.Drawing.Size(92, 36);
-            this.btnDeleteExpenses.TabIndex = 2;
-            this.btnDeleteExpenses.Text = "Удалить";
-            this.btnDeleteExpenses.UseVisualStyleBackColor = true;
-            this.btnDeleteExpenses.Click += new System.EventHandler(this.btnDeleteExpenses_Click);
+            this.btnAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddExpenses.Location = new System.Drawing.Point(13, 15);
+            this.btnAddExpenses.Name = "btnAddExpenses";
+            this.btnAddExpenses.Size = new System.Drawing.Size(92, 36);
+            this.btnAddExpenses.TabIndex = 0;
+            this.btnAddExpenses.Text = "Добавить";
+            this.btnAddExpenses.UseVisualStyleBackColor = true;
+            this.btnAddExpenses.Click += new System.EventHandler(this.btnAddExpenses_Click);
+            // 
+            // tabIncome
+            // 
+            this.tabIncome.Controls.Add(this.dgvIncome);
+            this.tabIncome.Controls.Add(this.panelBtnIncome);
+            this.tabIncome.Location = new System.Drawing.Point(4, 29);
+            this.tabIncome.Name = "tabIncome";
+            this.tabIncome.Padding = new System.Windows.Forms.Padding(3);
+            this.tabIncome.Size = new System.Drawing.Size(791, 395);
+            this.tabIncome.TabIndex = 1;
+            this.tabIncome.Text = "Доходы";
+            this.tabIncome.UseVisualStyleBackColor = true;
+            // 
+            // dgvIncome
+            // 
+            this.dgvIncome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvIncome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIncome.Location = new System.Drawing.Point(6, 75);
+            this.dgvIncome.Name = "dgvIncome";
+            this.dgvIncome.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvIncome.Size = new System.Drawing.Size(778, 308);
+            this.dgvIncome.TabIndex = 2;
             // 
             // panelBtnIncome
             // 
@@ -190,45 +219,89 @@
             // 
             this.tabStatistics.Location = new System.Drawing.Point(4, 29);
             this.tabStatistics.Name = "tabStatistics";
-            this.tabStatistics.Size = new System.Drawing.Size(791, 355);
+            this.tabStatistics.Size = new System.Drawing.Size(791, 395);
             this.tabStatistics.TabIndex = 2;
             this.tabStatistics.Text = "Статистика";
             this.tabStatistics.UseVisualStyleBackColor = true;
             // 
-            // dgvExpenses
+            // statusStrip1
             // 
-            this.dgvExpenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExpenses.Location = new System.Drawing.Point(7, 76);
-            this.dgvExpenses.Name = "dgvExpenses";
-            this.dgvExpenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvExpenses.Size = new System.Drawing.Size(778, 273);
-            this.dgvExpenses.TabIndex = 1;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 545);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(824, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // dgvIncome
+            // grboxUser
             // 
-            this.dgvIncome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIncome.Location = new System.Drawing.Point(6, 75);
-            this.dgvIncome.Name = "dgvIncome";
-            this.dgvIncome.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIncome.Size = new System.Drawing.Size(778, 273);
-            this.dgvIncome.TabIndex = 2;
+            this.grboxUser.Controls.Add(this.picAddUser);
+            this.grboxUser.Location = new System.Drawing.Point(238, 12);
+            this.grboxUser.Name = "grboxUser";
+            this.grboxUser.Size = new System.Drawing.Size(325, 70);
+            this.grboxUser.TabIndex = 2;
+            this.grboxUser.TabStop = false;
+            // 
+            // picAddUser
+            // 
+            this.picAddUser.Image = global::Financial_Analyst.Properties.Resources.AddUserIcon;
+            this.picAddUser.Location = new System.Drawing.Point(6, 11);
+            this.picAddUser.Name = "picAddUser";
+            this.picAddUser.Size = new System.Drawing.Size(54, 53);
+            this.picAddUser.TabIndex = 3;
+            this.picAddUser.TabStop = false;
+            this.picAddUser.Click += new System.EventHandler(this.picAddUser_Click);
+            // 
+            // ColumnSum
+            // 
+            this.ColumnSum.HeaderText = "Сумма";
+            this.ColumnSum.Name = "ColumnSum";
+            // 
+            // ColumnBill
+            // 
+            this.ColumnBill.FillWeight = 150F;
+            this.ColumnBill.HeaderText = "Счёт";
+            this.ColumnBill.Name = "ColumnBill";
+            this.ColumnBill.Width = 150;
+            // 
+            // ColumnaCategory
+            // 
+            this.ColumnaCategory.FillWeight = 200F;
+            this.ColumnaCategory.HeaderText = "Категория";
+            this.ColumnaCategory.Name = "ColumnaCategory";
+            this.ColumnaCategory.Width = 200;
+            // 
+            // ColumnComment
+            // 
+            this.ColumnComment.FillWeight = 200F;
+            this.ColumnComment.HeaderText = "Комментарий";
+            this.ColumnComment.Name = "ColumnComment";
+            this.ColumnComment.Width = 200;
+            // 
+            // ColumnDate
+            // 
+            this.ColumnDate.HeaderText = "Дата";
+            this.ColumnDate.Name = "ColumnDate";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 532);
+            this.ClientSize = new System.Drawing.Size(824, 567);
+            this.Controls.Add(this.grboxUser);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl);
+            this.MinimumSize = new System.Drawing.Size(572, 606);
             this.Name = "frmMain";
             this.Text = "Финансовый аналитик";
             this.tabControl.ResumeLayout(false);
             this.tabExpenses.ResumeLayout(false);
-            this.tabIncome.ResumeLayout(false);
-            this.panelBtnExpenses.ResumeLayout(false);
-            this.panelBtnIncome.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).EndInit();
+            this.panelBtnExpenses.ResumeLayout(false);
+            this.tabIncome.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncome)).EndInit();
+            this.panelBtnIncome.ResumeLayout(false);
+            this.grboxUser.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picAddUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,6 +324,13 @@
         private System.Windows.Forms.TabPage tabStatistics;
         private System.Windows.Forms.DataGridView dgvExpenses;
         private System.Windows.Forms.DataGridView dgvIncome;
+        private System.Windows.Forms.GroupBox grboxUser;
+        private System.Windows.Forms.PictureBox picAddUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBill;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnComment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDate;
     }
 }
 
