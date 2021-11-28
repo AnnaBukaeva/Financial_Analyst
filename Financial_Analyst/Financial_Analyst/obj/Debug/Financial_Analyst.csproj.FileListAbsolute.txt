@@ -21,3 +21,4 @@ C:\Users\Мой компьютер\Documents\С# программировани�
 C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\Financial_Analyst\obj\Debug\Financial_Analyst.exe
 C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\Financial_Analyst\obj\Debug\Financial_Analyst.pdb
 C:\Users\Мой компьютер\Documents\С# программирование\GiTHub\Финансовая аналитика проект\Financial_Analyst\Financial_Analyst\Financial_Analyst\obj\Debug\Financial_Analyst.csproj.AssemblyReference.cache
+C:\АННА ОБУЧЕНИЕ\ПРОЕКТ\Financial_Analyst\Financial_Analyst\Financial_Analyst\obj\Debug\Financial_Analyst.View.frmLogin.resources

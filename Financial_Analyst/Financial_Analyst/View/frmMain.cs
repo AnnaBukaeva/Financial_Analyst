@@ -23,8 +23,8 @@ namespace Financial_Analyst.View
         
         private void btnAddExpenses_Click(object sender, EventArgs e)
         {
-            frmEditExpenses form = new frmEditExpenses();
-            form.ShowDialog();
+            frmEditExpenses formEditExpenses = new frmEditExpenses();
+            formEditExpenses.ShowDialog();
         }
 
         private void btnChangeExpenses_Click(object sender, EventArgs e)
@@ -35,6 +35,12 @@ namespace Financial_Analyst.View
         private void btnDeleteExpenses_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void picAddUser_Click(object sender, EventArgs e)
+        {
+            frmLogin formLogin = new frmLogin();
+            formLogin.ShowDialog();
         }
     }
 }
