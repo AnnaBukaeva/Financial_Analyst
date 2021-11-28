@@ -39,7 +39,7 @@ namespace Financial_Analyst.View
 
         private void picAddUser_Click(object sender, EventArgs e)
         {
-            frmLogin formLogin = new frmLogin();
+            frmUser formLogin = new frmUser();
             formLogin.ShowDialog();
         }
     }

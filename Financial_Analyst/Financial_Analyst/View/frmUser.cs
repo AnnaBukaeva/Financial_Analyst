@@ -11,9 +11,9 @@ using Financial_Analyst.Logic;
 
 namespace Financial_Analyst.View
 {
-    public partial class frmLogin : Form
+    public partial class frmUser : Form
     {
-        public frmLogin()
+        public frmUser()
         {
             InitializeComponent();
         }

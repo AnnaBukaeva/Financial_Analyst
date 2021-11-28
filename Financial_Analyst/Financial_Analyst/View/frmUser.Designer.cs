@@ -1,6 +1,6 @@
 ﻿namespace Financial_Analyst.View
 {
-    partial class frmLogin
+    partial class frmUser
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,8 @@
             this.btnSignIn = new System.Windows.Forms.Button();
             this.txtFirstNameUser = new System.Windows.Forms.TextBox();
             this.txtAccountNumber = new System.Windows.Forms.TextBox();
-            this.lblLastNameUser = new System.Windows.Forms.Label();
             this.txtLastNameUser = new System.Windows.Forms.TextBox();
+            this.lblLastNameUser = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblFirstNameUser
@@ -82,6 +82,13 @@
             this.txtAccountNumber.Size = new System.Drawing.Size(250, 20);
             this.txtAccountNumber.TabIndex = 4;
             // 
+            // txtLastNameUser
+            // 
+            this.txtLastNameUser.Location = new System.Drawing.Point(160, 84);
+            this.txtLastNameUser.Name = "txtLastNameUser";
+            this.txtLastNameUser.Size = new System.Drawing.Size(250, 20);
+            this.txtLastNameUser.TabIndex = 6;
+            // 
             // lblLastNameUser
             // 
             this.lblLastNameUser.AutoSize = true;
@@ -92,14 +99,7 @@
             this.lblLastNameUser.TabIndex = 5;
             this.lblLastNameUser.Text = "Фамилия ";
             // 
-            // txtLastNameUser
-            // 
-            this.txtLastNameUser.Location = new System.Drawing.Point(160, 84);
-            this.txtLastNameUser.Name = "txtLastNameUser";
-            this.txtLastNameUser.Size = new System.Drawing.Size(250, 20);
-            this.txtLastNameUser.TabIndex = 6;
-            // 
-            // frmLogin
+            // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -113,7 +113,7 @@
             this.Controls.Add(this.lblFirstNameUser);
             this.MaximumSize = new System.Drawing.Size(450, 269);
             this.MinimumSize = new System.Drawing.Size(450, 269);
-            this.Name = "frmLogin";
+            this.Name = "frmUser";
             this.Text = "frmLogin";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -127,7 +127,7 @@
         private System.Windows.Forms.Button btnSignIn;
         private System.Windows.Forms.TextBox txtFirstNameUser;
         private System.Windows.Forms.TextBox txtAccountNumber;
-        private System.Windows.Forms.Label lblLastNameUser;
         private System.Windows.Forms.TextBox txtLastNameUser;
+        private System.Windows.Forms.Label lblLastNameUser;
     }
 }
