@@ -9,8 +9,8 @@ namespace Financial_Analyst.Logic
     public class IncomTransaction : ITransaction
     {
         private string _paymentCategorie; // для защиты отдельного значения от внешнего изменения
-                                          //категория поступления(депозитб кеш проценты)
-        public static string[] IncomCategories = new[] {"Salary", "Cashback", "Interest on bank deposits","Other"};
+                                          //категория поступления(депозитб кеш проценты)        
+        public static string[] IncomCategories = new[] { "Salary", "Cashback", "Interest on bank deposits", "Other" };
         public string PaymentCategorie
         {
             get => _paymentCategorie;
