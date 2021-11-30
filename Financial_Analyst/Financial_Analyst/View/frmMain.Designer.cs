@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabAddAccount = new System.Windows.Forms.TabPage();
+            this.grboxUser = new System.Windows.Forms.GroupBox();
+            this.btnAddAccount = new System.Windows.Forms.Button();
+            this.txtBalance = new System.Windows.Forms.TextBox();
+            this.txtAccountName = new System.Windows.Forms.TextBox();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.lblAccountName = new System.Windows.Forms.Label();
+            this.dgvAccount = new System.Windows.Forms.DataGridView();
+            this.ColumnAccauntName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabExpenses = new System.Windows.Forms.TabPage();
             this.dgvExpenses = new System.Windows.Forms.DataGridView();
             this.ColumnSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,24 +58,16 @@
             this.btnAddIncome = new System.Windows.Forms.Button();
             this.tabStatistics = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.grboxUser = new System.Windows.Forms.GroupBox();
-            this.btnAddAccount = new System.Windows.Forms.Button();
-            this.txtBalance = new System.Windows.Forms.TextBox();
-            this.txtAccountName = new System.Windows.Forms.TextBox();
-            this.lblBalance = new System.Windows.Forms.Label();
-            this.lblAccountName = new System.Windows.Forms.Label();
-            this.dgvAccount = new System.Windows.Forms.DataGridView();
-            this.ColumnAccauntName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
+            this.tabAddAccount.SuspendLayout();
+            this.grboxUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             this.tabExpenses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).BeginInit();
             this.panelBtnExpenses.SuspendLayout();
             this.tabIncome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncome)).BeginInit();
             this.panelBtnIncome.SuspendLayout();
-            this.grboxUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -73,15 +75,109 @@
             this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl.Controls.Add(this.tabAddAccount);
             this.tabControl.Controls.Add(this.tabExpenses);
             this.tabControl.Controls.Add(this.tabIncome);
             this.tabControl.Controls.Add(this.tabStatistics);
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl.Location = new System.Drawing.Point(13, 140);
+            this.tabControl.Location = new System.Drawing.Point(0, 3);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(821, 405);
+            this.tabControl.Size = new System.Drawing.Size(846, 444);
             this.tabControl.TabIndex = 0;
+            // 
+            // tabAddAccount
+            // 
+            this.tabAddAccount.Controls.Add(this.grboxUser);
+            this.tabAddAccount.Controls.Add(this.dgvAccount);
+            this.tabAddAccount.Location = new System.Drawing.Point(4, 29);
+            this.tabAddAccount.Name = "tabAddAccount";
+            this.tabAddAccount.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAddAccount.Size = new System.Drawing.Size(838, 411);
+            this.tabAddAccount.TabIndex = 3;
+            this.tabAddAccount.Text = "Счета";
+            this.tabAddAccount.UseVisualStyleBackColor = true;
+            // 
+            // grboxUser
+            // 
+            this.grboxUser.Controls.Add(this.btnAddAccount);
+            this.grboxUser.Controls.Add(this.txtBalance);
+            this.grboxUser.Controls.Add(this.txtAccountName);
+            this.grboxUser.Controls.Add(this.lblBalance);
+            this.grboxUser.Controls.Add(this.lblAccountName);
+            this.grboxUser.Location = new System.Drawing.Point(29, 22);
+            this.grboxUser.Name = "grboxUser";
+            this.grboxUser.Size = new System.Drawing.Size(326, 295);
+            this.grboxUser.TabIndex = 2;
+            this.grboxUser.TabStop = false;
+            // 
+            // btnAddAccount
+            // 
+            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddAccount.Location = new System.Drawing.Point(60, 171);
+            this.btnAddAccount.Name = "btnAddAccount";
+            this.btnAddAccount.Size = new System.Drawing.Size(96, 35);
+            this.btnAddAccount.TabIndex = 4;
+            this.btnAddAccount.Text = "Добавить";
+            this.btnAddAccount.UseVisualStyleBackColor = true;
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
+            // 
+            // txtBalance
+            // 
+            this.txtBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtBalance.Location = new System.Drawing.Point(9, 117);
+            this.txtBalance.Name = "txtBalance";
+            this.txtBalance.Size = new System.Drawing.Size(194, 26);
+            this.txtBalance.TabIndex = 3;
+            // 
+            // txtAccountName
+            // 
+            this.txtAccountName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtAccountName.Location = new System.Drawing.Point(9, 45);
+            this.txtAccountName.Name = "txtAccountName";
+            this.txtAccountName.Size = new System.Drawing.Size(194, 26);
+            this.txtAccountName.TabIndex = 2;
+            // 
+            // lblBalance
+            // 
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblBalance.Location = new System.Drawing.Point(6, 94);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(65, 20);
+            this.lblBalance.TabIndex = 1;
+            this.lblBalance.Text = "Баланс";
+            // 
+            // lblAccountName
+            // 
+            this.lblAccountName.AutoSize = true;
+            this.lblAccountName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblAccountName.Location = new System.Drawing.Point(6, 16);
+            this.lblAccountName.Name = "lblAccountName";
+            this.lblAccountName.Size = new System.Drawing.Size(131, 20);
+            this.lblAccountName.TabIndex = 0;
+            this.lblAccountName.Text = "Название счёта";
+            // 
+            // dgvAccount
+            // 
+            this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAccount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnAccauntName,
+            this.ColumnBalance});
+            this.dgvAccount.Location = new System.Drawing.Point(471, 34);
+            this.dgvAccount.Name = "dgvAccount";
+            this.dgvAccount.Size = new System.Drawing.Size(308, 147);
+            this.dgvAccount.TabIndex = 3;
+            // 
+            // ColumnAccauntName
+            // 
+            this.ColumnAccauntName.HeaderText = "Название";
+            this.ColumnAccauntName.Name = "ColumnAccauntName";
+            // 
+            // ColumnBalance
+            // 
+            this.ColumnBalance.HeaderText = "Баланс";
+            this.ColumnBalance.Name = "ColumnBalance";
             // 
             // tabExpenses
             // 
@@ -93,7 +189,7 @@
             this.tabExpenses.Location = new System.Drawing.Point(4, 29);
             this.tabExpenses.Name = "tabExpenses";
             this.tabExpenses.Padding = new System.Windows.Forms.Padding(3);
-            this.tabExpenses.Size = new System.Drawing.Size(813, 372);
+            this.tabExpenses.Size = new System.Drawing.Size(838, 411);
             this.tabExpenses.TabIndex = 0;
             this.tabExpenses.Text = "Расходы";
             // 
@@ -109,7 +205,6 @@
             this.ColumnDate});
             this.dgvExpenses.Location = new System.Drawing.Point(7, 76);
             this.dgvExpenses.Name = "dgvExpenses";
-            this.dgvExpenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvExpenses.Size = new System.Drawing.Size(800, 289);
             this.dgvExpenses.TabIndex = 1;
             // 
@@ -195,7 +290,7 @@
             this.tabIncome.Location = new System.Drawing.Point(4, 29);
             this.tabIncome.Name = "tabIncome";
             this.tabIncome.Padding = new System.Windows.Forms.Padding(3);
-            this.tabIncome.Size = new System.Drawing.Size(813, 372);
+            this.tabIncome.Size = new System.Drawing.Size(838, 411);
             this.tabIncome.TabIndex = 1;
             this.tabIncome.Text = "Доходы";
             this.tabIncome.UseVisualStyleBackColor = true;
@@ -208,8 +303,7 @@
             this.dgvIncome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvIncome.Location = new System.Drawing.Point(6, 75);
             this.dgvIncome.Name = "dgvIncome";
-            this.dgvIncome.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIncome.Size = new System.Drawing.Size(778, 308);
+            this.dgvIncome.Size = new System.Drawing.Size(778, 356);
             this.dgvIncome.TabIndex = 2;
             // 
             // panelBtnIncome
@@ -257,123 +351,40 @@
             // 
             this.tabStatistics.Location = new System.Drawing.Point(4, 29);
             this.tabStatistics.Name = "tabStatistics";
-            this.tabStatistics.Size = new System.Drawing.Size(813, 372);
+            this.tabStatistics.Size = new System.Drawing.Size(838, 411);
             this.tabStatistics.TabIndex = 2;
             this.tabStatistics.Text = "Статистика";
             this.tabStatistics.UseVisualStyleBackColor = true;
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 563);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 450);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(846, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // grboxUser
-            // 
-            this.grboxUser.Controls.Add(this.btnAddAccount);
-            this.grboxUser.Controls.Add(this.txtBalance);
-            this.grboxUser.Controls.Add(this.txtAccountName);
-            this.grboxUser.Controls.Add(this.lblBalance);
-            this.grboxUser.Controls.Add(this.lblAccountName);
-            this.grboxUser.Location = new System.Drawing.Point(146, 12);
-            this.grboxUser.Name = "grboxUser";
-            this.grboxUser.Size = new System.Drawing.Size(299, 122);
-            this.grboxUser.TabIndex = 2;
-            this.grboxUser.TabStop = false;
-            // 
-            // btnAddAccount
-            // 
-            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddAccount.Location = new System.Drawing.Point(95, 85);
-            this.btnAddAccount.Name = "btnAddAccount";
-            this.btnAddAccount.Size = new System.Drawing.Size(91, 31);
-            this.btnAddAccount.TabIndex = 4;
-            this.btnAddAccount.Text = "Добавить";
-            this.btnAddAccount.UseVisualStyleBackColor = true;
-            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
-            // 
-            // txtBalance
-            // 
-            this.txtBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtBalance.Location = new System.Drawing.Point(156, 45);
-            this.txtBalance.Name = "txtBalance";
-            this.txtBalance.Size = new System.Drawing.Size(133, 23);
-            this.txtBalance.TabIndex = 3;
-            // 
-            // txtAccountName
-            // 
-            this.txtAccountName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtAccountName.Location = new System.Drawing.Point(9, 45);
-            this.txtAccountName.Name = "txtAccountName";
-            this.txtAccountName.Size = new System.Drawing.Size(133, 23);
-            this.txtAccountName.TabIndex = 2;
-            // 
-            // lblBalance
-            // 
-            this.lblBalance.AutoSize = true;
-            this.lblBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblBalance.Location = new System.Drawing.Point(153, 16);
-            this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(56, 17);
-            this.lblBalance.TabIndex = 1;
-            this.lblBalance.Text = "Баланс";
-            // 
-            // lblAccountName
-            // 
-            this.lblAccountName.AutoSize = true;
-            this.lblAccountName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblAccountName.Location = new System.Drawing.Point(6, 16);
-            this.lblAccountName.Name = "lblAccountName";
-            this.lblAccountName.Size = new System.Drawing.Size(136, 17);
-            this.lblAccountName.TabIndex = 0;
-            this.lblAccountName.Text = "Название аккаунта";
-            // 
-            // dgvAccount
-            // 
-            this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAccount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnAccauntName,
-            this.ColumnBalance});
-            this.dgvAccount.Location = new System.Drawing.Point(462, 12);
-            this.dgvAccount.Name = "dgvAccount";
-            this.dgvAccount.Size = new System.Drawing.Size(275, 121);
-            this.dgvAccount.TabIndex = 3;
-            // 
-            // ColumnAccauntName
-            // 
-            this.ColumnAccauntName.HeaderText = "Название";
-            this.ColumnAccauntName.Name = "ColumnAccauntName";
-            // 
-            // ColumnBalance
-            // 
-            this.ColumnBalance.HeaderText = "Баланс";
-            this.ColumnBalance.Name = "ColumnBalance";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(846, 585);
-            this.Controls.Add(this.dgvAccount);
-            this.Controls.Add(this.grboxUser);
+            this.ClientSize = new System.Drawing.Size(846, 472);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl);
-            this.MinimumSize = new System.Drawing.Size(572, 606);
             this.Name = "frmMain";
             this.Text = "Финансовый аналитик";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.tabControl.ResumeLayout(false);
+            this.tabAddAccount.ResumeLayout(false);
+            this.grboxUser.ResumeLayout(false);
+            this.grboxUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
             this.tabExpenses.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).EndInit();
             this.panelBtnExpenses.ResumeLayout(false);
             this.tabIncome.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncome)).EndInit();
             this.panelBtnIncome.ResumeLayout(false);
-            this.grboxUser.ResumeLayout(false);
-            this.grboxUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -410,6 +421,7 @@
         private System.Windows.Forms.DataGridView dgvAccount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAccauntName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBalance;
+        private System.Windows.Forms.TabPage tabAddAccount;
     }
 }
 

@@ -62,6 +62,6 @@ namespace Financial_Analyst.View
 
         }
 
-       
+        
     }
 }
