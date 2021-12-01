@@ -11,9 +11,9 @@ using Financial_Analyst.Logic;
 
 namespace Financial_Analyst.View
 {
-    public partial class frmEditExpenses : Form
+    public partial class frmEditTransaction : Form
     {
-        public frmEditExpenses()
+        public frmEditTransaction()
         {
             InitializeComponent();
         }
