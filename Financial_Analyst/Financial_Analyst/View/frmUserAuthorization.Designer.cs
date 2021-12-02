@@ -64,12 +64,13 @@ namespace Financial_Analyst.View
             // btnRegistration
             // 
             this.btnRegistration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRegistration.Location = new System.Drawing.Point(6, 115);
+            this.btnRegistration.Location = new System.Drawing.Point(10, 115);
             this.btnRegistration.Name = "btnRegistration";
             this.btnRegistration.Size = new System.Drawing.Size(134, 35);
             this.btnRegistration.TabIndex = 5;
             this.btnRegistration.Text = "Регистрация";
             this.btnRegistration.UseVisualStyleBackColor = true;
+            this.btnRegistration.Click += new System.EventHandler(this.btnRegistration_Click);
             // 
             // btnEnter
             // 
@@ -80,6 +81,7 @@ namespace Financial_Analyst.View
             this.btnEnter.TabIndex = 4;
             this.btnEnter.Text = "Войти";
             this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
             // lblPassword
             // 
@@ -102,11 +104,11 @@ namespace Financial_Analyst.View
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Location = new System.Drawing.Point(6, 35);
+            this.lblLogin.Location = new System.Drawing.Point(6, 32);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(55, 20);
+            this.lblLogin.Size = new System.Drawing.Size(47, 20);
             this.lblLogin.TabIndex = 1;
-            this.lblLogin.Text = "Логин";
+            this.lblLogin.Text = "ФИО";
             // 
             // txtLogin
             // 

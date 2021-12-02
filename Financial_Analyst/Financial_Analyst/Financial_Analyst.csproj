@@ -60,6 +60,12 @@
     <Compile Include="View\frmAccounts.Designer.cs">
       <DependentUpon>frmAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmCreatingCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmCreatingCategories.Designer.cs">
+      <DependentUpon>frmCreatingCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmEditTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,20 +80,23 @@
     <Compile Include="View\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmRegistration.Designer.cs">
+      <DependentUpon>frmRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmUserAuthorization.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\frmUserAuthorization.Designer.cs">
       <DependentUpon>frmUserAuthorization.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmUsers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frmUsers.Designer.cs">
-      <DependentUpon>frmUsers.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="View\frmAccounts.resx">
       <DependentUpon>frmAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmCreatingCategories.resx">
+      <DependentUpon>frmCreatingCategories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmEditTransaction.resx">
       <DependentUpon>frmEditTransaction.cs</DependentUpon>
@@ -105,11 +114,11 @@
     <EmbeddedResource Include="View\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\frmRegistration.resx">
+      <DependentUpon>frmRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\frmUserAuthorization.resx">
       <DependentUpon>frmUserAuthorization.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frmUsers.resx">
-      <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

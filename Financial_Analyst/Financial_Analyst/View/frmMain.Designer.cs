@@ -31,45 +31,43 @@ namespace Financial_Analyst.View
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.работаСТранзакциямиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.прочееToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выгрузкаВExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.пересозданиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.пользователиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.счетаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.категорииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.работаСТранзакциямиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.переToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.аналитикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.круговаяДиаграммаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.прочееToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grbTransactionFeed = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.grbFastAddExpenses = new System.Windows.Forms.GroupBox();
-            this.lblSumFastAddExpenses = new System.Windows.Forms.Label();
-            this.txtSumFastAddExpenses = new System.Windows.Forms.TextBox();
-            this.cmbChoiceCategoryFastAddExpenses = new System.Windows.Forms.ComboBox();
-            this.lblCategoryFastAddExpenses = new System.Windows.Forms.Label();
-            this.lblUserFastAddExpenses = new System.Windows.Forms.Label();
-            this.cmbChoiceUserFastAddExpenses = new System.Windows.Forms.ComboBox();
-            this.btnAddFastAddExpenses = new System.Windows.Forms.Button();
+            this.dgvListTransactions = new System.Windows.Forms.DataGridView();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grbFastAddExpenses = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnAddFastAddExpenses = new System.Windows.Forms.Button();
+            this.lblUserFastAddExpenses = new System.Windows.Forms.Label();
+            this.cmbChoiceUserFastAddExpenses = new System.Windows.Forms.ComboBox();
+            this.lblCategoryFastAddExpenses = new System.Windows.Forms.Label();
+            this.cmbChoiceCategoryFastAddExpenses = new System.Windows.Forms.ComboBox();
+            this.txtSumFastAddExpenses = new System.Windows.Forms.TextBox();
+            this.lblSumFastAddExpenses = new System.Windows.Forms.Label();
             this.grbFilters = new System.Windows.Forms.GroupBox();
+            this.btnApplyFilters = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnApplyFilters = new System.Windows.Forms.Button();
             this.grbFastAddIncome = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAddFastAddIncome = new System.Windows.Forms.Button();
@@ -81,7 +79,7 @@ namespace Financial_Analyst.View
             this.lblSumFastAddIncome = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.grbTransactionFeed.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListTransactions)).BeginInit();
             this.grbFastAddExpenses.SuspendLayout();
             this.grbFilters.SuspendLayout();
             this.grbFastAddIncome.SuspendLayout();
@@ -113,64 +111,37 @@ namespace Financial_Analyst.View
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
-            // настройкиToolStripMenuItem
-            // 
-            this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.пользователиToolStripMenuItem,
-            this.счетаToolStripMenuItem,
-            this.категорииToolStripMenuItem});
-            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.настройкиToolStripMenuItem.Text = "Настройки";
-            // 
-            // работаСТранзакциямиToolStripMenuItem
-            // 
-            this.работаСТранзакциямиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьToolStripMenuItem,
-            this.изменитьToolStripMenuItem,
-            this.удалитьToolStripMenuItem,
-            this.переToolStripMenuItem});
-            this.работаСТранзакциямиToolStripMenuItem.Name = "работаСТранзакциямиToolStripMenuItem";
-            this.работаСТранзакциямиToolStripMenuItem.Size = new System.Drawing.Size(147, 20);
-            this.работаСТранзакциямиToolStripMenuItem.Text = "Работа с транзакциями";
-            // 
-            // прочееToolStripMenuItem
-            // 
-            this.прочееToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.оПрограммеToolStripMenuItem});
-            this.прочееToolStripMenuItem.Name = "прочееToolStripMenuItem";
-            this.прочееToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.прочееToolStripMenuItem.Text = "Прочее";
-            // 
             // выгрузкаВExcelToolStripMenuItem
             // 
             this.выгрузкаВExcelToolStripMenuItem.Name = "выгрузкаВExcelToolStripMenuItem";
-            this.выгрузкаВExcelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выгрузкаВExcelToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.выгрузкаВExcelToolStripMenuItem.Text = "Выгрузка в Excel";
             // 
             // пересозданиеToolStripMenuItem
             // 
             this.пересозданиеToolStripMenuItem.Name = "пересозданиеToolStripMenuItem";
-            this.пересозданиеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.пересозданиеToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.пересозданиеToolStripMenuItem.Text = "Пересоздать БД";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(161, 6);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             // 
-            // пользователиToolStripMenuItem
+            // настройкиToolStripMenuItem
             // 
-            this.пользователиToolStripMenuItem.Name = "пользователиToolStripMenuItem";
-            this.пользователиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.пользователиToolStripMenuItem.Text = "Пользователи";
-            this.пользователиToolStripMenuItem.Click += new System.EventHandler(this.пользователиToolStripMenuItem_Click);
+            this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.счетаToolStripMenuItem,
+            this.категорииToolStripMenuItem});
+            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.настройкиToolStripMenuItem.Text = "Настройки";
             // 
             // счетаToolStripMenuItem
             // 
@@ -184,6 +155,17 @@ namespace Financial_Analyst.View
             this.категорииToolStripMenuItem.Name = "категорииToolStripMenuItem";
             this.категорииToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.категорииToolStripMenuItem.Text = "Категории";
+            this.категорииToolStripMenuItem.Click += new System.EventHandler(this.категорииToolStripMenuItem_Click);
+            // 
+            // работаСТранзакциямиToolStripMenuItem
+            // 
+            this.работаСТранзакциямиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьToolStripMenuItem,
+            this.изменитьToolStripMenuItem,
+            this.удалитьToolStripMenuItem});
+            this.работаСТранзакциямиToolStripMenuItem.Name = "работаСТранзакциямиToolStripMenuItem";
+            this.работаСТранзакциямиToolStripMenuItem.Size = new System.Drawing.Size(147, 20);
+            this.работаСТранзакциямиToolStripMenuItem.Text = "Работа с транзакциями";
             // 
             // добавитьToolStripMenuItem
             // 
@@ -204,12 +186,6 @@ namespace Financial_Analyst.View
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
             this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
-            // 
-            // переToolStripMenuItem
-            // 
-            this.переToolStripMenuItem.Name = "переToolStripMenuItem";
-            this.переToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.переToolStripMenuItem.Text = "Перевод между счетами";
             // 
             // аналитикаToolStripMenuItem
             // 
@@ -232,134 +208,47 @@ namespace Financial_Analyst.View
             this.toolStripMenuItem3.Size = new System.Drawing.Size(188, 22);
             this.toolStripMenuItem3.Text = "???";
             // 
+            // прочееToolStripMenuItem
+            // 
+            this.прочееToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.оПрограммеToolStripMenuItem});
+            this.прочееToolStripMenuItem.Name = "прочееToolStripMenuItem";
+            this.прочееToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.прочееToolStripMenuItem.Text = "Прочее";
+            // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // grbTransactionFeed
             // 
-            this.grbTransactionFeed.Controls.Add(this.dataGridView1);
+            this.grbTransactionFeed.Controls.Add(this.dgvListTransactions);
             this.grbTransactionFeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.grbTransactionFeed.Location = new System.Drawing.Point(16, 33);
-            this.grbTransactionFeed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grbTransactionFeed.Margin = new System.Windows.Forms.Padding(4);
             this.grbTransactionFeed.Name = "grbTransactionFeed";
-            this.grbTransactionFeed.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grbTransactionFeed.Size = new System.Drawing.Size(679, 665);
+            this.grbTransactionFeed.Padding = new System.Windows.Forms.Padding(4);
+            this.grbTransactionFeed.Size = new System.Drawing.Size(679, 584);
             this.grbTransactionFeed.TabIndex = 1;
             this.grbTransactionFeed.TabStop = false;
             this.grbTransactionFeed.Text = "Лента транзакций";
             // 
-            // dataGridView1
+            // dgvListTransactions
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvListTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListTransactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDate,
             this.colSum,
             this.colCategory,
             this.colUser});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 23);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(671, 638);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // grbFastAddExpenses
-            // 
-            this.grbFastAddExpenses.Controls.Add(this.label3);
-            this.grbFastAddExpenses.Controls.Add(this.btnAddFastAddExpenses);
-            this.grbFastAddExpenses.Controls.Add(this.lblUserFastAddExpenses);
-            this.grbFastAddExpenses.Controls.Add(this.cmbChoiceUserFastAddExpenses);
-            this.grbFastAddExpenses.Controls.Add(this.lblCategoryFastAddExpenses);
-            this.grbFastAddExpenses.Controls.Add(this.cmbChoiceCategoryFastAddExpenses);
-            this.grbFastAddExpenses.Controls.Add(this.txtSumFastAddExpenses);
-            this.grbFastAddExpenses.Controls.Add(this.lblSumFastAddExpenses);
-            this.grbFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grbFastAddExpenses.Location = new System.Drawing.Point(709, 33);
-            this.grbFastAddExpenses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grbFastAddExpenses.Name = "grbFastAddExpenses";
-            this.grbFastAddExpenses.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grbFastAddExpenses.Size = new System.Drawing.Size(373, 196);
-            this.grbFastAddExpenses.TabIndex = 2;
-            this.grbFastAddExpenses.TabStop = false;
-            this.grbFastAddExpenses.Text = "Быстрое добавление расхода";
-            // 
-            // lblSumFastAddExpenses
-            // 
-            this.lblSumFastAddExpenses.AutoSize = true;
-            this.lblSumFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSumFastAddExpenses.Location = new System.Drawing.Point(9, 32);
-            this.lblSumFastAddExpenses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSumFastAddExpenses.Name = "lblSumFastAddExpenses";
-            this.lblSumFastAddExpenses.Size = new System.Drawing.Size(50, 17);
-            this.lblSumFastAddExpenses.TabIndex = 0;
-            this.lblSumFastAddExpenses.Text = "Сумма";
-            // 
-            // txtSumFastAddExpenses
-            // 
-            this.txtSumFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtSumFastAddExpenses.Location = new System.Drawing.Point(118, 29);
-            this.txtSumFastAddExpenses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtSumFastAddExpenses.Name = "txtSumFastAddExpenses";
-            this.txtSumFastAddExpenses.Size = new System.Drawing.Size(164, 23);
-            this.txtSumFastAddExpenses.TabIndex = 1;
-            // 
-            // cmbChoiceCategoryFastAddExpenses
-            // 
-            this.cmbChoiceCategoryFastAddExpenses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbChoiceCategoryFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cmbChoiceCategoryFastAddExpenses.FormattingEnabled = true;
-            this.cmbChoiceCategoryFastAddExpenses.Location = new System.Drawing.Point(118, 66);
-            this.cmbChoiceCategoryFastAddExpenses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cmbChoiceCategoryFastAddExpenses.Name = "cmbChoiceCategoryFastAddExpenses";
-            this.cmbChoiceCategoryFastAddExpenses.Size = new System.Drawing.Size(229, 24);
-            this.cmbChoiceCategoryFastAddExpenses.TabIndex = 2;
-            // 
-            // lblCategoryFastAddExpenses
-            // 
-            this.lblCategoryFastAddExpenses.AutoSize = true;
-            this.lblCategoryFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblCategoryFastAddExpenses.Location = new System.Drawing.Point(9, 69);
-            this.lblCategoryFastAddExpenses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCategoryFastAddExpenses.Name = "lblCategoryFastAddExpenses";
-            this.lblCategoryFastAddExpenses.Size = new System.Drawing.Size(77, 17);
-            this.lblCategoryFastAddExpenses.TabIndex = 3;
-            this.lblCategoryFastAddExpenses.Text = "Категория";
-            // 
-            // lblUserFastAddExpenses
-            // 
-            this.lblUserFastAddExpenses.AutoSize = true;
-            this.lblUserFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblUserFastAddExpenses.Location = new System.Drawing.Point(9, 110);
-            this.lblUserFastAddExpenses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUserFastAddExpenses.Name = "lblUserFastAddExpenses";
-            this.lblUserFastAddExpenses.Size = new System.Drawing.Size(101, 17);
-            this.lblUserFastAddExpenses.TabIndex = 5;
-            this.lblUserFastAddExpenses.Text = "Пользователь";
-            // 
-            // cmbChoiceUserFastAddExpenses
-            // 
-            this.cmbChoiceUserFastAddExpenses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbChoiceUserFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cmbChoiceUserFastAddExpenses.FormattingEnabled = true;
-            this.cmbChoiceUserFastAddExpenses.Location = new System.Drawing.Point(118, 107);
-            this.cmbChoiceUserFastAddExpenses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cmbChoiceUserFastAddExpenses.Name = "cmbChoiceUserFastAddExpenses";
-            this.cmbChoiceUserFastAddExpenses.Size = new System.Drawing.Size(229, 24);
-            this.cmbChoiceUserFastAddExpenses.TabIndex = 4;
-            // 
-            // btnAddFastAddExpenses
-            // 
-            this.btnAddFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddFastAddExpenses.Location = new System.Drawing.Point(107, 150);
-            this.btnAddFastAddExpenses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAddFastAddExpenses.Name = "btnAddFastAddExpenses";
-            this.btnAddFastAddExpenses.Size = new System.Drawing.Size(161, 29);
-            this.btnAddFastAddExpenses.TabIndex = 6;
-            this.btnAddFastAddExpenses.Text = "Добавить";
-            this.btnAddFastAddExpenses.UseVisualStyleBackColor = true;
+            this.dgvListTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvListTransactions.Location = new System.Drawing.Point(4, 23);
+            this.dgvListTransactions.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvListTransactions.Name = "dgvListTransactions";
+            this.dgvListTransactions.Size = new System.Drawing.Size(671, 557);
+            this.dgvListTransactions.TabIndex = 0;
             // 
             // colDate
             // 
@@ -383,22 +272,141 @@ namespace Financial_Analyst.View
             this.colUser.Name = "colUser";
             this.colUser.Width = 150;
             // 
+            // grbFastAddExpenses
+            // 
+            this.grbFastAddExpenses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbFastAddExpenses.Controls.Add(this.label3);
+            this.grbFastAddExpenses.Controls.Add(this.btnAddFastAddExpenses);
+            this.grbFastAddExpenses.Controls.Add(this.lblUserFastAddExpenses);
+            this.grbFastAddExpenses.Controls.Add(this.cmbChoiceUserFastAddExpenses);
+            this.grbFastAddExpenses.Controls.Add(this.lblCategoryFastAddExpenses);
+            this.grbFastAddExpenses.Controls.Add(this.cmbChoiceCategoryFastAddExpenses);
+            this.grbFastAddExpenses.Controls.Add(this.txtSumFastAddExpenses);
+            this.grbFastAddExpenses.Controls.Add(this.lblSumFastAddExpenses);
+            this.grbFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.grbFastAddExpenses.Location = new System.Drawing.Point(709, 33);
+            this.grbFastAddExpenses.Margin = new System.Windows.Forms.Padding(4);
+            this.grbFastAddExpenses.Name = "grbFastAddExpenses";
+            this.grbFastAddExpenses.Padding = new System.Windows.Forms.Padding(4);
+            this.grbFastAddExpenses.Size = new System.Drawing.Size(373, 196);
+            this.grbFastAddExpenses.TabIndex = 2;
+            this.grbFastAddExpenses.TabStop = false;
+            this.grbFastAddExpenses.Text = "Быстрое добавление расхода";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(290, 32);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "руб.";
+            // 
+            // btnAddFastAddExpenses
+            // 
+            this.btnAddFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddFastAddExpenses.Location = new System.Drawing.Point(107, 150);
+            this.btnAddFastAddExpenses.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddFastAddExpenses.Name = "btnAddFastAddExpenses";
+            this.btnAddFastAddExpenses.Size = new System.Drawing.Size(161, 29);
+            this.btnAddFastAddExpenses.TabIndex = 6;
+            this.btnAddFastAddExpenses.Text = "Добавить";
+            this.btnAddFastAddExpenses.UseVisualStyleBackColor = true;
+            // 
+            // lblUserFastAddExpenses
+            // 
+            this.lblUserFastAddExpenses.AutoSize = true;
+            this.lblUserFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblUserFastAddExpenses.Location = new System.Drawing.Point(9, 110);
+            this.lblUserFastAddExpenses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserFastAddExpenses.Name = "lblUserFastAddExpenses";
+            this.lblUserFastAddExpenses.Size = new System.Drawing.Size(101, 17);
+            this.lblUserFastAddExpenses.TabIndex = 5;
+            this.lblUserFastAddExpenses.Text = "Пользователь";
+            // 
+            // cmbChoiceUserFastAddExpenses
+            // 
+            this.cmbChoiceUserFastAddExpenses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChoiceUserFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmbChoiceUserFastAddExpenses.FormattingEnabled = true;
+            this.cmbChoiceUserFastAddExpenses.Location = new System.Drawing.Point(118, 107);
+            this.cmbChoiceUserFastAddExpenses.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbChoiceUserFastAddExpenses.Name = "cmbChoiceUserFastAddExpenses";
+            this.cmbChoiceUserFastAddExpenses.Size = new System.Drawing.Size(229, 24);
+            this.cmbChoiceUserFastAddExpenses.TabIndex = 4;
+            // 
+            // lblCategoryFastAddExpenses
+            // 
+            this.lblCategoryFastAddExpenses.AutoSize = true;
+            this.lblCategoryFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblCategoryFastAddExpenses.Location = new System.Drawing.Point(9, 69);
+            this.lblCategoryFastAddExpenses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategoryFastAddExpenses.Name = "lblCategoryFastAddExpenses";
+            this.lblCategoryFastAddExpenses.Size = new System.Drawing.Size(77, 17);
+            this.lblCategoryFastAddExpenses.TabIndex = 3;
+            this.lblCategoryFastAddExpenses.Text = "Категория";
+            // 
+            // cmbChoiceCategoryFastAddExpenses
+            // 
+            this.cmbChoiceCategoryFastAddExpenses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChoiceCategoryFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmbChoiceCategoryFastAddExpenses.FormattingEnabled = true;
+            this.cmbChoiceCategoryFastAddExpenses.Location = new System.Drawing.Point(118, 66);
+            this.cmbChoiceCategoryFastAddExpenses.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbChoiceCategoryFastAddExpenses.Name = "cmbChoiceCategoryFastAddExpenses";
+            this.cmbChoiceCategoryFastAddExpenses.Size = new System.Drawing.Size(229, 24);
+            this.cmbChoiceCategoryFastAddExpenses.TabIndex = 2;
+            // 
+            // txtSumFastAddExpenses
+            // 
+            this.txtSumFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtSumFastAddExpenses.Location = new System.Drawing.Point(118, 29);
+            this.txtSumFastAddExpenses.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSumFastAddExpenses.Name = "txtSumFastAddExpenses";
+            this.txtSumFastAddExpenses.Size = new System.Drawing.Size(164, 23);
+            this.txtSumFastAddExpenses.TabIndex = 1;
+            // 
+            // lblSumFastAddExpenses
+            // 
+            this.lblSumFastAddExpenses.AutoSize = true;
+            this.lblSumFastAddExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSumFastAddExpenses.Location = new System.Drawing.Point(9, 32);
+            this.lblSumFastAddExpenses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSumFastAddExpenses.Name = "lblSumFastAddExpenses";
+            this.lblSumFastAddExpenses.Size = new System.Drawing.Size(50, 17);
+            this.lblSumFastAddExpenses.TabIndex = 0;
+            this.lblSumFastAddExpenses.Text = "Сумма";
+            // 
             // grbFilters
             // 
+            this.grbFilters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.grbFilters.Controls.Add(this.btnApplyFilters);
             this.grbFilters.Controls.Add(this.label1);
             this.grbFilters.Controls.Add(this.comboBox1);
             this.grbFilters.Controls.Add(this.label2);
             this.grbFilters.Controls.Add(this.comboBox2);
             this.grbFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grbFilters.Location = new System.Drawing.Point(703, 529);
-            this.grbFilters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grbFilters.Location = new System.Drawing.Point(709, 448);
+            this.grbFilters.Margin = new System.Windows.Forms.Padding(4);
             this.grbFilters.Name = "grbFilters";
-            this.grbFilters.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grbFilters.Padding = new System.Windows.Forms.Padding(4);
             this.grbFilters.Size = new System.Drawing.Size(373, 165);
             this.grbFilters.TabIndex = 7;
             this.grbFilters.TabStop = false;
             this.grbFilters.Text = "Фильтры";
+            // 
+            // btnApplyFilters
+            // 
+            this.btnApplyFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnApplyFilters.Location = new System.Drawing.Point(107, 122);
+            this.btnApplyFilters.Margin = new System.Windows.Forms.Padding(4);
+            this.btnApplyFilters.Name = "btnApplyFilters";
+            this.btnApplyFilters.Size = new System.Drawing.Size(161, 29);
+            this.btnApplyFilters.TabIndex = 8;
+            this.btnApplyFilters.Text = "Применить";
+            this.btnApplyFilters.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -417,7 +425,7 @@ namespace Financial_Analyst.View
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(118, 79);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(229, 26);
             this.comboBox1.TabIndex = 4;
@@ -439,35 +447,14 @@ namespace Financial_Analyst.View
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(118, 32);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(229, 26);
             this.comboBox2.TabIndex = 2;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(290, 32);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "руб.";
-            // 
-            // btnApplyFilters
-            // 
-            this.btnApplyFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnApplyFilters.Location = new System.Drawing.Point(107, 122);
-            this.btnApplyFilters.Margin = new System.Windows.Forms.Padding(4);
-            this.btnApplyFilters.Name = "btnApplyFilters";
-            this.btnApplyFilters.Size = new System.Drawing.Size(161, 29);
-            this.btnApplyFilters.TabIndex = 8;
-            this.btnApplyFilters.Text = "Применить";
-            this.btnApplyFilters.UseVisualStyleBackColor = true;
-            // 
             // grbFastAddIncome
             // 
+            this.grbFastAddIncome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.grbFastAddIncome.Controls.Add(this.label4);
             this.grbFastAddIncome.Controls.Add(this.btnAddFastAddIncome);
             this.grbFastAddIncome.Controls.Add(this.lblUserFastAddIncome);
@@ -477,7 +464,7 @@ namespace Financial_Analyst.View
             this.grbFastAddIncome.Controls.Add(this.txtSumFastAddIncome);
             this.grbFastAddIncome.Controls.Add(this.lblSumFastAddIncome);
             this.grbFastAddIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grbFastAddIncome.Location = new System.Drawing.Point(709, 281);
+            this.grbFastAddIncome.Location = new System.Drawing.Point(709, 237);
             this.grbFastAddIncome.Margin = new System.Windows.Forms.Padding(4);
             this.grbFastAddIncome.Name = "grbFastAddIncome";
             this.grbFastAddIncome.Padding = new System.Windows.Forms.Padding(4);
@@ -576,7 +563,7 @@ namespace Financial_Analyst.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 715);
+            this.ClientSize = new System.Drawing.Size(1089, 621);
             this.Controls.Add(this.grbFastAddIncome);
             this.Controls.Add(this.grbFilters);
             this.Controls.Add(this.grbFastAddExpenses);
@@ -584,13 +571,14 @@ namespace Financial_Analyst.View
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Text = "Финансовый аналитик";
+            //this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.grbTransactionFeed.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListTransactions)).EndInit();
             this.grbFastAddExpenses.ResumeLayout(false);
             this.grbFastAddExpenses.PerformLayout();
             this.grbFilters.ResumeLayout(false);
@@ -613,19 +601,17 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.ToolStripMenuItem пересозданиеToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem пользователиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem счетаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem категорииToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem переToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem аналитикаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem круговаяДиаграммаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.GroupBox grbTransactionFeed;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvListTransactions;
         private System.Windows.Forms.GroupBox grbFastAddExpenses;
         private System.Windows.Forms.Button btnAddFastAddExpenses;
         private System.Windows.Forms.Label lblUserFastAddExpenses;
