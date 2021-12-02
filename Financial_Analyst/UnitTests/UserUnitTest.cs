@@ -11,17 +11,6 @@ namespace UnitTests
 {
     public class UserUnitTest
     {
-        [Test]
-        public void AddAccount_Test()
-        {
-            //given       
-            IUser user = new User("Vasilii", "Egorov");
-            IAccount account = new Account("First account", 15000.00m);
-            ReadOnlyCollection<IAccount> expectedTAccountCollections = new List<IAccount> { account }.AsReadOnly(); // пока один аккаунт ожидаемая коллекция аккаунтов после его добавления пользователем
-            //when
-            user.AddAccount(account);
-            // then
-            Assert.AreEqual(expectedTAccountCollections, user.GetAccount());
-        }
+        
     }
 }

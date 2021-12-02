@@ -4,9 +4,11 @@ namespace Financial_Analyst.Logic
 {
     public interface ITransaction
     {
-        decimal PaymentSum { get; }
-        string PaymentCategorie { get; set; }
         DateTime Date { get; }
-
+        decimal PaymentSum { get; }
+        string Comment { get; set; } // описание
+        IUser User { get; set; }
+        IAccount Account { get; set; }
+        ICategory Category { get; set; }
     }
 }

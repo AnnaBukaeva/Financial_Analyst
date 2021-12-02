@@ -1,65 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Financial_Analyst.Logic.Helpers;
 
 namespace Financial_Analyst.Logic
 {
     public class User : IUser
     {
-        public string FirstName { get; set; }
+        private string _pass_hash;
 
-        public string LastName { get; set; }
-
-        private List<IAccount> _accounts;
-
-        public User(string firstName, string lastName, List<IAccount> accounts)
+        public string FIO { get; set; }
+        public int ID { get; }
+        public static int LastID { get; set; } = 0;
+        
+        public User(string fio, string pass_hash)
         {
-            if (string.IsNullOrEmpty(firstName))
+            LastID++;
+            ID = LastID;
+            if (string.IsNullOrEmpty(FIO))
             {
                 throw new ArgumentNullException("FirstName should not be empty or null!");
             }
-            if (string.IsNullOrEmpty(lastName))
+            if (pass_hash == null)
             {
-                throw new ArgumentNullException("LastName should not be empty or null!");
+                throw new ArgumentNullException("password should not be null!");
             }
-            if (accounts == null)
-            {
-                throw new ArgumentNullException("Accounts should not be null!");
-            }
-            FirstName = firstName;
-            LastName = lastName;
-            _accounts = accounts;
+            _pass_hash = pass_hash;
+            FIO = fio;
         }
-        public User (string firstName, string lastName) // транзакций может не быть при создании аккаунта
-           : this(firstName, lastName, new List<IAccount>())
+        
+        public bool CheckPassword(string fio, string password)
         {
-        }
-
-        public User()
-        {
-        }
-
-        public void AddAccount(IAccount account)
-        {
-            if (account == null)
-            {
-                throw new ArgumentNullException("Account should not be null!");
-            }
-            foreach (IAccount item in _accounts)
-            {
-                if (account.Name == item.Name)
-                {
-                    throw new Exception("An account with this name already exists!");
-                }             
-            }
-            _accounts.Add(account);
-        }        
-        public ReadOnlyCollection<IAccount> GetAccount()
-        {
-            return _accounts.AsReadOnly();
-        }
+            string pass_hash = HashHelper.CalcHash(password);
+            return FIO == fio && _pass_hash == pass_hash;
+        }   
     }
 }

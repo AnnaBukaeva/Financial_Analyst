@@ -1,48 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Financial_Analyst.Logic
 {
     public class Account : IAccount
     {
-        public string Name { get; set; }
+        public string Name { get; }
         public decimal Balance { get; private set; } //приватный так как лучше ограничить возможность изменения баланса из других классов
-        private List<ITransaction> _transactions;
+        public string Comment { get; set; }
 
-        public Account(string name, decimal balance, List<ITransaction> transactions)
+        public List<int> UsersAccess { get; } //ID пользователейу которых есть доступ к счету
+
+        public Account(string name, decimal balance, List<int> usersAccess)
         {
             if (string.IsNullOrEmpty(name))
             {
                 throw new ArgumentNullException("Name should not be empty or null!");
             }
-            if (transactions == null)
-            {
-                throw new ArgumentNullException("Transactions should not be null!");
-            }
             Name = name;
             Balance = balance;
-            _transactions = transactions;
+            UsersAccess = usersAccess;
         }
-        public Account(string name, decimal balance) // счетов может не быть при создании аккаунта
-            :this(name, balance, new List<ITransaction>())
+
+        public bool CheckAccess(IUser user)
         {
-        }
-        public void AddTransaction(ITransaction transaction)
-        {
-            if (transaction == null)
+            foreach (int ID in UsersAccess)
             {
-                throw new ArgumentNullException("Transactions should not be null!");
+                if (ID == user.ID)
+                {
+                    return true;
+                }
             }
-            Balance += transaction.PaymentSum;  // одной строкой решили поведение для двух типов транзакций списание(+ * - = -) и поступление
-            _transactions.Add(transaction);
+            return false;
         }
-        public ReadOnlyCollection<ITransaction> GetTransactions()
+
+        public void ChangeBalance(decimal paymentSum)
         {
-            return _transactions.AsReadOnly();
+            Balance += paymentSum;
         }
     }
 }
