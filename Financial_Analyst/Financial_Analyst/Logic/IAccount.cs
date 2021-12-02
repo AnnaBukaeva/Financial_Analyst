@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Financial_Analyst.Logic
 {
     public interface IAccount
     {
-        string Name { get; set; }
+        string Name { get; }
         decimal Balance { get; }          
-   
-        void AddTransaction(ITransaction transaction); //метод, позволяющий принять содержимое интерфейса ITransaction
-        ReadOnlyCollection<ITransaction> GetTransactions();
+        string Comment { get; set; }
+        List <int> UsersAccess { get; }
+
+        bool CheckAccess(IUser user);
+        void ChangeBalance(decimal paymentSum);            
     }
 }

@@ -46,13 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Class2.cs" />
+    <Compile Include="Data\UsersRepository.cs" />
     <Compile Include="Logic\Account.cs" />
-    <Compile Include="Logic\ExpensesTransaction.cs" />
+    <Compile Include="Logic\AuthProcessor.cs" />
+    <Compile Include="Logic\Category.cs" />
+    <Compile Include="Logic\CategoryType.cs" />
+    <Compile Include="Logic\Helpers\HashHelper.cs" />
     <Compile Include="Logic\IAccount.cs" />
+    <Compile Include="Logic\ICategory.cs" />
     <Compile Include="Logic\ITransaction.cs" />
     <Compile Include="Logic\IUser.cs" />
-    <Compile Include="Logic\IncomTransaction.cs" />
+    <Compile Include="Logic\Transaction.cs" />
     <Compile Include="Logic\User.cs" />
     <Compile Include="View\frmAccounts.cs">
       <SubType>Form</SubType>
