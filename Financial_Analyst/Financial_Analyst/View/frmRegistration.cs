@@ -22,7 +22,7 @@ namespace Financial_Analyst.View
         {
             try
             {
-                AuthProcessor.RegisterUser( txtFIORegistr.Text, txtPasswordRegistr.Text);
+                UserProcessor.RegisterUser( txtFIORegistr.Text, txtPasswordRegistr.Text);
                 MessageBox.Show("Пользователь зарегистрирован! Можно под ним войти!", "Готово!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 

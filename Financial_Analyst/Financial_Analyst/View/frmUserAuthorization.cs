@@ -23,7 +23,7 @@ namespace Financial_Analyst.View
         {
             try
             {
-                IUser user = AuthProcessor.FindAndCheckPassword(txtFIO.Text, txtPassword.Text);
+                IUser user = UserProcessor.FindAndCheckPassword(txtFIO.Text, txtPassword.Text);
                 if (user == null)
                     throw new Exception("Пользователь с таким логином/паролем не существует");
 

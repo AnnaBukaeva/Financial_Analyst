@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace Financial_Analyst.Logic
 {
+    [Serializable]
     public class Account : IAccount
     {
         public string Name { get; }
         public decimal Balance { get; private set; } //приватный так как лучше ограничить возможность изменения баланса из других классов
         public string Comment { get; set; }
-
         public List<int> UsersAccess { get; } //ID пользователейу которых есть доступ к счету
 
         public Account(string name, decimal balance, List<int> usersAccess)
