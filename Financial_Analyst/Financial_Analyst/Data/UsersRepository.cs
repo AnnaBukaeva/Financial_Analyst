@@ -23,27 +23,25 @@ namespace Financial_Analyst.Data
                 }
             }
         }
-        public static List<User> GetUsers()
+        public static List<IUser> GetUsers()
         {
             BinaryFormatter bf = new BinaryFormatter();
-            List<User> actual_users = new List<User>();
+            List<IUser> actual_users = new List<IUser>();
             using (FileStream fl = new FileStream(users_finename, FileMode.Open))
             {
                 try
                 {
-                    actual_users = (List<User>)bf.Deserialize(fl);
+                    actual_users = (List<IUser>)bf.Deserialize(fl);
                 }
                 catch { }
             }
             return actual_users;
         }
 
-        public static User RegisterUser(string fio, string password)
+        public static void SaveUser(IUser user)
         {
-            string pass_hash = HashHelper.CalcHash(password);
-            User user = new User(fio, pass_hash);
 
-            List<User> actual_users = new List<User>();
+            List<IUser> actual_users = new List<IUser>();
 
             BinaryFormatter bf = new BinaryFormatter();
 
@@ -51,7 +49,7 @@ namespace Financial_Analyst.Data
             {
                 using (FileStream fl = new FileStream(users_finename, FileMode.Open))
                 {
-                    actual_users = (List<User>)bf.Deserialize(fl);
+                    actual_users = (List<IUser>)bf.Deserialize(fl);
                 }
             }
             catch { }
@@ -62,7 +60,6 @@ namespace Financial_Analyst.Data
             {
                 bf.Serialize(fl, actual_users);
             }
-            return user;
-        }
+        }   
     }
 }

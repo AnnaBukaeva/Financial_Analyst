@@ -1,0 +1,66 @@
+﻿using Financial_Analyst.Logic;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Financial_Analyst.Data
+{
+    static class TransactionRepository
+    {
+        private static string transaction_filename = @"transaction.dat";
+
+        static TransactionRepository()
+        {
+            if (!File.Exists(transaction_filename))
+            {
+                using (FileStream fl = new FileStream(transaction_filename, FileMode.CreateNew))
+                {
+
+                }
+            }
+        }
+
+        public static List<ITransaction> GetTransactions()
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            List<ITransaction> actual_transactions = new List<ITransaction>();
+            using (FileStream fl = new FileStream(transaction_filename, FileMode.Open))
+            {
+                try
+                {
+                    actual_transactions = (List<ITransaction>)bf.Deserialize(fl);
+                }
+                catch { }
+            }
+            return actual_transactions;
+        }
+
+        public static void SaveTransaction(ITransaction transaction)
+        {
+
+            List<ITransaction> actual_transactions = new List<ITransaction>();
+
+            BinaryFormatter bf = new BinaryFormatter();
+
+            try
+            {
+                using (FileStream fl = new FileStream(transaction_filename, FileMode.Open))
+                {
+                    actual_transactions = (List<ITransaction>)bf.Deserialize(fl);
+                }
+            }
+            catch { }
+
+            actual_transactions.Add(transaction);
+
+            using (FileStream fl = new FileStream(transaction_filename, FileMode.Create))
+            {
+                bf.Serialize(fl, actual_transactions);
+            }
+        }
+    }
+}
