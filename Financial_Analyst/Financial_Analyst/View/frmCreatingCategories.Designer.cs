@@ -31,14 +31,14 @@ namespace Financial_Analyst.View
         {
             this.lblNameCategory = new System.Windows.Forms.Label();
             this.grbCreatingCategories = new System.Windows.Forms.GroupBox();
+            this.cmpTypeTransaction = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnOkCatecory = new System.Windows.Forms.Button();
+            this.lblColorSelection = new System.Windows.Forms.Label();
             this.txtColorCategory = new System.Windows.Forms.TextBox();
             this.btnColorCategory = new System.Windows.Forms.Button();
             this.txtNameCategory = new System.Windows.Forms.TextBox();
             this.colorDialogCategory = new System.Windows.Forms.ColorDialog();
-            this.lblColorSelection = new System.Windows.Forms.Label();
-            this.btnOkCatecory = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.grbCreatingCategories.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +54,7 @@ namespace Financial_Analyst.View
             // 
             // grbCreatingCategories
             // 
-            this.grbCreatingCategories.Controls.Add(this.comboBox1);
+            this.grbCreatingCategories.Controls.Add(this.cmpTypeTransaction);
             this.grbCreatingCategories.Controls.Add(this.label1);
             this.grbCreatingCategories.Controls.Add(this.btnOkCatecory);
             this.grbCreatingCategories.Controls.Add(this.lblColorSelection);
@@ -69,6 +69,44 @@ namespace Financial_Analyst.View
             this.grbCreatingCategories.TabIndex = 1;
             this.grbCreatingCategories.TabStop = false;
             this.grbCreatingCategories.Text = "Создание категории";
+            // 
+            // cmpTypeTransaction
+            // 
+            this.cmpTypeTransaction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmpTypeTransaction.FormattingEnabled = true;
+            this.cmpTypeTransaction.Location = new System.Drawing.Point(180, 25);
+            this.cmpTypeTransaction.Name = "cmpTypeTransaction";
+            this.cmpTypeTransaction.Size = new System.Drawing.Size(224, 28);
+            this.cmpTypeTransaction.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 20);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Тип транзакции";
+            // 
+            // btnOkCatecory
+            // 
+            this.btnOkCatecory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnOkCatecory.Location = new System.Drawing.Point(157, 182);
+            this.btnOkCatecory.Name = "btnOkCatecory";
+            this.btnOkCatecory.Size = new System.Drawing.Size(85, 36);
+            this.btnOkCatecory.TabIndex = 5;
+            this.btnOkCatecory.Text = "ОК";
+            this.btnOkCatecory.UseVisualStyleBackColor = true;
+            this.btnOkCatecory.Click += new System.EventHandler(this.btnOkCatecory_Click);
+            // 
+            // lblColorSelection
+            // 
+            this.lblColorSelection.AutoSize = true;
+            this.lblColorSelection.Location = new System.Drawing.Point(6, 110);
+            this.lblColorSelection.Name = "lblColorSelection";
+            this.lblColorSelection.Size = new System.Drawing.Size(130, 20);
+            this.lblColorSelection.TabIndex = 4;
+            this.lblColorSelection.Text = "Цвет категории";
             // 
             // txtColorCategory
             // 
@@ -92,45 +130,8 @@ namespace Financial_Analyst.View
             // 
             this.txtNameCategory.Location = new System.Drawing.Point(180, 67);
             this.txtNameCategory.Name = "txtNameCategory";
-            this.txtNameCategory.Size = new System.Drawing.Size(218, 26);
+            this.txtNameCategory.Size = new System.Drawing.Size(224, 26);
             this.txtNameCategory.TabIndex = 1;
-            // 
-            // lblColorSelection
-            // 
-            this.lblColorSelection.AutoSize = true;
-            this.lblColorSelection.Location = new System.Drawing.Point(6, 110);
-            this.lblColorSelection.Name = "lblColorSelection";
-            this.lblColorSelection.Size = new System.Drawing.Size(130, 20);
-            this.lblColorSelection.TabIndex = 4;
-            this.lblColorSelection.Text = "Цвет категории";
-            // 
-            // btnOkCatecory
-            // 
-            this.btnOkCatecory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnOkCatecory.Location = new System.Drawing.Point(157, 182);
-            this.btnOkCatecory.Name = "btnOkCatecory";
-            this.btnOkCatecory.Size = new System.Drawing.Size(85, 36);
-            this.btnOkCatecory.TabIndex = 5;
-            this.btnOkCatecory.Text = "ОК";
-            this.btnOkCatecory.UseVisualStyleBackColor = true;
-            this.btnOkCatecory.Click += new System.EventHandler(this.btnOkCatecory_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Тип транзакции";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(180, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(218, 28);
-            this.comboBox1.TabIndex = 7;
             // 
             // listBox1
             // 
@@ -166,7 +167,7 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.Label lblColorSelection;
         private System.Windows.Forms.Button btnOkCatecory;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmpTypeTransaction;
         private System.Windows.Forms.ListBox listBox1;
     }
 }
