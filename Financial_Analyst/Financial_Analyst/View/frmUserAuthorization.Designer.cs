@@ -35,11 +35,9 @@ namespace Financial_Analyst.View
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblLogin = new System.Windows.Forms.Label();
-            this.txtLogin = new System.Windows.Forms.TextBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtFIO = new System.Windows.Forms.TextBox();
+            this.lblAuth = new System.Windows.Forms.Label();
             this.grbUserData.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbUserData
@@ -52,19 +50,18 @@ namespace Financial_Analyst.View
             this.grbUserData.Controls.Add(this.lblPassword);
             this.grbUserData.Controls.Add(this.txtPassword);
             this.grbUserData.Controls.Add(this.lblLogin);
-            this.grbUserData.Controls.Add(this.txtLogin);
+            this.grbUserData.Controls.Add(this.txtFIO);
             this.grbUserData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grbUserData.Location = new System.Drawing.Point(12, 12);
+            this.grbUserData.Location = new System.Drawing.Point(12, 59);
             this.grbUserData.Name = "grbUserData";
-            this.grbUserData.Size = new System.Drawing.Size(327, 161);
+            this.grbUserData.Size = new System.Drawing.Size(341, 182);
             this.grbUserData.TabIndex = 0;
             this.grbUserData.TabStop = false;
-            this.grbUserData.Text = "Данные пользователя";
             // 
             // btnRegistration
             // 
             this.btnRegistration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRegistration.Location = new System.Drawing.Point(10, 115);
+            this.btnRegistration.Location = new System.Drawing.Point(10, 136);
             this.btnRegistration.Name = "btnRegistration";
             this.btnRegistration.Size = new System.Drawing.Size(134, 35);
             this.btnRegistration.TabIndex = 5;
@@ -75,7 +72,7 @@ namespace Financial_Analyst.View
             // btnEnter
             // 
             this.btnEnter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEnter.Location = new System.Drawing.Point(227, 115);
+            this.btnEnter.Location = new System.Drawing.Point(241, 136);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(94, 35);
             this.btnEnter.TabIndex = 4;
@@ -98,7 +95,7 @@ namespace Financial_Analyst.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.Location = new System.Drawing.Point(89, 70);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(232, 26);
+            this.txtPassword.Size = new System.Drawing.Size(246, 26);
             this.txtPassword.TabIndex = 2;
             // 
             // lblLogin
@@ -110,36 +107,31 @@ namespace Financial_Analyst.View
             this.lblLogin.TabIndex = 1;
             this.lblLogin.Text = "ФИО";
             // 
-            // txtLogin
+            // txtFIO
             // 
-            this.txtLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtFIO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLogin.Location = new System.Drawing.Point(89, 29);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(232, 26);
-            this.txtLogin.TabIndex = 0;
+            this.txtFIO.Location = new System.Drawing.Point(89, 29);
+            this.txtFIO.Name = "txtFIO";
+            this.txtFIO.Size = new System.Drawing.Size(246, 26);
+            this.txtFIO.TabIndex = 0;
             // 
-            // statusStrip1
+            // lblAuth
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 176);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(351, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            this.lblAuth.AutoSize = true;
+            this.lblAuth.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblAuth.Location = new System.Drawing.Point(109, 20);
+            this.lblAuth.Name = "lblAuth";
+            this.lblAuth.Size = new System.Drawing.Size(145, 26);
+            this.lblAuth.TabIndex = 2;
+            this.lblAuth.Text = "Авторизация";
             // 
             // frmUserAuthorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 198);
-            this.Controls.Add(this.statusStrip1);
+            this.ClientSize = new System.Drawing.Size(365, 253);
+            this.Controls.Add(this.lblAuth);
             this.Controls.Add(this.grbUserData);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -147,8 +139,6 @@ namespace Financial_Analyst.View
             this.Text = "frmUserAuthorization";
             this.grbUserData.ResumeLayout(false);
             this.grbUserData.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,8 +152,7 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblLogin;
-        private System.Windows.Forms.TextBox txtLogin;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.TextBox txtFIO;
+        private System.Windows.Forms.Label lblAuth;
     }
 }

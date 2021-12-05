@@ -38,7 +38,7 @@ namespace Financial_Analyst.Data
             return actual_users;
         }
 
-        public static User RegisterUser(string fio, string login, string password)
+        public static User RegisterUser(string fio, string password)
         {
             string pass_hash = HashHelper.CalcHash(password);
             User user = new User(fio, pass_hash);

@@ -58,6 +58,7 @@
     <Compile Include="Logic\IUser.cs" />
     <Compile Include="Logic\Transaction.cs" />
     <Compile Include="Logic\User.cs" />
+    <Compile Include="Logic\UserProcessor.cs" />
     <Compile Include="View\frmAccounts.cs">
       <SubType>Form</SubType>
     </Compile>

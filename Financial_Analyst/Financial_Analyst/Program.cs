@@ -18,8 +18,8 @@ namespace Financial_Analyst
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
-            //Application.Run(new frmUserAuthorization());
+            Application.Run(new frmUserAuthorization());
+            
         }
     }
 }

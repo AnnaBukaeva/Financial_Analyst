@@ -16,7 +16,7 @@ namespace Financial_Analyst.Logic
         public IUser User { get; set; }
         public IAccount Account { get; set; }
         public ICategory Category { get; set; }
-        public Transaction(DateTime date, decimal paymentSum, string comment, IUser user, IAccount account, ICategory category)
+        public Transaction(DateTime date, decimal paymentSum,  IUser user, IAccount account, ICategory category, string comment = null)
         {
             Date = date;
             PaymentSum = paymentSum;

@@ -13,7 +13,10 @@ namespace Financial_Analyst.View
 {
     public partial class frmEditTransaction : Form
     {
-        public frmEditTransaction()
+
+        private ITransaction _context;
+        private bool IsEdit = false;
+        public frmEditTransaction(ITransaction tran = null)
         {
             InitializeComponent();
         }
