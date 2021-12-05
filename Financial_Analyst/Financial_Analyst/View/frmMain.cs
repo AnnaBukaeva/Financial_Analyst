@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Financial_Analyst.Logic;
 
@@ -16,8 +10,6 @@ namespace Financial_Analyst.View
     {
         private IUser _user;
         private Form _userAuth;
-        private List<ITransaction> _transactions;
-        private List<User> _users;
         private List<IAccount> _accounts;
         private List<ICategory> _categories;
 
@@ -26,13 +18,9 @@ namespace Financial_Analyst.View
             InitializeComponent();
             _userAuth = userAuth;
             _user = user;
-            txtUserName.Text = _user.FIO;
-
-            _transactions = new List<ITransaction>();   //переписать на transactionRepozitory
-
-            _users = UserProcessor.GetUsers(); //переписать на user Repozitory
-                                                      
-            _accounts = new List<IAccount>();          //переписать на account Repozitory
+            txtUserName.Text = _user.FIO;          
+            
+            _accounts = new List<IAccount>();          //переписать на transactionRepozitory
             _accounts.Add(new Account("Мама", 2345, new List<int> { 1,2,3}));
 
             _categories = new List<ICategory>();
@@ -40,7 +28,7 @@ namespace Financial_Analyst.View
             //_categories.Add(new Category("Зарплата", "Работа", Color.Green, CategoryType.Incom)); //переписать
 
             dgvListTransactions.AutoGenerateColumns = false;
-            RefreshForm();
+            RefreshForm();            
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -51,7 +39,7 @@ namespace Financial_Analyst.View
         private void RefreshForm()
         {
             dgvListTransactions.Rows.Clear();
-            foreach(ITransaction transaction in _transactions)
+            foreach(ITransaction transaction in TransactionProcessor.GetTransactions(_user))
             {
                 dgvListTransactions.Rows.Add(transaction.Date, transaction.PaymentSum, transaction.Category.Name, 
                                              transaction.User.FIO, transaction.Comment);
@@ -84,7 +72,6 @@ namespace Financial_Analyst.View
             //   RefreshForm
             //}
             transactions.ShowDialog();
-
         }
 
         private void EditTransactionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,9 +97,8 @@ namespace Financial_Analyst.View
             {
                 DateTime dateTime = DateTime.Now;
                 decimal paymentSum = Convert.ToDecimal(txtSumFastAddExpenses.Text);
-
-                User currentUser = null;
-                foreach (User user in _users)
+                IUser currentUser = null;
+                foreach (IUser user in UserProcessor.GetUsers())
                 {
                     if (cmbChoiceUserFastAddExpenses.Text == user.FIO)
                     {
@@ -153,21 +139,15 @@ namespace Financial_Analyst.View
                     throw new Exception("Категория не найдена");
                 }
 
-      
-                ITransaction fastExpenses = new Transaction(dateTime, paymentSum, currentUser,
-                                                              currentAccount, currentCategory);
-                _transactions.Add(fastExpenses);
-                
+                TransactionProcessor.CreateTransaction(dateTime, paymentSum, currentUser, currentAccount, currentCategory);                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка!"); 
                 //MessageBoxButtons., MessageBoxIcon.Error
             }
-
             RefreshForm();
         }
-
 
         private void CheckComboBoxAccountChoise()
         {
@@ -190,7 +170,7 @@ namespace Financial_Analyst.View
         private void CheckComboBoxUserFastAddExpenses()
         {
             cmbChoiceUserFastAddExpenses.Items.Clear();
-            foreach (User users in _users)
+            foreach (User users in UserProcessor.GetUsers())
             {
                 cmbChoiceUserFastAddExpenses.Items.Add(users.FIO);
             }

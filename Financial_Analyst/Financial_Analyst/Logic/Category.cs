@@ -1,8 +1,9 @@
-﻿
+﻿using System;
 using System.Drawing;
 
 namespace Financial_Analyst.Logic
 {
+    [Serializable]
     public class Category : ICategory
     {
         public string Name { get; set; }
