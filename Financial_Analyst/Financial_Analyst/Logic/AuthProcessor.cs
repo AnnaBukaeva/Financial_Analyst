@@ -16,23 +16,23 @@ namespace Financial_Analyst.Logic
                 _users = UsersRepository.GetUsers();
             }
 
-            public static IUser FindAndCheckPassword(string login, string password)
+            public static IUser FindAndCheckPassword(string fio, string password)
             {
                 if (_users == null || _users.Count == 0)
                     return null;
 
                 foreach (User us in _users)
                 {
-                    if (us.CheckPassword(login, password))
+                    if (us.CheckPassword(fio, password))
                     {
                         return us;
                     }
                 }
                 return null;
             }
-            public static void RegisterUser(string fio, string login, string password)
+            public static void RegisterUser(string fio, string password)
             {
-                User user = UsersRepository.RegisterUser(fio, login, password);
+                User user = UsersRepository.RegisterUser(fio, password);
                 if (user != null)
                     _users.Add(user);
                 else

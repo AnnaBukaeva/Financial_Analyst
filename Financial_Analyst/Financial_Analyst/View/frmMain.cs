@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,18 +14,30 @@ namespace Financial_Analyst.View
 {
     public partial class frmMain : Form
     {
+        private IUser _user;
+        private Form _userAuth;
         private List<ITransaction> _transactions;
-        public frmMain()
+
+        public frmMain(IUser user, Form userAuth)
         {
             InitializeComponent();
-            //dgvListTransactions.AutoGenerateColumns = false;
+            _userAuth = userAuth;
+            _user = user;
+            txtUserName.Text = _user.FIO;
+            dgvListTransactions.AutoGenerateColumns = false;
             dgvListTransactions.DataSource = _transactions;
         }
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _userAuth.Show();
+        }
+
+
         //private void frmMain_Load(object sender, EventArgs e)
         //{
-             //
-            // во время авторизации дается доступ к счетам, только к тем,
-            // которые принадлежат конкретному(тому, кто вошел) пользователю
+        //
+        // во время авторизации дается доступ к счетам, только к тем,
+        // которые принадлежат конкретному(тому, кто вошел) пользователю
         //}
 
         private void RefreshForm()
@@ -34,8 +47,6 @@ namespace Financial_Analyst.View
             dgvListTransactions.Refresh();
         }
 
-        
-
         private void счетаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAccounts accounts = new frmAccounts();
@@ -44,20 +55,14 @@ namespace Financial_Analyst.View
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //List<string> type_names = EnumText.GetEnumNames(typeof(ItemType));
-            //frmEdit form = new frmEdit(type_names);
-            //if (form.ShowDialog() == DialogResult.OK)
-            //{
-            //    _items.Add(form.Context);
-            //    RefreshForm();
-            //}
-
+            
+            
             frmEditTransaction transactions = new frmEditTransaction();
-            //if (transactions.ShowDialog() == DialogResult.OK)
-            //{
-            //    _transactions.Add(transactions.);
-            //    RefreshForm();
-            //}
+            if (transactions.ShowDialog() == DialogResult.OK)
+            {
+                _transactions.Add(transactions);
+                RefreshForm();
+            }
             transactions.ShowDialog();
 
         }

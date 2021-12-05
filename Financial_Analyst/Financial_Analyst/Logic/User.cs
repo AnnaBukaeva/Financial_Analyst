@@ -3,6 +3,7 @@ using Financial_Analyst.Logic.Helpers;
 
 namespace Financial_Analyst.Logic
 {
+    [Serializable]
     public class User : IUser
     {
         private string _pass_hash;
@@ -15,10 +16,10 @@ namespace Financial_Analyst.Logic
         {
             LastID++;
             ID = LastID;
-            if (string.IsNullOrEmpty(FIO))
-            {
-                throw new ArgumentNullException("FirstName should not be empty or null!");
-            }
+            //if (string.IsNullOrEmpty(FIO))   
+            //{
+            //    throw new ArgumentNullException("FirstName should not be empty or null!");
+            //}
             if (pass_hash == null)
             {
                 throw new ArgumentNullException("password should not be null!");
