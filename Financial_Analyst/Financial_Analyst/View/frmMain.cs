@@ -19,7 +19,7 @@ namespace Financial_Analyst.View
         private List<ITransaction> _transactions;
         private List<User> _users;
         private List<IAccount> _accounts;
-        private List<ICategory> _category;
+        private List<ICategory> _categories;
 
         public frmMain(IUser user, Form userAuth)
         {
@@ -27,32 +27,27 @@ namespace Financial_Analyst.View
             _userAuth = userAuth;
             _user = user;
             txtUserName.Text = _user.FIO;
+
             _transactions = new List<ITransaction>();   //переписать на transactionRepozitory
-            _users = UserProcessor.GetUsers(); 
-                                                      //переписать на user Repozitory
-            _accounts = new List<IAccount>();          //переписать на transactionRepozitory
+
+            _users = UserProcessor.GetUsers(); //переписать на user Repozitory
+                                                      
+            _accounts = new List<IAccount>();          //переписать на account Repozitory
             _accounts.Add(new Account("Мама", 2345, new List<int> { 1,2,3}));
 
-            _category = new List<ICategory>();
-            _category.Add(new Category("Еда", "Ашан", Color.Red, CategoryType.Expense));
-            _category.Add(new Category("Зарплата", "Работа", Color.Green, CategoryType.Incom)); //переписать
+            _categories = new List<ICategory>();
+            //_categories.Add(new Category("Еда", "Ашан", Color.Red, CategoryType.Expense));
+            //_categories.Add(new Category("Зарплата", "Работа", Color.Green, CategoryType.Incom)); //переписать
 
             dgvListTransactions.AutoGenerateColumns = false;
             RefreshForm();
         }
+
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             _userAuth.Show();
         }
-
-
-        //private void frmMain_Load(object sender, EventArgs e)
-        //{
-        //
-        // во время авторизации дается доступ к счетам, только к тем,
-        // которые принадлежат конкретному(тому, кто вошел) пользователю
-        //}
-
+      
         private void RefreshForm()
         {
             dgvListTransactions.Rows.Clear();
@@ -63,45 +58,59 @@ namespace Financial_Analyst.View
             }
         }
 
+        private void RefreshCmbChoiceCategoryFastAddExpenses()
+        {
+            // обновить список категорий
+            cmbChoiceCategoryFastAddExpenses.Items.Clear();
+            foreach(ICategory category in _categories)
+            {
+                cmbChoiceCategoryFastAddExpenses.Items.Add(category.Name);
+            }
+        }
+
         private void счетаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAccounts accounts = new frmAccounts();
             accounts.ShowDialog();
         }
 
-        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddTransactionToolStripMenuItem_Click(object sender, EventArgs e) //добавить транзакции
         {
 
-
             frmEditTransaction transactions = new frmEditTransaction();
-            if (transactions.ShowDialog() == DialogResult.OK)
-            {
-                //_transactions.Add(transactions);
-                RefreshForm();
-            }
+            //if (transactions.ShowDialog() == DialogResult.OK)
+            //{
+            //    //_transaction.Add(transactions);
+            //   RefreshForm
+            //}
             transactions.ShowDialog();
 
         }
 
-        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EditTransactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmEditTransaction transactions = new frmEditTransaction();
             transactions.ShowDialog();
         }
 
-        private void категорииToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddCategoriesToolStripMenuItem_Click(object sender, EventArgs e) //добавить категорию
         {
             frmCreatingCategories creatingCategories = new frmCreatingCategories();
+            //if (creatingCategories.ShowDialog() == DialogResult.OK)
+            //{
+            //    _categories.Add(creatingCategories);
+            // RefreshCmbChoiceCategoryFastAddExpenses()
+            //}
             creatingCategories.ShowDialog();
         }
 
-        private void btnAddFastAddExpenses_Click(object sender, EventArgs e)
-        {
-            
+        private void btnAddFastAddExpenses_Click(object sender, EventArgs e) //добавить быструю транзакцию
+        { 
             try
             {
                 DateTime dateTime = DateTime.Now;
                 decimal paymentSum = Convert.ToDecimal(txtSumFastAddExpenses.Text);
+
                 User currentUser = null;
                 foreach (User user in _users)
                 {
@@ -111,7 +120,6 @@ namespace Financial_Analyst.View
                         break;
                     }
                 }
-
                 if (currentUser == null)
                 {
                     throw new Exception("Пользователь не найден!");
@@ -126,14 +134,13 @@ namespace Financial_Analyst.View
                         break;
                     }
                 }
-
                 if (currentAccount == null)
                 {
                     throw new Exception("Счёт не найден!");
                 }
 
                 ICategory currentCategory = null;
-                foreach (Category category in _category)
+                foreach (Category category in _categories)
                 {
                     if (cmbChoiceCategoryFastAddExpenses.Text == category.Name)
                     {
@@ -146,27 +153,23 @@ namespace Financial_Analyst.View
                     throw new Exception("Категория не найдена");
                 }
 
-
-
-                
+      
                 ITransaction fastExpenses = new Transaction(dateTime, paymentSum, currentUser,
-                                            currentAccount, currentCategory);
+                                                              currentAccount, currentCategory);
                 _transactions.Add(fastExpenses);
                 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Ошибка!"); 
                 //MessageBoxButtons., MessageBoxIcon.Error
-
             }
 
             RefreshForm();
-
-
         }
 
-        private void FieldComboBoxAccountChoise()
+
+        private void CheckComboBoxAccountChoise()
         {
             cmbAccountChoise.Items.Clear();
             foreach (IAccount accounts in _accounts)
@@ -174,13 +177,30 @@ namespace Financial_Analyst.View
                 cmbAccountChoise.Items.Add(accounts.Name);
             }
         }
-        private void frmMain_Load(object sender, EventArgs e)
+
+        private void CheckComboBoxChoiceCategoryFastAddExpenses()
         {
-            //foreach(IAccount accounts in _accounts)
-            //{
-            //    cmbAccountChoise.Items.Add(accounts.Name);
-            //}
-            FieldComboBoxAccountChoise();
+            cmbChoiceCategoryFastAddExpenses.Items.Clear();
+            foreach (ICategory categories in _categories)
+            {
+                cmbChoiceCategoryFastAddExpenses.Items.Add(categories.Name);
+            }
+        }
+
+        private void CheckComboBoxUserFastAddExpenses()
+        {
+            cmbChoiceUserFastAddExpenses.Items.Clear();
+            foreach (User users in _users)
+            {
+                cmbChoiceUserFastAddExpenses.Items.Add(users.FIO);
+            }
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {           
+            CheckComboBoxAccountChoise();
+            CheckComboBoxChoiceCategoryFastAddExpenses();
+            CheckComboBoxUserFastAddExpenses();
         }
     }
 }
