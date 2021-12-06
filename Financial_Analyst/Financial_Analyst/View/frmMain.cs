@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using Financial_Analyst.Logic;
 
@@ -9,10 +10,8 @@ namespace Financial_Analyst.View
     public partial class frmMain : Form
     {
         private IUser _user;
-        private Form _userAuth;
-        private List<IAccount> _accounts;
-        private List<ICategory> _categories;
-
+        private Form _userAuth;      
+        
         public frmMain(IUser user, Form userAuth)
         {
             InitializeComponent();
@@ -20,13 +19,6 @@ namespace Financial_Analyst.View
             _user = user;
             txtUserName.Text = _user.FIO;          
             
-            _accounts = new List<IAccount>();          //переписать на transactionRepozitory
-            _accounts.Add(new Account("Мама", 2345, new List<int> { 1,2,3}));
-
-            _categories = new List<ICategory>();
-            //_categories.Add(new Category("Еда", "Ашан", Color.Red, CategoryType.Expense));
-            //_categories.Add(new Category("Зарплата", "Работа", Color.Green, CategoryType.Incom)); //переписать
-
             dgvListTransactions.AutoGenerateColumns = false;
             RefreshForm();            
         }
@@ -36,7 +28,7 @@ namespace Financial_Analyst.View
             _userAuth.Show();
         }
       
-        private void RefreshForm()
+        private void RefreshForm()   //обновить список транзакций
         {
             dgvListTransactions.Rows.Clear();
             foreach(ITransaction transaction in TransactionProcessor.GetTransactions(_user))
@@ -48,17 +40,31 @@ namespace Financial_Analyst.View
 
         private void RefreshCmbChoiceCategoryFastAddExpenses()
         {
-            // обновить список категорий
+            // обновить список категорий в комбо боксе
             cmbChoiceCategoryFastAddExpenses.Items.Clear();
-            foreach(ICategory category in _categories)
+            foreach(ICategory category in CategoryProcessor.GetCategory())
             {
                 cmbChoiceCategoryFastAddExpenses.Items.Add(category.Name);
             }
         }
 
+        private void RefreshCmbAccountChoise()   // обновить список счетов в комбо боксе
+        {
+            // обновить список счетов
+            cmbAccountChoise.Items.Clear();
+            foreach (IAccount account in AccountProcessor.GetAccounts(_user))
+            {
+                cmbAccountChoise.Items.Add(account.Name);
+            }
+        }
+
         private void счетаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAccounts accounts = new frmAccounts();
+            frmAccounts accounts = new frmAccounts(_user);
+            if (accounts.ShowDialog() == DialogResult.OK)
+            {
+                RefreshCmbAccountChoise();
+            }
             accounts.ShowDialog();
         }
 
@@ -83,11 +89,10 @@ namespace Financial_Analyst.View
         private void AddCategoriesToolStripMenuItem_Click(object sender, EventArgs e) //добавить категорию
         {
             frmCreatingCategories creatingCategories = new frmCreatingCategories();
-            //if (creatingCategories.ShowDialog() == DialogResult.OK)
-            //{
-            //    _categories.Add(creatingCategories);
-            // RefreshCmbChoiceCategoryFastAddExpenses()
-            //}
+            if (creatingCategories.ShowDialog() == DialogResult.OK)
+            {
+                RefreshCmbChoiceCategoryFastAddExpenses();
+            }
             creatingCategories.ShowDialog();
         }
 
@@ -112,7 +117,7 @@ namespace Financial_Analyst.View
                 }
 
                 IAccount currentAccount = null;
-                foreach (Account account in _accounts)
+                foreach (Account account in AccountProcessor.GetAccounts(_user))
                 {
                     if (cmbAccountChoise.Text == account.Name)
                     {
@@ -126,7 +131,7 @@ namespace Financial_Analyst.View
                 }
 
                 ICategory currentCategory = null;
-                foreach (Category category in _categories)
+                foreach (Category category in CategoryProcessor.GetCategory())
                 {
                     if (cmbChoiceCategoryFastAddExpenses.Text == category.Name)
                     {
@@ -139,12 +144,12 @@ namespace Financial_Analyst.View
                     throw new Exception("Категория не найдена");
                 }
 
-                TransactionProcessor.CreateTransaction(dateTime, paymentSum, currentUser, currentAccount, currentCategory);                
+                TransactionProcessor.CreateTransaction(dateTime, paymentSum, currentUser, 
+                                                       currentAccount,currentCategory);                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка!"); 
-                //MessageBoxButtons., MessageBoxIcon.Error
             }
             RefreshForm();
         }
@@ -152,7 +157,7 @@ namespace Financial_Analyst.View
         private void CheckComboBoxAccountChoise()
         {
             cmbAccountChoise.Items.Clear();
-            foreach (IAccount accounts in _accounts)
+            foreach (IAccount accounts in AccountProcessor.GetAccounts(_user))
             {
                 cmbAccountChoise.Items.Add(accounts.Name);
             }
@@ -161,7 +166,7 @@ namespace Financial_Analyst.View
         private void CheckComboBoxChoiceCategoryFastAddExpenses()
         {
             cmbChoiceCategoryFastAddExpenses.Items.Clear();
-            foreach (ICategory categories in _categories)
+            foreach (ICategory categories in CategoryProcessor.GetCategory())
             {
                 cmbChoiceCategoryFastAddExpenses.Items.Add(categories.Name);
             }
@@ -182,5 +187,13 @@ namespace Financial_Analyst.View
             CheckComboBoxChoiceCategoryFastAddExpenses();
             CheckComboBoxUserFastAddExpenses();
         }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+            _userAuth.Show();
+        }
+
+        
     }
 }

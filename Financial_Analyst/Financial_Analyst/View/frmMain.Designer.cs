@@ -36,7 +36,6 @@ namespace Financial_Analyst.View
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выгрузкаВExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.пересозданиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,9 +74,10 @@ namespace Financial_Analyst.View
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.saveFileDialogUnloadingInExcel = new System.Windows.Forms.SaveFileDialog();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.lblUser = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.grbTransactionFeed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListTransactions)).BeginInit();
@@ -105,7 +105,6 @@ namespace Financial_Analyst.View
             // 
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.выгрузкаВExcelToolStripMenuItem,
-            this.пересозданиеToolStripMenuItem,
             this.toolStripMenuItem1,
             this.выходToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
@@ -118,12 +117,6 @@ namespace Financial_Analyst.View
             this.выгрузкаВExcelToolStripMenuItem.Size = new System.Drawing.Size(336, 26);
             this.выгрузкаВExcelToolStripMenuItem.Text = "Выгрузка списка транзакций в Excel";
             // 
-            // пересозданиеToolStripMenuItem
-            // 
-            this.пересозданиеToolStripMenuItem.Name = "пересозданиеToolStripMenuItem";
-            this.пересозданиеToolStripMenuItem.Size = new System.Drawing.Size(336, 26);
-            this.пересозданиеToolStripMenuItem.Text = "Пересоздать БД";
-            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
@@ -134,6 +127,7 @@ namespace Financial_Analyst.View
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(336, 26);
             this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // настройкиToolStripMenuItem
             // 
@@ -238,6 +232,8 @@ namespace Financial_Analyst.View
             // 
             // dgvListTransactions
             // 
+            this.dgvListTransactions.AllowUserToAddRows = false;
+            this.dgvListTransactions.AllowUserToDeleteRows = false;
             this.dgvListTransactions.AllowUserToOrderColumns = true;
             this.dgvListTransactions.AllowUserToResizeRows = false;
             this.dgvListTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -346,6 +342,7 @@ namespace Financial_Analyst.View
             this.cmbAccountChoise.Name = "cmbAccountChoise";
             this.cmbAccountChoise.Size = new System.Drawing.Size(164, 24);
             this.cmbAccountChoise.TabIndex = 8;
+            
             // 
             // label3
             // 
@@ -565,7 +562,6 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.ToolStripMenuItem работаСТранзакциямиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem прочееToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выгрузкаВExcelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem пересозданиеToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem счетаToolStripMenuItem;
@@ -594,7 +590,6 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnApplyFilters;
-        private System.Windows.Forms.SaveFileDialog saveFileDialogUnloadingInExcel;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
@@ -604,5 +599,7 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.DataGridViewTextBoxColumn clmComment;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbAccountChoise;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

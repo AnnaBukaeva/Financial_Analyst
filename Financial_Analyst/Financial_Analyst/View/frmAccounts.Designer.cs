@@ -30,57 +30,67 @@ namespace Financial_Analyst.View
         private void InitializeComponent()
         {
             this.grbAddAccounts = new System.Windows.Forms.GroupBox();
+            this.clbAccountUserAccess = new System.Windows.Forms.CheckedListBox();
             this.lblRuble = new System.Windows.Forms.Label();
             this.txtAccountBalance = new System.Windows.Forms.TextBox();
             this.lblBalance = new System.Windows.Forms.Label();
-            this.btnOKSaveAccounts = new System.Windows.Forms.Button();
-            this.btnDeleteAccount = new System.Windows.Forms.Button();
+            this.btnOKAccounts = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
-            this.txtAccountDescription = new System.Windows.Forms.TextBox();
+            this.txtAccountComment = new System.Windows.Forms.TextBox();
             this.lblAccountDescription = new System.Windows.Forms.Label();
             this.txtAccountName = new System.Windows.Forms.TextBox();
             this.lblAccountName = new System.Windows.Forms.Label();
             this.grbAccounts = new System.Windows.Forms.GroupBox();
-            this.lbListAccounts = new System.Windows.Forms.ListBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.dgvListAccounts = new System.Windows.Forms.DataGridView();
+            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnComment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbAddAccounts.SuspendLayout();
             this.grbAccounts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListAccounts)).BeginInit();
             this.SuspendLayout();
             // 
             // grbAddAccounts
             // 
-            this.grbAddAccounts.Controls.Add(this.checkedListBox1);
+            this.grbAddAccounts.Controls.Add(this.clbAccountUserAccess);
             this.grbAddAccounts.Controls.Add(this.lblRuble);
             this.grbAddAccounts.Controls.Add(this.txtAccountBalance);
             this.grbAddAccounts.Controls.Add(this.lblBalance);
-            this.grbAddAccounts.Controls.Add(this.btnOKSaveAccounts);
-            this.grbAddAccounts.Controls.Add(this.btnDeleteAccount);
+            this.grbAddAccounts.Controls.Add(this.btnOKAccounts);
             this.grbAddAccounts.Controls.Add(this.btnAddAccount);
-            this.grbAddAccounts.Controls.Add(this.txtAccountDescription);
+            this.grbAddAccounts.Controls.Add(this.txtAccountComment);
             this.grbAddAccounts.Controls.Add(this.lblAccountDescription);
             this.grbAddAccounts.Controls.Add(this.txtAccountName);
             this.grbAddAccounts.Controls.Add(this.lblAccountName);
-            this.grbAddAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.grbAddAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.grbAddAccounts.Location = new System.Drawing.Point(351, 6);
             this.grbAddAccounts.Name = "grbAddAccounts";
-            this.grbAddAccounts.Size = new System.Drawing.Size(351, 377);
+            this.grbAddAccounts.Size = new System.Drawing.Size(339, 325);
             this.grbAddAccounts.TabIndex = 3;
             this.grbAddAccounts.TabStop = false;
+            // 
+            // clbAccountUserAccess
+            // 
+            this.clbAccountUserAccess.FormattingEnabled = true;
+            this.clbAccountUserAccess.Location = new System.Drawing.Point(6, 182);
+            this.clbAccountUserAccess.Name = "clbAccountUserAccess";
+            this.clbAccountUserAccess.Size = new System.Drawing.Size(200, 130);
+            this.clbAccountUserAccess.TabIndex = 9;
             // 
             // lblRuble
             // 
             this.lblRuble.AutoSize = true;
-            this.lblRuble.Location = new System.Drawing.Point(290, 63);
+            this.lblRuble.Location = new System.Drawing.Point(273, 63);
             this.lblRuble.Name = "lblRuble";
-            this.lblRuble.Size = new System.Drawing.Size(38, 20);
+            this.lblRuble.Size = new System.Drawing.Size(35, 17);
             this.lblRuble.TabIndex = 8;
             this.lblRuble.Text = "руб.";
             // 
             // txtAccountBalance
             // 
-            this.txtAccountBalance.Location = new System.Drawing.Point(101, 57);
+            this.txtAccountBalance.Location = new System.Drawing.Point(84, 60);
             this.txtAccountBalance.Name = "txtAccountBalance";
-            this.txtAccountBalance.Size = new System.Drawing.Size(183, 26);
+            this.txtAccountBalance.Size = new System.Drawing.Size(183, 23);
             this.txtAccountBalance.TabIndex = 7;
             // 
             // lblBalance
@@ -88,62 +98,54 @@ namespace Financial_Analyst.View
             this.lblBalance.AutoSize = true;
             this.lblBalance.Location = new System.Drawing.Point(6, 63);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(65, 20);
+            this.lblBalance.Size = new System.Drawing.Size(56, 17);
             this.lblBalance.TabIndex = 6;
             this.lblBalance.Text = "Баланс";
             // 
-            // btnOKSaveAccounts
+            // btnOKAccounts
             // 
-            this.btnOKSaveAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnOKSaveAccounts.Location = new System.Drawing.Point(248, 332);
-            this.btnOKSaveAccounts.Name = "btnOKSaveAccounts";
-            this.btnOKSaveAccounts.Size = new System.Drawing.Size(97, 39);
-            this.btnOKSaveAccounts.TabIndex = 5;
-            this.btnOKSaveAccounts.Text = "ОК";
-            this.btnOKSaveAccounts.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteAccount
-            // 
-            this.btnDeleteAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDeleteAccount.Location = new System.Drawing.Point(248, 247);
-            this.btnDeleteAccount.Name = "btnDeleteAccount";
-            this.btnDeleteAccount.Size = new System.Drawing.Size(97, 38);
-            this.btnDeleteAccount.TabIndex = 4;
-            this.btnDeleteAccount.Text = "Удалить";
-            this.btnDeleteAccount.UseVisualStyleBackColor = true;
+            this.btnOKAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnOKAccounts.Location = new System.Drawing.Point(231, 278);
+            this.btnOKAccounts.Name = "btnOKAccounts";
+            this.btnOKAccounts.Size = new System.Drawing.Size(97, 39);
+            this.btnOKAccounts.TabIndex = 5;
+            this.btnOKAccounts.Text = "ОК";
+            this.btnOKAccounts.UseVisualStyleBackColor = true;
+            this.btnOKAccounts.Click += new System.EventHandler(this.btnOKAccounts_Click);
             // 
             // btnAddAccount
             // 
-            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddAccount.Location = new System.Drawing.Point(248, 193);
+            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddAccount.Location = new System.Drawing.Point(231, 182);
             this.btnAddAccount.Name = "btnAddAccount";
             this.btnAddAccount.Size = new System.Drawing.Size(97, 38);
             this.btnAddAccount.TabIndex = 2;
             this.btnAddAccount.Text = "Добавить";
             this.btnAddAccount.UseVisualStyleBackColor = true;
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
-            // txtAccountDescription
+            // txtAccountComment
             // 
-            this.txtAccountDescription.Location = new System.Drawing.Point(101, 103);
-            this.txtAccountDescription.Multiline = true;
-            this.txtAccountDescription.Name = "txtAccountDescription";
-            this.txtAccountDescription.Size = new System.Drawing.Size(244, 73);
-            this.txtAccountDescription.TabIndex = 3;
+            this.txtAccountComment.Location = new System.Drawing.Point(84, 103);
+            this.txtAccountComment.Multiline = true;
+            this.txtAccountComment.Name = "txtAccountComment";
+            this.txtAccountComment.Size = new System.Drawing.Size(244, 73);
+            this.txtAccountComment.TabIndex = 3;
             // 
             // lblAccountDescription
             // 
             this.lblAccountDescription.AutoSize = true;
             this.lblAccountDescription.Location = new System.Drawing.Point(6, 109);
             this.lblAccountDescription.Name = "lblAccountDescription";
-            this.lblAccountDescription.Size = new System.Drawing.Size(83, 20);
+            this.lblAccountDescription.Size = new System.Drawing.Size(74, 17);
             this.lblAccountDescription.TabIndex = 2;
             this.lblAccountDescription.Text = "Описание";
             // 
             // txtAccountName
             // 
-            this.txtAccountName.Location = new System.Drawing.Point(101, 16);
+            this.txtAccountName.Location = new System.Drawing.Point(84, 19);
             this.txtAccountName.Name = "txtAccountName";
-            this.txtAccountName.Size = new System.Drawing.Size(244, 26);
+            this.txtAccountName.Size = new System.Drawing.Size(244, 23);
             this.txtAccountName.TabIndex = 1;
             // 
             // lblAccountName
@@ -151,44 +153,60 @@ namespace Financial_Analyst.View
             this.lblAccountName.AutoSize = true;
             this.lblAccountName.Location = new System.Drawing.Point(6, 22);
             this.lblAccountName.Name = "lblAccountName";
-            this.lblAccountName.Size = new System.Drawing.Size(83, 20);
+            this.lblAccountName.Size = new System.Drawing.Size(72, 17);
             this.lblAccountName.TabIndex = 0;
             this.lblAccountName.Text = "Название";
             // 
             // grbAccounts
             // 
-            this.grbAccounts.Controls.Add(this.lbListAccounts);
-            this.grbAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.grbAccounts.Controls.Add(this.dgvListAccounts);
+            this.grbAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.grbAccounts.Location = new System.Drawing.Point(4, 6);
             this.grbAccounts.Name = "grbAccounts";
-            this.grbAccounts.Size = new System.Drawing.Size(341, 380);
+            this.grbAccounts.Size = new System.Drawing.Size(341, 325);
             this.grbAccounts.TabIndex = 2;
             this.grbAccounts.TabStop = false;
             this.grbAccounts.Text = "Счета";
             // 
-            // lbListAccounts
+            // dgvListAccounts
             // 
-            this.lbListAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbListAccounts.FormattingEnabled = true;
-            this.lbListAccounts.ItemHeight = 20;
-            this.lbListAccounts.Location = new System.Drawing.Point(3, 22);
-            this.lbListAccounts.Name = "lbListAccounts";
-            this.lbListAccounts.Size = new System.Drawing.Size(335, 355);
-            this.lbListAccounts.TabIndex = 0;
+            this.dgvListAccounts.AllowUserToAddRows = false;
+            this.dgvListAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmName,
+            this.clnBalance,
+            this.clnComment});
+            this.dgvListAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvListAccounts.Location = new System.Drawing.Point(3, 19);
+            this.dgvListAccounts.Name = "dgvListAccounts";
+            this.dgvListAccounts.ReadOnly = true;
+            this.dgvListAccounts.RowHeadersVisible = false;
+            this.dgvListAccounts.Size = new System.Drawing.Size(335, 303);
+            this.dgvListAccounts.TabIndex = 0;
             // 
-            // checkedListBox1
+            // clmName
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(10, 193);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(212, 172);
-            this.checkedListBox1.TabIndex = 9;
+            this.clmName.DataPropertyName = "Name";
+            this.clmName.HeaderText = "Название";
+            this.clmName.Name = "clmName";
+            // 
+            // clnBalance
+            // 
+            this.clnBalance.DataPropertyName = "Balance";
+            this.clnBalance.HeaderText = "Баланс";
+            this.clnBalance.Name = "clnBalance";
+            // 
+            // clnComment
+            // 
+            this.clnComment.DataPropertyName = "Comment";
+            this.clnComment.HeaderText = "Описание";
+            this.clnComment.Name = "clnComment";
             // 
             // frmAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 390);
+            this.ClientSize = new System.Drawing.Size(698, 334);
             this.Controls.Add(this.grbAddAccounts);
             this.Controls.Add(this.grbAccounts);
             this.Name = "frmAccounts";
@@ -196,6 +214,7 @@ namespace Financial_Analyst.View
             this.grbAddAccounts.ResumeLayout(false);
             this.grbAddAccounts.PerformLayout();
             this.grbAccounts.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListAccounts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -203,18 +222,20 @@ namespace Financial_Analyst.View
         #endregion
 
         private System.Windows.Forms.GroupBox grbAddAccounts;
-        private System.Windows.Forms.Button btnOKSaveAccounts;
-        private System.Windows.Forms.Button btnDeleteAccount;
+        private System.Windows.Forms.Button btnOKAccounts;
         private System.Windows.Forms.Button btnAddAccount;
-        private System.Windows.Forms.TextBox txtAccountDescription;
+        private System.Windows.Forms.TextBox txtAccountComment;
         private System.Windows.Forms.Label lblAccountDescription;
         private System.Windows.Forms.GroupBox grbAccounts;
-        private System.Windows.Forms.ListBox lbListAccounts;
         private System.Windows.Forms.Label lblRuble;
         private System.Windows.Forms.TextBox txtAccountBalance;
         private System.Windows.Forms.Label lblBalance;
         private System.Windows.Forms.TextBox txtAccountName;
         private System.Windows.Forms.Label lblAccountName;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.DataGridView dgvListAccounts;
+        private System.Windows.Forms.CheckedListBox clbAccountUserAccess;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnBalance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnComment;
     }
 }

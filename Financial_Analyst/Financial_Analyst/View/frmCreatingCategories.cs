@@ -14,19 +14,17 @@ namespace Financial_Analyst.View
     public partial class frmCreatingCategories : Form
     {
         
-        private List<ICategory> _categories; //потом удалить
         public frmCreatingCategories()
         {
             InitializeComponent();
-            _categories = new List<ICategory>();
             RefreshList();
         }
 
         private void RefreshList()
         {
             dgvListCategories.Rows.Clear();
-            foreach (ICategory categories in _categories)
-            {      
+            foreach (ICategory categories in CategoryProcessor.GetCategory())
+            {
                 dgvListCategories.Rows.Add(categories.Name, categories.CType, categories.Discription,
                                            categories.CategoryColor);
             }
@@ -38,11 +36,6 @@ namespace Financial_Analyst.View
             txtColorCategory.BackColor = colorDialogCategory.Color;
         }
 
-        private void btnOkCatecory_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-            Close();
-        }
 
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
@@ -57,9 +50,8 @@ namespace Financial_Analyst.View
                 string discriptionCategory = txtDiscriptionCategory.Text;
                 Color colorCategory = colorDialogCategory.Color;     
 
-                ICategory category = new Category(nameCategory, discriptionCategory, colorCategory, 
+                CategoryProcessor.CreateCategory(nameCategory, discriptionCategory, colorCategory,
                                     (CategoryType)cmpTypeTransaction.SelectedIndex);
-                _categories.Add(category);
 
             }
             catch (Exception ex)
@@ -69,6 +61,12 @@ namespace Financial_Analyst.View
             }
 
             RefreshList();
+        }
+
+        private void btnOkCatecory_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }

@@ -14,14 +14,14 @@ namespace Financial_Analyst.Logic
             _accounts = AccountRepository.GetAccounts();
         }
 
-        public static void CreateAccount (string name, decimal balance, List<int> usersAccess)
+        public static void CreateAccount(string name, decimal balance, string comment, List<int> usersAccess)
         {
-            IAccount account = new Account (name, balance, usersAccess);
+            IAccount account = new Account(name, balance, comment, usersAccess);
             _accounts.Add(account);
             AccountRepository.SaveAccount(account);
-        } 
+        }
 
-        public static IReadOnlyCollection<IAccount> GetAccounts (IUser user)
+        public static IReadOnlyCollection<IAccount> GetAccounts(IUser user)
         {
             List<IAccount> accountsAccessible = new List<IAccount>();      //доступные транзакции
             foreach (IAccount account in _accounts)
@@ -34,5 +34,6 @@ namespace Financial_Analyst.Logic
             IReadOnlyCollection<IAccount> result = new ReadOnlyCollection<IAccount>(accountsAccessible);
             return result;
         }
+
     }
 }
