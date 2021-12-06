@@ -11,7 +11,7 @@ namespace Financial_Analyst.Logic
         public string Comment { get; set; }
         public List<int> UsersAccess { get; } //ID пользователейу которых есть доступ к счету
 
-        public Account(string name, decimal balance, List<int> usersAccess)
+        public Account(string name, decimal balance, string comment, List<int> usersAccess)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -19,6 +19,7 @@ namespace Financial_Analyst.Logic
             }
             Name = name;
             Balance = balance;
+            Comment = comment;
             UsersAccess = usersAccess;
         }
 

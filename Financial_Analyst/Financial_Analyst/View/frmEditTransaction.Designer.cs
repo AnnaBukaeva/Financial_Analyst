@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBoxEditTransaction = new System.Windows.Forms.GroupBox();
+            this.cmbChoiceUser = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbTypeTransactionChoice = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,8 +47,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancelExpenses = new System.Windows.Forms.Button();
             this.btnOkExpenses = new System.Windows.Forms.Button();
-            this.cmbChoiceUser = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBoxEditTransaction.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,24 @@
             this.groupBoxEditTransaction.TabIndex = 0;
             this.groupBoxEditTransaction.TabStop = false;
             // 
+            // cmbChoiceUser
+            // 
+            this.cmbChoiceUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChoiceUser.FormattingEnabled = true;
+            this.cmbChoiceUser.Location = new System.Drawing.Point(140, 96);
+            this.cmbChoiceUser.Name = "cmbChoiceUser";
+            this.cmbChoiceUser.Size = new System.Drawing.Size(191, 28);
+            this.cmbChoiceUser.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Пользователь";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -88,6 +106,9 @@
             // 
             this.cmbTypeTransactionChoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTypeTransactionChoice.FormattingEnabled = true;
+            this.cmbTypeTransactionChoice.Items.AddRange(new object[] {
+            "Доход",
+            "Расход"});
             this.cmbTypeTransactionChoice.Location = new System.Drawing.Point(140, 53);
             this.cmbTypeTransactionChoice.Name = "cmbTypeTransactionChoice";
             this.cmbTypeTransactionChoice.Size = new System.Drawing.Size(191, 28);
@@ -217,24 +238,6 @@
             this.btnOkExpenses.Text = "OK";
             this.btnOkExpenses.UseVisualStyleBackColor = true;
             this.btnOkExpenses.Click += new System.EventHandler(this.btnOkExpenses_Click);
-            // 
-            // cmbChoiceUser
-            // 
-            this.cmbChoiceUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbChoiceUser.FormattingEnabled = true;
-            this.cmbChoiceUser.Location = new System.Drawing.Point(140, 96);
-            this.cmbChoiceUser.Name = "cmbChoiceUser";
-            this.cmbChoiceUser.Size = new System.Drawing.Size(191, 28);
-            this.cmbChoiceUser.TabIndex = 14;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 99);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 20);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Пользователь";
             // 
             // frmEditTransaction
             // 

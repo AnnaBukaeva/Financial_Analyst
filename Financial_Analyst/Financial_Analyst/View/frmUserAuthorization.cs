@@ -29,6 +29,8 @@ namespace Financial_Analyst.View
 
                 frmMain mainForm = new frmMain(user, this);
                 mainForm.Show();
+                txtFIO.Clear();
+                txtPassword.Clear();
                 Hide();
             }
             catch (Exception ex)
