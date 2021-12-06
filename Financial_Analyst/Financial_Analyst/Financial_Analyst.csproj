@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Data\AccountRepository.cs" />
     <Compile Include="Data\CategoryRepository.cs" />
+    <Compile Include="Data\LastIDRepository.cs" />
     <Compile Include="Data\TransactionRepository.cs" />
     <Compile Include="Data\UsersRepository.cs" />
     <Compile Include="Logic\Account.cs" />

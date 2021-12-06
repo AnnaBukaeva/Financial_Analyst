@@ -61,5 +61,36 @@ namespace Financial_Analyst.Data
                 bf.Serialize(fl, actual_accounts);
             }
         }
+
+        public static void UpdateAccount(IAccount account)
+        {
+            List<IAccount> actual_accounts = new List<IAccount>();
+
+            BinaryFormatter bf = new BinaryFormatter();
+
+            try
+            {
+                using (FileStream fl = new FileStream(account_filename, FileMode.Open))
+                {
+                    actual_accounts = (List<IAccount>)bf.Deserialize(fl);
+                }
+            }
+            catch { }
+
+            foreach (IAccount item in actual_accounts)
+            {
+                if (item.Name == account.Name)
+                {
+                    actual_accounts.Remove(item);
+                    break;
+                }
+            }
+            actual_accounts.Add(account);
+
+            using (FileStream fl = new FileStream(account_filename, FileMode.Create))
+            {
+                bf.Serialize(fl, actual_accounts);
+            }
+        }
     }
 }
