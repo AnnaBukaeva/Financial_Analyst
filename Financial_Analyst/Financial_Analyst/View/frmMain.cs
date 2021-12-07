@@ -65,7 +65,7 @@ namespace Financial_Analyst.View
             {
                 RefreshCmbAccountChoise();
             }
-            accounts.ShowDialog();
+            //accounts.ShowDialog();
         }
 
         private void AddTransactionToolStripMenuItem_Click(object sender, EventArgs e) //добавить транзакции
@@ -93,7 +93,7 @@ namespace Financial_Analyst.View
             {
                 RefreshCmbChoiceCategoryFastAddExpenses();
             }
-            creatingCategories.ShowDialog();
+            //creatingCategories.ShowDialog();
         }
 
         private void btnAddFastAddExpenses_Click(object sender, EventArgs e) //добавить быструю транзакцию

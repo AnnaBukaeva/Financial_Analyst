@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Financial_Analyst.Logic;
 
@@ -26,7 +21,6 @@ namespace Financial_Analyst.View
                 clbAccountUserAccess.Items.Add(us.FIO);
             }
             RefreshList();
-
         }
 
         private void RefreshList()
@@ -69,7 +63,6 @@ namespace Financial_Analyst.View
                     {
                         IDs.Add(_userIDs[check.ToString()]);
                     }
-
                 }
                 else
                 {
@@ -90,7 +83,6 @@ namespace Financial_Analyst.View
         {
             DialogResult = DialogResult.OK;
             Close();
-        }
-            
+        }            
     }
 }

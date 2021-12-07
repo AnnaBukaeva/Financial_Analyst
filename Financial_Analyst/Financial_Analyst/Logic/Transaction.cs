@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Financial_Analyst.Data;
+using System;
 
 namespace Financial_Analyst.Logic
 {
@@ -12,15 +13,24 @@ namespace Financial_Analyst.Logic
         public IAccount Account { get; set; }
         public ICategory Category { get; set; }
 
-        public Transaction(DateTime date, decimal paymentSum,  IUser user, IAccount account, ICategory category, string comment = null)
+        public Transaction(DateTime date, decimal paymentSum, IUser user, IAccount account, ICategory category, string comment = null)
         {
+            if (category.CType == CategoryType.Incom)
+            {
+                paymentSum = Math.Abs(paymentSum);                
+            }
+            if (category.CType == CategoryType.Expense)
+            {
+                paymentSum = Math.Abs(paymentSum) * -1; 
+            }
             Date = date;
             PaymentSum = paymentSum;
             Comment = comment;
             User = user;
             Account = account;
             Category = category;
-            Account.ChangeBalance(paymentSum); //вызвали метод аккаунта чтобы в момент создания транзакции менялся баланс счета
+            Account.ChangeBalance(paymentSum);
+            AccountRepository.UpdateAccount(account);
         }
     }
 }

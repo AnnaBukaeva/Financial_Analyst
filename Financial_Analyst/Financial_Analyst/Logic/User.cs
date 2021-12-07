@@ -1,4 +1,5 @@
 ﻿using System;
+using Financial_Analyst.Data;
 using Financial_Analyst.Logic.Helpers;
 
 namespace Financial_Analyst.Logic
@@ -7,15 +8,18 @@ namespace Financial_Analyst.Logic
     public class User : IUser
     {
         private string _pass_hash;
+        
 
         public string FIO { get; set; }
-        public int ID { get; }
-        public static int LastID { get; set; } = 0;
+        public int ID { get; }       
         
         public User(string fio, string pass_hash)
         {
-            LastID++;
-            ID = LastID;
+            int lastID = LastIDRepository.GetLastID();
+            lastID++;
+            ID = lastID;
+            LastIDRepository.SaveLastID(lastID);
+
             if (string.IsNullOrEmpty(fio))
             {
                 throw new ArgumentNullException("FirstName should not be empty or null!");
