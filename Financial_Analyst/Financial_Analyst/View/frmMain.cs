@@ -34,7 +34,7 @@ namespace Financial_Analyst.View
             foreach(ITransaction transaction in TransactionProcessor.GetTransactions(_user))
             {
                 dgvListTransactions.Rows.Add(transaction.Date, transaction.PaymentSum, transaction.Category.Name, 
-                                             transaction.User.FIO, transaction.Comment);
+                                             transaction.User.FIO, transaction.Comment,transaction.TransactionID);
             }
         }
 
@@ -194,6 +194,16 @@ namespace Financial_Analyst.View
             _userAuth.Show();
         }
 
-        
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+            TransactionProcessor.RemoveTransaction(Convert.ToInt32(textBoxTransactionID.Text));
+            RefreshForm();
+        }
+
+        private void аналитикаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCircleDiagramm analyticForm = new frmCircleDiagramm(_user);
+            analyticForm.Show();
+        }
     }
 }

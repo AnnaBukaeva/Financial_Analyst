@@ -7,8 +7,7 @@ namespace Financial_Analyst.Logic
     [Serializable]
     public class User : IUser
     {
-        private string _pass_hash;
-        
+        private string _pass_hash;        
 
         public string FIO { get; set; }
         public int ID { get; }       

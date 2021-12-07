@@ -4,6 +4,7 @@ namespace Financial_Analyst.Logic
 {
     public interface ITransaction
     {
+        int TransactionID { get; }
         DateTime Date { get; }
         decimal PaymentSum { get; }
         string Comment { get; set; } // описание

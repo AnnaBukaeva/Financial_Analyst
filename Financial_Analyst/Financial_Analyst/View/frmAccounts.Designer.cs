@@ -72,7 +72,7 @@ namespace Financial_Analyst.View
             // clbAccountUserAccess
             // 
             this.clbAccountUserAccess.FormattingEnabled = true;
-            this.clbAccountUserAccess.Location = new System.Drawing.Point(6, 182);
+            this.clbAccountUserAccess.Location = new System.Drawing.Point(0, 192);
             this.clbAccountUserAccess.Name = "clbAccountUserAccess";
             this.clbAccountUserAccess.Size = new System.Drawing.Size(200, 130);
             this.clbAccountUserAccess.TabIndex = 9;
@@ -105,9 +105,9 @@ namespace Financial_Analyst.View
             // btnOKAccounts
             // 
             this.btnOKAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnOKAccounts.Location = new System.Drawing.Point(231, 278);
+            this.btnOKAccounts.Location = new System.Drawing.Point(231, 285);
             this.btnOKAccounts.Name = "btnOKAccounts";
-            this.btnOKAccounts.Size = new System.Drawing.Size(97, 39);
+            this.btnOKAccounts.Size = new System.Drawing.Size(97, 37);
             this.btnOKAccounts.TabIndex = 5;
             this.btnOKAccounts.Text = "ОК";
             this.btnOKAccounts.UseVisualStyleBackColor = true;
@@ -116,7 +116,7 @@ namespace Financial_Analyst.View
             // btnAddAccount
             // 
             this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddAccount.Location = new System.Drawing.Point(231, 182);
+            this.btnAddAccount.Location = new System.Drawing.Point(231, 192);
             this.btnAddAccount.Name = "btnAddAccount";
             this.btnAddAccount.Size = new System.Drawing.Size(97, 38);
             this.btnAddAccount.TabIndex = 2;
@@ -189,18 +189,21 @@ namespace Financial_Analyst.View
             this.clmName.DataPropertyName = "Name";
             this.clmName.HeaderText = "Название";
             this.clmName.Name = "clmName";
+            this.clmName.ReadOnly = true;
             // 
             // clnBalance
             // 
             this.clnBalance.DataPropertyName = "Balance";
             this.clnBalance.HeaderText = "Баланс";
             this.clnBalance.Name = "clnBalance";
+            this.clnBalance.ReadOnly = true;
             // 
             // clnComment
             // 
             this.clnComment.DataPropertyName = "Comment";
             this.clnComment.HeaderText = "Описание";
             this.clnComment.Name = "clnComment";
+            this.clnComment.ReadOnly = true;
             // 
             // frmAccounts
             // 
