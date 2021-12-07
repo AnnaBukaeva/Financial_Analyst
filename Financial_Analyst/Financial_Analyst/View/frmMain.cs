@@ -11,46 +11,50 @@ namespace Financial_Analyst.View
     {
         private IUser _user;
         private Form _userAuth;      
-        
+     
         public frmMain(IUser user, Form userAuth)
         {
             InitializeComponent();
             _userAuth = userAuth;
             _user = user;
-            txtUserName.Text = _user.FIO;          
+            txtUserName.Text = _user.FIO; 
             
             dgvListTransactions.AutoGenerateColumns = false;
-            RefreshForm();            
+            RefreshDgvListTransactions();            
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             _userAuth.Show();
         }
-      
-        private void RefreshForm()   //обновить список транзакций
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+            _userAuth.Show();
+        }
+
+        private void RefreshDgvListTransactions()   //обновить список транзакций (в табличке)
         {
             dgvListTransactions.Rows.Clear();
             foreach(ITransaction transaction in TransactionProcessor.GetTransactions(_user))
-            {
+            {            
                 dgvListTransactions.Rows.Add(transaction.Date, transaction.PaymentSum, transaction.Category.Name, 
-                                             transaction.User.FIO, transaction.Comment);
+                                             transaction.User.FIO, transaction.Account.Name, transaction.Comment);
             }
         }
 
-        private void RefreshCmbChoiceCategoryFastAddExpenses()
+        private void RefreshCmbChoiceCategoryTransaction() // обновить список категорий в комбо боксе
         {
-            // обновить список категорий в комбо боксе
-            cmbChoiceCategoryFastAddExpenses.Items.Clear();
+            cmbChoiceCategoryTransaction.Items.Clear();
             foreach(ICategory category in CategoryProcessor.GetCategory())
             {
-                cmbChoiceCategoryFastAddExpenses.Items.Add(category.Name);
+                cmbChoiceCategoryTransaction.Items.Add(category.Name);
             }
         }
 
         private void RefreshCmbAccountChoise()   // обновить список счетов в комбо боксе
         {
-            // обновить список счетов
             cmbAccountChoise.Items.Clear();
             foreach (IAccount account in AccountProcessor.GetAccounts(_user))
             {
@@ -58,54 +62,59 @@ namespace Financial_Analyst.View
             }
         }
 
-        private void счетаToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+        private void AccountsToolStripMenuItem_Click(object sender, EventArgs e) // создать счета
         {
             frmAccounts accounts = new frmAccounts(_user);
             if (accounts.ShowDialog() == DialogResult.OK)
             {
                 RefreshCmbAccountChoise();
             }
-            //accounts.ShowDialog();
         }
 
-        private void AddTransactionToolStripMenuItem_Click(object sender, EventArgs e) //добавить транзакции
-        {
-
-            frmEditTransaction transactions = new frmEditTransaction();
-            //if (transactions.ShowDialog() == DialogResult.OK)
-            //{
-            //    //_transaction.Add(transactions);
-            //   RefreshForm
-            //}
-            transactions.ShowDialog();
-        }
-
-        private void EditTransactionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmEditTransaction transactions = new frmEditTransaction();
-            transactions.ShowDialog();
-        }
-
-        private void AddCategoriesToolStripMenuItem_Click(object sender, EventArgs e) //добавить категорию
+        private void CategoriesToolStripMenuItem_Click(object sender, EventArgs e) // создать категоию транзакции
         {
             frmCreatingCategories creatingCategories = new frmCreatingCategories();
             if (creatingCategories.ShowDialog() == DialogResult.OK)
             {
-                RefreshCmbChoiceCategoryFastAddExpenses();
+                RefreshCmbChoiceCategoryTransaction();
             }
-            //creatingCategories.ShowDialog();
         }
 
-        private void btnAddFastAddExpenses_Click(object sender, EventArgs e) //добавить быструю транзакцию
-        { 
+        private void cmbTypeTransaction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // (CategoryType)cmpTypeTransaction.SelectedIndex
+            //if (cmbTypeTransaction.SelectedIndex == 0)
+            //{
+            //    cmbChoiceCategoryTransaction.Items.Clear();
+            //    foreach(ICategory cat in CategoryProcessor.GetCategory())
+            //    {
+            //        cmbChoiceCategoryTransaction.Items.Add(cat.Name); 
+            //    }
+            //    else if (cmbTypeTransaction.SelectedIndex == 1)
+            //    {
+            //        cmbChoiceCategoryTransaction.Items.Clear();
+            //        foreach (ICategory cat in CategoryProcessor.GetCategory())
+            //        {
+            //            cmbChoiceCategoryTransaction.Items.Add(cat);
+            //        }
+            //    }
+            //}
+        }
+
+        private void btnAddTransaction_Click(object sender, EventArgs e) //добавить транзакцию
+        {
             try
             {
-                DateTime dateTime = DateTime.Now;
-                decimal paymentSum = Convert.ToDecimal(txtSumFastAddExpenses.Text);
+                DateTime dateTime = dtpDate.Value;
+                decimal paymentSum = Convert.ToDecimal(txtSumTransaction.Text);
+                string comment = txtCommentForTransaction.Text;
+
                 IUser currentUser = null;
                 foreach (IUser user in UserProcessor.GetUsers())
                 {
-                    if (cmbChoiceUserFastAddExpenses.Text == user.FIO)
+                    if (cmbChoiceUserForTransaction.Text == user.FIO)
                     {
                         currentUser = user;
                         break;
@@ -129,11 +138,11 @@ namespace Financial_Analyst.View
                 {
                     throw new Exception("Счёт не найден!");
                 }
-
-                ICategory currentCategory = null;
+             
+                ICategory currentCategory = null;           
                 foreach (Category category in CategoryProcessor.GetCategory())
                 {
-                    if (cmbChoiceCategoryFastAddExpenses.Text == category.Name)
+                    if (cmbChoiceCategoryTransaction.Text == category.Name)
                     {
                         currentCategory = category;
                         break;
@@ -145,16 +154,17 @@ namespace Financial_Analyst.View
                 }
 
                 TransactionProcessor.CreateTransaction(dateTime, paymentSum, currentUser, 
-                                                       currentAccount,currentCategory);                
+                                                       currentAccount,currentCategory, comment);                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка!"); 
             }
-            RefreshForm();
+
+            RefreshDgvListTransactions();
         }
 
-        private void CheckComboBoxAccountChoise()
+        private void CheckComboBoxAccountChoise() // проверить комбо бокс выбора счетов
         {
             cmbAccountChoise.Items.Clear();
             foreach (IAccount accounts in AccountProcessor.GetAccounts(_user))
@@ -163,35 +173,29 @@ namespace Financial_Analyst.View
             }
         }
 
-        private void CheckComboBoxChoiceCategoryFastAddExpenses()
+        private void CheckComboBoxChoiceCategoryTransaction()   // проверить комбо бокс выбора категории
         {
-            cmbChoiceCategoryFastAddExpenses.Items.Clear();
+            cmbChoiceCategoryTransaction.Items.Clear();
             foreach (ICategory categories in CategoryProcessor.GetCategory())
             {
-                cmbChoiceCategoryFastAddExpenses.Items.Add(categories.Name);
+                cmbChoiceCategoryTransaction.Items.Add(categories.Name);
             }
         }
 
-        private void CheckComboBoxUserFastAddExpenses()
+        private void CheckComboBoxUserForTransaction() // проверить комбо бокс выбора пользователя, кот. принадл. транз.
         {
-            cmbChoiceUserFastAddExpenses.Items.Clear();
+            cmbChoiceUserForTransaction.Items.Clear();
             foreach (User users in UserProcessor.GetUsers())
             {
-                cmbChoiceUserFastAddExpenses.Items.Add(users.FIO);
+                cmbChoiceUserForTransaction.Items.Add(users.FIO);
             }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {           
             CheckComboBoxAccountChoise();
-            CheckComboBoxChoiceCategoryFastAddExpenses();
-            CheckComboBoxUserFastAddExpenses();
-        }
-
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-            _userAuth.Show();
+            CheckComboBoxChoiceCategoryTransaction();
+            CheckComboBoxUserForTransaction();
         }
 
         
