@@ -33,6 +33,7 @@ namespace Financial_Analyst.Data
             }
             return actual_lastID;
         }
+
         public static void SaveLastID(int lastID)
         {
             BinaryFormatter bf = new BinaryFormatter();

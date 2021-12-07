@@ -40,7 +40,8 @@ namespace Financial_Analyst.View
             foreach(ITransaction transaction in TransactionProcessor.GetTransactions(_user))
             {            
                 dgvListTransactions.Rows.Add(transaction.Date, transaction.PaymentSum, transaction.Category.Name, 
-                                             transaction.User.FIO, transaction.Account.Name, transaction.Comment);
+                                             transaction.User.FIO, transaction.Account.Name, transaction.Comment,
+                                             transaction.TransactionID);
             }
         }
 
@@ -198,6 +199,10 @@ namespace Financial_Analyst.View
             CheckComboBoxUserForTransaction();
         }
 
-        
+        private void AnalyticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCircleDiagramm analyticForm = new frmCircleDiagramm(_user);
+            analyticForm.Show();
+        }
     }
 }

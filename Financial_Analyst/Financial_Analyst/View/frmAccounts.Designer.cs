@@ -104,10 +104,10 @@ namespace Financial_Analyst.View
             // 
             // btnOKAccounts
             // 
-            this.btnOKAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnOKAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOKAccounts.Location = new System.Drawing.Point(231, 278);
             this.btnOKAccounts.Name = "btnOKAccounts";
-            this.btnOKAccounts.Size = new System.Drawing.Size(97, 39);
+            this.btnOKAccounts.Size = new System.Drawing.Size(97, 37);
             this.btnOKAccounts.TabIndex = 5;
             this.btnOKAccounts.Text = "ОК";
             this.btnOKAccounts.UseVisualStyleBackColor = true;
