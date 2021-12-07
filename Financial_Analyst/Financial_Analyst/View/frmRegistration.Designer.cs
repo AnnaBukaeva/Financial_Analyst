@@ -113,11 +113,16 @@ namespace Financial_Analyst.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(365, 253);
             this.Controls.Add(this.lblAuth);
             this.Controls.Add(this.grbRegistration);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(381, 292);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(381, 292);
             this.Name = "frmRegistration";
-            this.Text = "frmRegistration";
+            this.Text = "Регистрация";
             this.grbRegistration.ResumeLayout(false);
             this.grbRegistration.PerformLayout();
             this.ResumeLayout(false);

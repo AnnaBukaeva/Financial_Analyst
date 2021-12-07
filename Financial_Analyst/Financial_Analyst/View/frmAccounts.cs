@@ -20,10 +20,10 @@ namespace Financial_Analyst.View
                 _userIDs.Add(us.FIO, us.ID);
                 clbAccountUserAccess.Items.Add(us.FIO);
             }
-            RefreshList();
+            RefreshDgvListAccounts();
         }
 
-        private void RefreshList()
+        private void RefreshDgvListAccounts()
         {
             dgvListAccounts.Rows.Clear();
             foreach (IAccount accounts in AccountProcessor.GetAccounts(_user))
@@ -31,17 +31,6 @@ namespace Financial_Analyst.View
                 dgvListAccounts.Rows.Add(accounts.Name, accounts.Balance, accounts.Comment, accounts.UsersAccess);
             }
         }
-
-
-        //private void clbAccountUserAccess_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    /*UserProcessor.GetUsers();*/   // в чекед лист бокс --> список пользователей
-        //    clbAccountUserAccess.Items.Clear();
-        //    foreach (IUser user in UserProcessor.GetUsers())
-        //    {
-        //        clbAccountUserAccess.Items.Add(user);
-        //    }
-        //}
 
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
@@ -76,7 +65,7 @@ namespace Financial_Analyst.View
                 MessageBox.Show(ex.Message, "Ошибка!");
             }
 
-            RefreshList();
+            RefreshDgvListAccounts();
         }
 
         private void btnOKAccounts_Click(object sender, EventArgs e)

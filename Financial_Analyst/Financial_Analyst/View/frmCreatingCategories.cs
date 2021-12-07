@@ -17,10 +17,10 @@ namespace Financial_Analyst.View
         public frmCreatingCategories()
         {
             InitializeComponent();
-            RefreshList();
+            RefreshDgvListCategories();
         }
 
-        private void RefreshList()
+        private void RefreshDgvListCategories()
         {
             dgvListCategories.Rows.Clear();
             foreach (ICategory categories in CategoryProcessor.GetCategory())
@@ -52,7 +52,6 @@ namespace Financial_Analyst.View
 
                 CategoryProcessor.CreateCategory(nameCategory, discriptionCategory, colorCategory,
                                     (CategoryType)cmpTypeTransaction.SelectedIndex);
-
             }
             catch (Exception ex)
             {
@@ -60,7 +59,7 @@ namespace Financial_Analyst.View
                 
             }
 
-            RefreshList();
+            RefreshDgvListCategories();
         }
 
         private void btnOkCatecory_Click(object sender, EventArgs e)

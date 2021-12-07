@@ -97,6 +97,7 @@ namespace Financial_Analyst.View
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(246, 26);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // lblLogin
             // 
@@ -134,9 +135,12 @@ namespace Financial_Analyst.View
             this.Controls.Add(this.lblAuth);
             this.Controls.Add(this.grbUserData);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(381, 292);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(381, 292);
             this.Name = "frmUserAuthorization";
-            this.Text = "frmUserAuthorization";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Авторизация";
             this.grbUserData.ResumeLayout(false);
             this.grbUserData.PerformLayout();
             this.ResumeLayout(false);
