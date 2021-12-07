@@ -63,7 +63,7 @@ namespace Financial_Analyst.View
             this.grbAddAccounts.Controls.Add(this.txtAccountName);
             this.grbAddAccounts.Controls.Add(this.lblAccountName);
             this.grbAddAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grbAddAccounts.Location = new System.Drawing.Point(351, 6);
+            this.grbAddAccounts.Location = new System.Drawing.Point(382, 6);
             this.grbAddAccounts.Name = "grbAddAccounts";
             this.grbAddAccounts.Size = new System.Drawing.Size(339, 325);
             this.grbAddAccounts.TabIndex = 3;
@@ -72,7 +72,7 @@ namespace Financial_Analyst.View
             // clbAccountUserAccess
             // 
             this.clbAccountUserAccess.FormattingEnabled = true;
-            this.clbAccountUserAccess.Location = new System.Drawing.Point(0, 192);
+            this.clbAccountUserAccess.Location = new System.Drawing.Point(9, 187);
             this.clbAccountUserAccess.Name = "clbAccountUserAccess";
             this.clbAccountUserAccess.Size = new System.Drawing.Size(200, 130);
             this.clbAccountUserAccess.TabIndex = 9;
@@ -105,7 +105,7 @@ namespace Financial_Analyst.View
             // btnOKAccounts
             // 
             this.btnOKAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnOKAccounts.Location = new System.Drawing.Point(231, 285);
+            this.btnOKAccounts.Location = new System.Drawing.Point(231, 278);
             this.btnOKAccounts.Name = "btnOKAccounts";
             this.btnOKAccounts.Size = new System.Drawing.Size(97, 37);
             this.btnOKAccounts.TabIndex = 5;
@@ -115,8 +115,8 @@ namespace Financial_Analyst.View
             // 
             // btnAddAccount
             // 
-            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddAccount.Location = new System.Drawing.Point(231, 192);
+            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddAccount.Location = new System.Drawing.Point(231, 187);
             this.btnAddAccount.Name = "btnAddAccount";
             this.btnAddAccount.Size = new System.Drawing.Size(97, 38);
             this.btnAddAccount.TabIndex = 2;
@@ -161,9 +161,9 @@ namespace Financial_Analyst.View
             // 
             this.grbAccounts.Controls.Add(this.dgvListAccounts);
             this.grbAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grbAccounts.Location = new System.Drawing.Point(4, 6);
+            this.grbAccounts.Location = new System.Drawing.Point(3, 6);
             this.grbAccounts.Name = "grbAccounts";
-            this.grbAccounts.Size = new System.Drawing.Size(341, 325);
+            this.grbAccounts.Size = new System.Drawing.Size(373, 325);
             this.grbAccounts.TabIndex = 2;
             this.grbAccounts.TabStop = false;
             this.grbAccounts.Text = "Счета";
@@ -171,6 +171,9 @@ namespace Financial_Analyst.View
             // dgvListAccounts
             // 
             this.dgvListAccounts.AllowUserToAddRows = false;
+            this.dgvListAccounts.AllowUserToDeleteRows = false;
+            this.dgvListAccounts.AllowUserToOrderColumns = true;
+            this.dgvListAccounts.AllowUserToResizeRows = false;
             this.dgvListAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmName,
@@ -181,15 +184,18 @@ namespace Financial_Analyst.View
             this.dgvListAccounts.Name = "dgvListAccounts";
             this.dgvListAccounts.ReadOnly = true;
             this.dgvListAccounts.RowHeadersVisible = false;
-            this.dgvListAccounts.Size = new System.Drawing.Size(335, 303);
+            this.dgvListAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListAccounts.Size = new System.Drawing.Size(367, 303);
             this.dgvListAccounts.TabIndex = 0;
             // 
             // clmName
             // 
             this.clmName.DataPropertyName = "Name";
+            this.clmName.FillWeight = 120F;
             this.clmName.HeaderText = "Название";
             this.clmName.Name = "clmName";
             this.clmName.ReadOnly = true;
+            this.clmName.Width = 120;
             // 
             // clnBalance
             // 
@@ -201,17 +207,20 @@ namespace Financial_Analyst.View
             // clnComment
             // 
             this.clnComment.DataPropertyName = "Comment";
+            this.clnComment.FillWeight = 140F;
             this.clnComment.HeaderText = "Описание";
             this.clnComment.Name = "clnComment";
             this.clnComment.ReadOnly = true;
+            this.clnComment.Width = 140;
             // 
             // frmAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 334);
+            this.ClientSize = new System.Drawing.Size(723, 334);
             this.Controls.Add(this.grbAddAccounts);
             this.Controls.Add(this.grbAccounts);
+            this.MinimumSize = new System.Drawing.Size(739, 373);
             this.Name = "frmAccounts";
             this.Text = "Счета";
             this.grbAddAccounts.ResumeLayout(false);

@@ -83,7 +83,7 @@ namespace Financial_Analyst.View
             // 
             // btnAddCategory
             // 
-            this.btnAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddCategory.Location = new System.Drawing.Point(9, 222);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(100, 36);
@@ -126,14 +126,14 @@ namespace Financial_Analyst.View
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 17);
+            this.label1.Size = new System.Drawing.Size(104, 17);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Тип транзакции";
+            this.label1.Text = "Тип категории";
             // 
             // btnOkCatecory
             // 
-            this.btnOkCatecory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnOkCatecory.Location = new System.Drawing.Point(294, 217);
+            this.btnOkCatecory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnOkCatecory.Location = new System.Drawing.Point(292, 220);
             this.btnOkCatecory.Name = "btnOkCatecory";
             this.btnOkCatecory.Size = new System.Drawing.Size(85, 36);
             this.btnOkCatecory.TabIndex = 5;
@@ -172,11 +172,15 @@ namespace Financial_Analyst.View
             // 
             this.txtNameCategory.Location = new System.Drawing.Point(155, 57);
             this.txtNameCategory.Name = "txtNameCategory";
-            this.txtNameCategory.Size = new System.Drawing.Size(224, 23);
+            this.txtNameCategory.Size = new System.Drawing.Size(222, 23);
             this.txtNameCategory.TabIndex = 1;
             // 
             // dgvListCategories
             // 
+            this.dgvListCategories.AllowUserToAddRows = false;
+            this.dgvListCategories.AllowUserToDeleteRows = false;
+            this.dgvListCategories.AllowUserToOrderColumns = true;
+            this.dgvListCategories.AllowUserToResizeRows = false;
             this.dgvListCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListCategories.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clnName,
@@ -185,32 +189,44 @@ namespace Financial_Analyst.View
             this.clnColor});
             this.dgvListCategories.Location = new System.Drawing.Point(12, 15);
             this.dgvListCategories.Name = "dgvListCategories";
-            this.dgvListCategories.Size = new System.Drawing.Size(404, 253);
+            this.dgvListCategories.ReadOnly = true;
+            this.dgvListCategories.RowHeadersVisible = false;
+            this.dgvListCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListCategories.Size = new System.Drawing.Size(418, 253);
             this.dgvListCategories.TabIndex = 2;
             // 
             // clnName
             // 
             this.clnName.DataPropertyName = "Name";
+            this.clnName.FillWeight = 120F;
             this.clnName.HeaderText = "Название";
             this.clnName.Name = "clnName";
+            this.clnName.ReadOnly = true;
+            this.clnName.Width = 120;
             // 
             // clnCType
             // 
             this.clnCType.DataPropertyName = "CType";
             this.clnCType.HeaderText = "Тип";
             this.clnCType.Name = "clnCType";
+            this.clnCType.ReadOnly = true;
             // 
             // clnDiscriptionCategory
             // 
             this.clnDiscriptionCategory.DataPropertyName = "Discription";
+            this.clnDiscriptionCategory.FillWeight = 120F;
             this.clnDiscriptionCategory.HeaderText = "Описание";
             this.clnDiscriptionCategory.Name = "clnDiscriptionCategory";
+            this.clnDiscriptionCategory.ReadOnly = true;
+            this.clnDiscriptionCategory.Width = 120;
             // 
             // clnColor
             // 
             this.clnColor.DataPropertyName = "CategoryColor";
             this.clnColor.HeaderText = "Цвет";
             this.clnColor.Name = "clnColor";
+            this.clnColor.ReadOnly = true;
+            this.clnColor.Width = 80;
             // 
             // frmCreatingCategories
             // 
@@ -219,8 +235,9 @@ namespace Financial_Analyst.View
             this.ClientSize = new System.Drawing.Size(832, 280);
             this.Controls.Add(this.dgvListCategories);
             this.Controls.Add(this.grbCreatingCategories);
+            this.MinimumSize = new System.Drawing.Size(848, 319);
             this.Name = "frmCreatingCategories";
-            this.Text = "frmCreatingCategories";
+            this.Text = "Категории";
             this.grbCreatingCategories.ResumeLayout(false);
             this.grbCreatingCategories.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCategories)).EndInit();
