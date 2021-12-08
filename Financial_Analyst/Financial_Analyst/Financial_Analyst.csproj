@@ -64,6 +64,7 @@
     <Compile Include="Logic\ICategory.cs" />
     <Compile Include="Logic\ITransaction.cs" />
     <Compile Include="Logic\IUser.cs" />
+    <Compile Include="Logic\SaveFile\TextFileSaver.cs" />
     <Compile Include="Logic\Transaction.cs" />
     <Compile Include="Logic\User.cs" />
     <Compile Include="View\frmAccounts.cs">
