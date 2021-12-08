@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Forms;
 using Financial_Analyst.Logic;
 using Financial_Analyst.Logic.SaveFile;
@@ -9,8 +10,9 @@ namespace Financial_Analyst.View
     public partial class frmMain : Form
     {
         private IUser _user;
-        private Form _userAuth;      
-     
+        private Form _userAuth;
+        private List<ITransaction> _transactions;
+
         public frmMain(IUser user, Form userAuth)
         {
             InitializeComponent();
@@ -36,7 +38,8 @@ namespace Financial_Analyst.View
         private void RefreshDgvListTransactions()   //обновить список транзакций (в табличке)
         {
             dgvListTransactions.Rows.Clear();
-            foreach(ITransaction transaction in TransactionProcessor.GetTransactions(_user))
+            _transactions = new List<ITransaction> (TransactionProcessor.GetTransactions(_user));
+            foreach (ITransaction transaction in _transactions)
             {            
                 dgvListTransactions.Rows.Add(transaction.Date, transaction.PaymentSum, transaction.Category.Name, 
                                              transaction.User.FIO, transaction.Account.Name, transaction.Comment,
@@ -84,21 +87,22 @@ namespace Financial_Analyst.View
 
         private void cmbTypeTransaction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // (CategoryType)cmpTypeTransaction.SelectedIndex
-            //if (cmbTypeTransaction.SelectedIndex == 0)
+            //(CategoryType)cmpTypeTransaction.SelectedIndex
+            //if ((CategoryType)cmbTypeTransaction.SelectedIndex == 0)
             //{
             //    cmbChoiceCategoryTransaction.Items.Clear();
-            //    foreach(ICategory cat in CategoryProcessor.GetCategory())
+            //    foreach (ICategory cat in CategoryProcessor.GetCategory())
             //    {
-            //        cmbChoiceCategoryTransaction.Items.Add(cat.Name); 
+            //        cmbChoiceCategoryTransaction.Items.Add(cat.Name);
             //    }
-            //    else if (cmbTypeTransaction.SelectedIndex == 1)
+               
+            //}
+            //else
+            //{
+            //    cmbChoiceCategoryTransaction.Items.Clear();
+            //    foreach (ICategory cat in CategoryProcessor.GetCategory())
             //    {
-            //        cmbChoiceCategoryTransaction.Items.Clear();
-            //        foreach (ICategory cat in CategoryProcessor.GetCategory())
-            //        {
-            //            cmbChoiceCategoryTransaction.Items.Add(cat);
-            //        }
+            //        cmbChoiceCategoryTransaction.Items.Add(cat.Name);
             //    }
             //}
         }
@@ -164,6 +168,25 @@ namespace Financial_Analyst.View
             RefreshDgvListTransactions();
         }
 
+        private void btnDeleteTransaction_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Удалить выбранные строки?", "Удаление", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                List<int> to_del = new List<int>();
+                foreach(DataGridViewRow row in dgvListTransactions.SelectedRows)
+                {
+                    to_del.Add(_transactions[row.Index].TransactionID);
+                }
+                
+                foreach(int id in to_del)
+                {
+                    TransactionProcessor.RemoveTransactionsList(id);
+                }
+                RefreshDgvListTransactions();           
+            }
+        }
+
         private void CheckComboBoxAccountChoise() // проверить комбо бокс выбора счетов
         {
             cmbAccountChoise.Items.Clear();
@@ -215,6 +238,12 @@ namespace Financial_Analyst.View
             {
                 TextFileSaver.Save(saveFileDialog1.FileName, _user);
             }
+        }
+
+        private void AboutTheProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAboutTheProgram about_the_program = new frmAboutTheProgram();
+            about_the_program.ShowDialog();
         }
     }
 }

@@ -29,10 +29,11 @@ namespace Financial_Analyst.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UnloadingTransactionListInExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +44,7 @@ namespace Financial_Analyst.View
             this.AnalyticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.прочееToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutTheProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grbTransactionFeed = new System.Windows.Forms.GroupBox();
             this.dgvListTransactions = new System.Windows.Forms.DataGridView();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +55,8 @@ namespace Financial_Analyst.View
             this.clmComment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbAddTransaction = new System.Windows.Forms.GroupBox();
+            this.btnDeleteTransaction = new System.Windows.Forms.Button();
+            this.txtTransactionID = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
             this.cmbTypeTransaction = new System.Windows.Forms.ComboBox();
@@ -79,6 +82,7 @@ namespace Financial_Analyst.View
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.grbTransactionFeed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListTransactions)).BeginInit();
@@ -162,16 +166,17 @@ namespace Financial_Analyst.View
             // прочееToolStripMenuItem
             // 
             this.прочееToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.оПрограммеToolStripMenuItem});
+            this.AboutTheProgramToolStripMenuItem});
             this.прочееToolStripMenuItem.Name = "прочееToolStripMenuItem";
             this.прочееToolStripMenuItem.Size = new System.Drawing.Size(76, 25);
             this.прочееToolStripMenuItem.Text = "Прочее";
             // 
-            // оПрограммеToolStripMenuItem
+            // AboutTheProgramToolStripMenuItem
             // 
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.AboutTheProgramToolStripMenuItem.Name = "AboutTheProgramToolStripMenuItem";
+            this.AboutTheProgramToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.AboutTheProgramToolStripMenuItem.Text = "О программе";
+            this.AboutTheProgramToolStripMenuItem.Click += new System.EventHandler(this.AboutTheProgramToolStripMenuItem_Click);
             // 
             // grbTransactionFeed
             // 
@@ -214,8 +219,8 @@ namespace Financial_Analyst.View
             // colDate
             // 
             this.colDate.DataPropertyName = "Date";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.colDate.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.colDate.DefaultCellStyle = dataGridViewCellStyle1;
             this.colDate.FillWeight = 80F;
             this.colDate.HeaderText = "Дата";
             this.colDate.Name = "colDate";
@@ -225,8 +230,8 @@ namespace Financial_Analyst.View
             // colSum
             // 
             this.colSum.DataPropertyName = "PaymentSum";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.colSum.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.colSum.DefaultCellStyle = dataGridViewCellStyle2;
             this.colSum.HeaderText = "Сумма";
             this.colSum.Name = "colSum";
             this.colSum.ReadOnly = true;
@@ -234,8 +239,8 @@ namespace Financial_Analyst.View
             // colCategory
             // 
             this.colCategory.DataPropertyName = "Category";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.colCategory.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.colCategory.DefaultCellStyle = dataGridViewCellStyle3;
             this.colCategory.FillWeight = 120F;
             this.colCategory.HeaderText = "Категория";
             this.colCategory.Name = "colCategory";
@@ -245,8 +250,8 @@ namespace Financial_Analyst.View
             // colUser
             // 
             this.colUser.DataPropertyName = "User";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.colUser.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.colUser.DefaultCellStyle = dataGridViewCellStyle4;
             this.colUser.FillWeight = 120F;
             this.colUser.HeaderText = "Пользователь";
             this.colUser.Name = "colUser";
@@ -271,13 +276,15 @@ namespace Financial_Analyst.View
             // 
             // transactionID
             // 
-            this.transactionID.HeaderText = "transactionID";
+            this.transactionID.DataPropertyName = "TransactionID";
+            this.transactionID.HeaderText = "ID Транзакции";
             this.transactionID.Name = "transactionID";
             this.transactionID.ReadOnly = true;
-            this.transactionID.Visible = false;
             // 
             // grbAddTransaction
             // 
+            this.grbAddTransaction.Controls.Add(this.btnDeleteTransaction);
+            this.grbAddTransaction.Controls.Add(this.txtTransactionID);
             this.grbAddTransaction.Controls.Add(this.dtpDate);
             this.grbAddTransaction.Controls.Add(this.lblDate);
             this.grbAddTransaction.Controls.Add(this.cmbTypeTransaction);
@@ -299,10 +306,31 @@ namespace Financial_Analyst.View
             this.grbAddTransaction.Margin = new System.Windows.Forms.Padding(4);
             this.grbAddTransaction.Name = "grbAddTransaction";
             this.grbAddTransaction.Padding = new System.Windows.Forms.Padding(4);
-            this.grbAddTransaction.Size = new System.Drawing.Size(309, 314);
+            this.grbAddTransaction.Size = new System.Drawing.Size(309, 339);
             this.grbAddTransaction.TabIndex = 2;
             this.grbAddTransaction.TabStop = false;
             this.grbAddTransaction.Text = "Добавление транзакции";
+            // 
+            // btnDeleteTransaction
+            // 
+            this.btnDeleteTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDeleteTransaction.Location = new System.Drawing.Point(183, 302);
+            this.btnDeleteTransaction.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteTransaction.Name = "btnDeleteTransaction";
+            this.btnDeleteTransaction.Size = new System.Drawing.Size(114, 29);
+            this.btnDeleteTransaction.TabIndex = 18;
+            this.btnDeleteTransaction.Text = "Удалить";
+            this.btnDeleteTransaction.UseVisualStyleBackColor = true;
+            this.btnDeleteTransaction.Click += new System.EventHandler(this.btnDeleteTransaction_Click);
+            // 
+            // txtTransactionID
+            // 
+            this.txtTransactionID.Location = new System.Drawing.Point(183, 272);
+            this.txtTransactionID.Name = "txtTransactionID";
+            this.txtTransactionID.Size = new System.Drawing.Size(114, 24);
+            this.txtTransactionID.TabIndex = 11;
             // 
             // dtpDate
             // 
@@ -406,7 +434,7 @@ namespace Financial_Analyst.View
             this.btnAddTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddTransaction.Location = new System.Drawing.Point(8, 277);
+            this.btnAddTransaction.Location = new System.Drawing.Point(8, 302);
             this.btnAddTransaction.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTransaction.Name = "btnAddTransaction";
             this.btnAddTransaction.Size = new System.Drawing.Size(114, 29);
@@ -570,6 +598,11 @@ namespace Financial_Analyst.View
             this.lblUser.TabIndex = 9;
             this.lblUser.Text = "Пользователь:";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -614,7 +647,7 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AnalyticsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutTheProgramToolStripMenuItem;
         private System.Windows.Forms.GroupBox grbTransactionFeed;
         private System.Windows.Forms.DataGridView dgvListTransactions;
         private System.Windows.Forms.GroupBox grbAddTransaction;
@@ -644,6 +677,10 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.Label lblCType;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btnDeleteTransaction;
+        private System.Windows.Forms.TextBox txtTransactionID;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSum;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCategory;
@@ -651,6 +688,5 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.DataGridViewTextBoxColumn clnAccount;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmComment;
         private System.Windows.Forms.DataGridViewTextBoxColumn transactionID;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
