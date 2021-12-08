@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 using Financial_Analyst.Logic;
+using Financial_Analyst.Logic.SaveFile;
 
 namespace Financial_Analyst.View
 {
@@ -203,6 +202,19 @@ namespace Financial_Analyst.View
         {
             frmCircleDiagramm analyticForm = new frmCircleDiagramm(_user);
             analyticForm.Show();
+        }
+
+        private void UnloadingTransactionListInExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Filter = "csv files (*.csv)|*.csv|text files(*.txt)|*.txt|all files (*.*)|*.*";
+            saveFileDialog1.DefaultExt = "*.csv";
+            saveFileDialog1.Title = "Выберите файл для сохранения транзакций";
+            saveFileDialog1.CheckPathExists = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                TextFileSaver.Save(saveFileDialog1.FileName, _user);
+            }
         }
     }
 }
