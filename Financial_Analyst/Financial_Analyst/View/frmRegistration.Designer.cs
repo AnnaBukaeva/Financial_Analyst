@@ -55,12 +55,13 @@ namespace Financial_Analyst.View
             // 
             // btnRegister
             // 
+            this.btnRegister.BackColor = System.Drawing.Color.Thistle;
             this.btnRegister.Location = new System.Drawing.Point(74, 126);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(200, 42);
             this.btnRegister.TabIndex = 8;
             this.btnRegister.Text = "Зарегистрироваться";
-            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // lblPassword
@@ -102,10 +103,10 @@ namespace Financial_Analyst.View
             // lblAuth
             // 
             this.lblAuth.AutoSize = true;
-            this.lblAuth.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblAuth.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblAuth.Location = new System.Drawing.Point(105, 27);
             this.lblAuth.Name = "lblAuth";
-            this.lblAuth.Size = new System.Drawing.Size(141, 26);
+            this.lblAuth.Size = new System.Drawing.Size(164, 29);
             this.lblAuth.TabIndex = 3;
             this.lblAuth.Text = "Регистрация";
             // 
@@ -113,7 +114,7 @@ namespace Financial_Analyst.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(365, 253);
             this.Controls.Add(this.lblAuth);
             this.Controls.Add(this.grbRegistration);

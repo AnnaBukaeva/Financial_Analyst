@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Financial_Analyst.View
 {
-    public partial class frmAboutTheProgram : Form
+    public partial class frmAboutProgram : Form
     {
-        public frmAboutTheProgram()
+        public frmAboutProgram()
         {
             InitializeComponent();
         }

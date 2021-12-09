@@ -83,13 +83,14 @@ namespace Financial_Analyst.View
             // 
             // btnAddCategory
             // 
+            this.btnAddCategory.BackColor = System.Drawing.Color.Thistle;
             this.btnAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddCategory.Location = new System.Drawing.Point(9, 222);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(100, 36);
             this.btnAddCategory.TabIndex = 10;
             this.btnAddCategory.Text = "Добавить";
-            this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.UseVisualStyleBackColor = false;
             this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // txtDiscriptionCategory
@@ -132,13 +133,14 @@ namespace Financial_Analyst.View
             // 
             // btnOkCatecory
             // 
+            this.btnOkCatecory.BackColor = System.Drawing.Color.Thistle;
             this.btnOkCatecory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOkCatecory.Location = new System.Drawing.Point(292, 220);
             this.btnOkCatecory.Name = "btnOkCatecory";
             this.btnOkCatecory.Size = new System.Drawing.Size(85, 36);
             this.btnOkCatecory.TabIndex = 5;
             this.btnOkCatecory.Text = "OK";
-            this.btnOkCatecory.UseVisualStyleBackColor = true;
+            this.btnOkCatecory.UseVisualStyleBackColor = false;
             this.btnOkCatecory.Click += new System.EventHandler(this.btnOkCatecory_Click);
             // 
             // lblColorSelection
@@ -181,6 +183,10 @@ namespace Financial_Analyst.View
             this.dgvListCategories.AllowUserToDeleteRows = false;
             this.dgvListCategories.AllowUserToOrderColumns = true;
             this.dgvListCategories.AllowUserToResizeRows = false;
+            this.dgvListCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvListCategories.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvListCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListCategories.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clnName,
@@ -232,11 +238,13 @@ namespace Financial_Analyst.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(832, 280);
             this.Controls.Add(this.dgvListCategories);
             this.Controls.Add(this.grbCreatingCategories);
             this.MinimumSize = new System.Drawing.Size(848, 319);
             this.Name = "frmCreatingCategories";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Категории";
             this.grbCreatingCategories.ResumeLayout(false);
             this.grbCreatingCategories.PerformLayout();

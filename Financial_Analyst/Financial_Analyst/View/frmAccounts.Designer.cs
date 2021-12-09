@@ -104,24 +104,26 @@ namespace Financial_Analyst.View
             // 
             // btnOKAccounts
             // 
+            this.btnOKAccounts.BackColor = System.Drawing.Color.Thistle;
             this.btnOKAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOKAccounts.Location = new System.Drawing.Point(231, 278);
             this.btnOKAccounts.Name = "btnOKAccounts";
             this.btnOKAccounts.Size = new System.Drawing.Size(97, 37);
             this.btnOKAccounts.TabIndex = 5;
             this.btnOKAccounts.Text = "ОК";
-            this.btnOKAccounts.UseVisualStyleBackColor = true;
+            this.btnOKAccounts.UseVisualStyleBackColor = false;
             this.btnOKAccounts.Click += new System.EventHandler(this.btnOKAccounts_Click);
             // 
             // btnAddAccount
             // 
+            this.btnAddAccount.BackColor = System.Drawing.Color.Thistle;
             this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddAccount.Location = new System.Drawing.Point(231, 187);
             this.btnAddAccount.Name = "btnAddAccount";
             this.btnAddAccount.Size = new System.Drawing.Size(97, 38);
             this.btnAddAccount.TabIndex = 2;
             this.btnAddAccount.Text = "Добавить";
-            this.btnAddAccount.UseVisualStyleBackColor = true;
+            this.btnAddAccount.UseVisualStyleBackColor = false;
             this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
             // txtAccountComment
@@ -174,6 +176,7 @@ namespace Financial_Analyst.View
             this.dgvListAccounts.AllowUserToDeleteRows = false;
             this.dgvListAccounts.AllowUserToOrderColumns = true;
             this.dgvListAccounts.AllowUserToResizeRows = false;
+            this.dgvListAccounts.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvListAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmName,
@@ -217,11 +220,13 @@ namespace Financial_Analyst.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(723, 334);
             this.Controls.Add(this.grbAddAccounts);
             this.Controls.Add(this.grbAccounts);
             this.MinimumSize = new System.Drawing.Size(739, 373);
             this.Name = "frmAccounts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Счета";
             this.grbAddAccounts.ResumeLayout(false);
             this.grbAddAccounts.PerformLayout();

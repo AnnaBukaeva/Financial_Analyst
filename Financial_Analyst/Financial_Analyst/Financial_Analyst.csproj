@@ -67,11 +67,11 @@
     <Compile Include="Logic\SaveFile\TextFileSaver.cs" />
     <Compile Include="Logic\Transaction.cs" />
     <Compile Include="Logic\User.cs" />
-    <Compile Include="View\frmAboutTheProgram.cs">
+    <Compile Include="View\frmAboutProgram.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmAboutTheProgram.Designer.cs">
-      <DependentUpon>frmAboutTheProgram.cs</DependentUpon>
+    <Compile Include="View\frmAboutProgram.Designer.cs">
+      <DependentUpon>frmAboutProgram.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmAccounts.cs">
       <SubType>Form</SubType>
@@ -111,8 +111,8 @@
     <Compile Include="View\frmUserAuthorization.Designer.cs">
       <DependentUpon>frmUserAuthorization.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\frmAboutTheProgram.resx">
-      <DependentUpon>frmAboutTheProgram.cs</DependentUpon>
+    <EmbeddedResource Include="View\frmAboutProgram.resx">
+      <DependentUpon>frmAboutProgram.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmAccounts.resx">
       <DependentUpon>frmAccounts.cs</DependentUpon>

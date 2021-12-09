@@ -61,23 +61,25 @@ namespace Financial_Analyst.View
             // btnRegistration
             // 
             this.btnRegistration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRegistration.BackColor = System.Drawing.Color.Thistle;
             this.btnRegistration.Location = new System.Drawing.Point(10, 136);
             this.btnRegistration.Name = "btnRegistration";
             this.btnRegistration.Size = new System.Drawing.Size(134, 35);
             this.btnRegistration.TabIndex = 5;
             this.btnRegistration.Text = "Регистрация";
-            this.btnRegistration.UseVisualStyleBackColor = true;
+            this.btnRegistration.UseVisualStyleBackColor = false;
             this.btnRegistration.Click += new System.EventHandler(this.btnRegistration_Click);
             // 
             // btnEnter
             // 
             this.btnEnter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnter.BackColor = System.Drawing.Color.Thistle;
             this.btnEnter.Location = new System.Drawing.Point(241, 136);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(94, 35);
             this.btnEnter.TabIndex = 4;
             this.btnEnter.Text = "Войти";
-            this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.UseVisualStyleBackColor = false;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
             // lblPassword
@@ -120,10 +122,10 @@ namespace Financial_Analyst.View
             // lblAuth
             // 
             this.lblAuth.AutoSize = true;
-            this.lblAuth.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblAuth.Location = new System.Drawing.Point(109, 20);
+            this.lblAuth.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblAuth.Location = new System.Drawing.Point(96, 18);
             this.lblAuth.Name = "lblAuth";
-            this.lblAuth.Size = new System.Drawing.Size(145, 26);
+            this.lblAuth.Size = new System.Drawing.Size(166, 29);
             this.lblAuth.TabIndex = 2;
             this.lblAuth.Text = "Авторизация";
             // 
@@ -131,6 +133,7 @@ namespace Financial_Analyst.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(365, 253);
             this.Controls.Add(this.lblAuth);
             this.Controls.Add(this.grbUserData);

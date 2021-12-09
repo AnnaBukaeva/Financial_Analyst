@@ -59,9 +59,11 @@ namespace Financial_Analyst.View
         private void RefreshCmbAccountChoise()   // обновить список счетов в комбо боксе
         {
             cmbAccountChoise.Items.Clear();
+            cmbAccuntChoiseForBalance.Items.Clear(); //
             foreach (IAccount account in AccountProcessor.GetAccounts(_user))
             {
                 cmbAccountChoise.Items.Add(account.Name);
+                cmbAccuntChoiseForBalance.Items.Add(account.Name); //
             }
         }
 
@@ -87,15 +89,17 @@ namespace Financial_Analyst.View
 
         private void cmbTypeTransaction_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             //(CategoryType)cmpTypeTransaction.SelectedIndex
+
             //if ((CategoryType)cmbTypeTransaction.SelectedIndex == 0)
             //{
-            //    cmbChoiceCategoryTransaction.Items.Clear();
-            //    foreach (ICategory cat in CategoryProcessor.GetCategory())
-            //    {
-            //        cmbChoiceCategoryTransaction.Items.Add(cat.Name);
-            //    }
-               
+                //cmbChoiceCategoryTransaction.Items.Clear();
+                //foreach (ICategory cat in CategoryProcessor.GetCategory())
+                //{
+                //    cmbChoiceCategoryTransaction.Items.Add(cat.Name);
+                //}
+
             //}
             //else
             //{
@@ -183,6 +187,7 @@ namespace Financial_Analyst.View
                 {
                     TransactionProcessor.RemoveTransactionsList(id);
                 }
+
                 RefreshDgvListTransactions();           
             }
         }
@@ -190,10 +195,13 @@ namespace Financial_Analyst.View
         private void CheckComboBoxAccountChoise() // проверить комбо бокс выбора счетов
         {
             cmbAccountChoise.Items.Clear();
+            cmbAccuntChoiseForBalance.Items.Clear(); //
             foreach (IAccount accounts in AccountProcessor.GetAccounts(_user))
             {
                 cmbAccountChoise.Items.Add(accounts.Name);
+                cmbAccuntChoiseForBalance.Items.Add(accounts.Name); //
             }
+
         }
 
         private void CheckComboBoxChoiceCategoryTransaction()   // проверить комбо бокс выбора категории
@@ -215,10 +223,21 @@ namespace Financial_Analyst.View
         }
 
         private void frmMain_Load(object sender, EventArgs e)
-        {           
+        {
             CheckComboBoxAccountChoise();
             CheckComboBoxChoiceCategoryTransaction();
             CheckComboBoxUserForTransaction();
+
+            // чтобы при запуске формы отображалось первое значение в комбо боксах
+            cmbChoiceUserForTransaction.SelectedIndex = 0;
+            cmbTypeTransaction.SelectedIndex = 1;
+            cmbChoiceCategoryTransaction.SelectedIndex = 0;                   
+            try    // завернула в try-catch, т.к. если создал нового пользователя, у него еще нет счетов, ошибка высвеч.
+            {     
+                cmbAccountChoise.SelectedIndex = 0;
+                cmbAccuntChoiseForBalance.SelectedIndex = 0;
+            }
+            catch { }        
         }
 
         private void AnalyticsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -242,8 +261,27 @@ namespace Financial_Analyst.View
 
         private void AboutTheProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAboutTheProgram about_the_program = new frmAboutTheProgram();
-            about_the_program.ShowDialog();
+            frmAboutProgram about_program = new frmAboutProgram();
+            about_program.ShowDialog();
+        }
+
+        private void cmbAccuntChoiseForBalance_SelectedIndexChanged(object sender, EventArgs e) //просмотр баланса счетов
+        {
+            IAccount currentAccountForBalance = null;
+            foreach (Account account in AccountProcessor.GetAccounts(_user))
+            {
+                if (cmbAccuntChoiseForBalance.Text == account.Name)
+                {
+                    currentAccountForBalance = account;
+                    break;
+                }
+            }
+            if (currentAccountForBalance == null)
+            {
+                throw new Exception("Счёт не найден!");
+            }
+
+            txtBalance.Text = Convert.ToString( currentAccountForBalance.Balance);
         }
     }
 }
