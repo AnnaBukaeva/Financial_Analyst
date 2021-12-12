@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
 
 
 namespace Financial_Analyst.Logic
@@ -45,7 +42,6 @@ namespace Financial_Analyst.Logic
             transaction.Account.ChangeBalance(transaction.PaymentSum * (-1));
             AccountRepository.UpdateAccount(transaction.Account);
             TransactionRepository.RemoveTransaction(transaction.TransactionID);
-
         }
 
         public static void RemoveTransactionsList(int transactionID)
