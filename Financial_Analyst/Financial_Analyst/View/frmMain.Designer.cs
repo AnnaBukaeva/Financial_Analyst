@@ -533,20 +533,20 @@ namespace Financial_Analyst.View
             // mtbFilterSumMax
             // 
             this.mtbFilterSumMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.mtbFilterSumMax.Location = new System.Drawing.Point(218, 124);
+            this.mtbFilterSumMax.Location = new System.Drawing.Point(227, 124);
             this.mtbFilterSumMax.Mask = "9999999.99";
             this.mtbFilterSumMax.Name = "mtbFilterSumMax";
-            this.mtbFilterSumMax.Size = new System.Drawing.Size(84, 23);
+            this.mtbFilterSumMax.Size = new System.Drawing.Size(70, 23);
             this.mtbFilterSumMax.TabIndex = 27;
             this.mtbFilterSumMax.ValidatingType = typeof(int);
             // 
             // mtbFilterSumMin
             // 
             this.mtbFilterSumMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.mtbFilterSumMin.Location = new System.Drawing.Point(98, 124);
+            this.mtbFilterSumMin.Location = new System.Drawing.Point(127, 124);
             this.mtbFilterSumMin.Mask = "0000000.00";
             this.mtbFilterSumMin.Name = "mtbFilterSumMin";
-            this.mtbFilterSumMin.Size = new System.Drawing.Size(100, 23);
+            this.mtbFilterSumMin.Size = new System.Drawing.Size(72, 23);
             this.mtbFilterSumMin.TabIndex = 26;
             this.mtbFilterSumMin.ValidatingType = typeof(int);
             // 
@@ -554,7 +554,7 @@ namespace Financial_Analyst.View
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(205, 124);
+            this.label9.Location = new System.Drawing.Point(206, 124);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(16, 24);
