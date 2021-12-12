@@ -65,13 +65,8 @@ namespace Financial_Analyst.View
         }
         private void RefreshCmbChoiceCategoryTransaction() // обновить список категорий в комбо боксе
         {
-            cmbChoiceCategoryTransaction.Items.Clear();
-            cmbCategoryTransactionsFilters.Items.Clear(); //
-            foreach(ICategory category in CategoryProcessor.GetCategory())
-            {
-                cmbChoiceCategoryTransaction.Items.Add(category.Name);
-                cmbCategoryTransactionsFilters.Items.Add(category.Name); //
-            }
+            cmbChoiceCategoryTransaction.DataSource = CategoryProcessor.GetCategory();
+            cmbCategoryTransactionsFilters.DataSource = CategoryProcessor.GetCategory();
         }
 
         private void RefreshCmbAccountChoise()   // обновить список счетов в комбо боксе

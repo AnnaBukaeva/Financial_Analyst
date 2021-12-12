@@ -20,6 +20,5 @@ namespace Financial_Analyst.Logic.SaveFile
 				}
 			}
 		}
-
 	}
 }
