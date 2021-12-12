@@ -11,7 +11,7 @@ namespace Financial_Analyst.Logic.SaveFile
 		public static void Save(string path, IUser user)
 		{
 			var sep = ";";
-			using (StreamWriter myWriter = new StreamWriter(path))
+			using (StreamWriter myWriter = new StreamWriter(path, false, Encoding.GetEncoding(1251)))
 			{
 				myWriter.WriteLine($"Date{sep}Sum{sep}Category{sep}User");
 				foreach (var t in TransactionProcessor.GetTransactions(user))
