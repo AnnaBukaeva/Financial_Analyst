@@ -72,6 +72,6 @@ namespace Financial_Analyst.View
         {
             DialogResult = DialogResult.OK;
             Close();
-        }            
+        }
     }
 }

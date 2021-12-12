@@ -9,6 +9,9 @@ namespace Financial_Analyst.Logic
     {
         private static List<ICategory> _category;
 
+        private static ICategory _surrogate_category =
+            new Category("Все", "Все", Color.BlanchedAlmond, CategoryType.All); 
+
         static CategoryProcessor()
         {
             _category = CategoryRepository.GetCategories();
@@ -32,5 +35,7 @@ namespace Financial_Analyst.Logic
         {            
             return _category.AsReadOnly();
         }
+
+        public static ICategory SurrogateCategory => _surrogate_category;  
     }
 }

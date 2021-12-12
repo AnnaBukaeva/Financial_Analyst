@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 namespace Financial_Analyst.Logic
@@ -36,19 +39,25 @@ namespace Financial_Analyst.Logic
             return result;
         }
 
-        public static void RemoveTransaction(int transactionID)
-        {           
+        private static void RemoveTransaction(ITransaction transaction)
+        {
+            _transactions.Remove(transaction);
+            transaction.Account.ChangeBalance(transaction.PaymentSum * (-1));
+            AccountRepository.UpdateAccount(transaction.Account);
+            TransactionRepository.RemoveTransaction(transaction.TransactionID);
+
+        }
+
+        public static void RemoveTransactionsList(int transactionID)
+        {
             foreach (ITransaction transaction in _transactions)
             {
-                if (transactionID == transaction.TransactionID)
-                {
-                    _transactions.Remove(transaction);
-                    transaction.Account.ChangeBalance(transaction.PaymentSum * (-1));
-                    AccountRepository.UpdateAccount(transaction.Account);
-                    TransactionRepository.RemoveTransaction(transactionID);
+               if (transactionID == transaction.TransactionID)
+               {
+                    RemoveTransaction(transaction);
                     break;
-                }
-            }           
+               }
+            }          
         }
     }
 }
