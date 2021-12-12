@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace Financial_Analyst.Logic
 {
-    class AccountProcessor
+    public class AccountProcessor
     {
         private static List<IAccount> _accounts;
 

@@ -83,5 +83,40 @@ namespace Financial_Analyst.View
                 }
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            {
+                {
+                    chart1.Series[0].Points.Clear();
+                    chart1.Titles.Clear();
+                    chart1.Titles.Add("Соотношение доходов по категориям");
+                    IReadOnlyCollection<ITransaction> transactionList = TransactionProcessor.GetTransactions(_user);
+                    IReadOnlyCollection<ICategory> categoryList = CategoryProcessor.GetCategory();
+
+                    foreach (ICategory category in categoryList)
+                    {
+                        if (category.CType == CategoryType.Incom)
+                        {
+                            decimal sumCategory = 0;
+                            foreach (ITransaction transaction in transactionList)
+                            {
+                                if (category.Name == transaction.Category.Name)
+                                {
+                                    sumCategory += transaction.PaymentSum * (-1);
+                                }
+                            }
+                            chart1.Series[0].Points.Add(new DataPoint(0, Convert.ToDouble(sumCategory))
+                            {
+                                AxisLabel = category.Name,
+                                Color = category.CategoryColor
+                            });
+                        }
+                    }
+                }
+            }
+        }
     }
 }
+    
+

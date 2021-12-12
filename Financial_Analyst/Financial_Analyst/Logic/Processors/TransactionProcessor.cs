@@ -2,15 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+
 
 namespace Financial_Analyst.Logic
 {
-    static class TransactionProcessor
+    public static class TransactionProcessor
     {
-        private static List<ITransaction> _transactions;
-        private static string transaction_filename;
+        private static List<ITransaction> _transactions; 
 
         static TransactionProcessor()
         {
@@ -39,10 +37,7 @@ namespace Financial_Analyst.Logic
         }
 
         public static void RemoveTransaction(int transactionID)
-        {
-            // в списке транзакций актуальном найти транзакцию с таким ID
-            // удалить эту транзакцию через метод remove
-            // удалить эту транзакцию в базе данных
+        {           
             foreach (ITransaction transaction in _transactions)
             {
                 if (transactionID == transaction.TransactionID)
