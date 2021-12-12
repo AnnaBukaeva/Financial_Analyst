@@ -84,7 +84,7 @@ namespace Financial_Analyst.View
             // btnAddCategory
             // 
             this.btnAddCategory.BackColor = System.Drawing.Color.Thistle;
-            this.btnAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddCategory.Location = new System.Drawing.Point(9, 222);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(100, 36);
@@ -134,7 +134,7 @@ namespace Financial_Analyst.View
             // btnOkCatecory
             // 
             this.btnOkCatecory.BackColor = System.Drawing.Color.Thistle;
-            this.btnOkCatecory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnOkCatecory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOkCatecory.Location = new System.Drawing.Point(292, 220);
             this.btnOkCatecory.Name = "btnOkCatecory";
             this.btnOkCatecory.Size = new System.Drawing.Size(85, 36);

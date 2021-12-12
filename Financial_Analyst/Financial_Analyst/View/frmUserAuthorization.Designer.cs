@@ -37,7 +37,9 @@ namespace Financial_Analyst.View
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtFIO = new System.Windows.Forms.TextBox();
             this.lblAuth = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.grbUserData.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbUserData
@@ -62,9 +64,9 @@ namespace Financial_Analyst.View
             // 
             this.btnRegistration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRegistration.BackColor = System.Drawing.Color.Thistle;
-            this.btnRegistration.Location = new System.Drawing.Point(10, 136);
+            this.btnRegistration.Location = new System.Drawing.Point(6, 136);
             this.btnRegistration.Name = "btnRegistration";
-            this.btnRegistration.Size = new System.Drawing.Size(134, 35);
+            this.btnRegistration.Size = new System.Drawing.Size(121, 35);
             this.btnRegistration.TabIndex = 5;
             this.btnRegistration.Text = "Регистрация";
             this.btnRegistration.UseVisualStyleBackColor = false;
@@ -74,9 +76,9 @@ namespace Financial_Analyst.View
             // 
             this.btnEnter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEnter.BackColor = System.Drawing.Color.Thistle;
-            this.btnEnter.Location = new System.Drawing.Point(241, 136);
+            this.btnEnter.Location = new System.Drawing.Point(214, 136);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(94, 35);
+            this.btnEnter.Size = new System.Drawing.Size(121, 35);
             this.btnEnter.TabIndex = 4;
             this.btnEnter.Text = "Войти";
             this.btnEnter.UseVisualStyleBackColor = false;
@@ -106,9 +108,9 @@ namespace Financial_Analyst.View
             this.lblLogin.AutoSize = true;
             this.lblLogin.Location = new System.Drawing.Point(6, 32);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(47, 20);
+            this.lblLogin.Size = new System.Drawing.Size(55, 20);
             this.lblLogin.TabIndex = 1;
-            this.lblLogin.Text = "ФИО";
+            this.lblLogin.Text = "Логин";
             // 
             // txtFIO
             // 
@@ -123,11 +125,20 @@ namespace Financial_Analyst.View
             // 
             this.lblAuth.AutoSize = true;
             this.lblAuth.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblAuth.Location = new System.Drawing.Point(96, 18);
+            this.lblAuth.Location = new System.Drawing.Point(84, 15);
             this.lblAuth.Name = "lblAuth";
             this.lblAuth.Size = new System.Drawing.Size(166, 29);
             this.lblAuth.TabIndex = 2;
             this.lblAuth.Text = "Авторизация";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Thistle;
+            this.panel1.Controls.Add(this.lblAuth);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(341, 52);
+            this.panel1.TabIndex = 1;
             // 
             // frmUserAuthorization
             // 
@@ -135,7 +146,7 @@ namespace Financial_Analyst.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(365, 253);
-            this.Controls.Add(this.lblAuth);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.grbUserData);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(381, 292);
@@ -146,8 +157,9 @@ namespace Financial_Analyst.View
             this.Text = "Авторизация";
             this.grbUserData.ResumeLayout(false);
             this.grbUserData.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -161,5 +173,6 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.TextBox txtFIO;
         private System.Windows.Forms.Label lblAuth;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -3,6 +3,7 @@
     public enum CategoryType
     {
         Incom, 
-        Expense      
+        Expense,
+        All     
     }
 }

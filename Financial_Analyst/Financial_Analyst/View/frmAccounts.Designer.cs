@@ -117,7 +117,7 @@ namespace Financial_Analyst.View
             // btnAddAccount
             // 
             this.btnAddAccount.BackColor = System.Drawing.Color.Thistle;
-            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddAccount.Location = new System.Drawing.Point(231, 187);
             this.btnAddAccount.Name = "btnAddAccount";
             this.btnAddAccount.Size = new System.Drawing.Size(97, 38);

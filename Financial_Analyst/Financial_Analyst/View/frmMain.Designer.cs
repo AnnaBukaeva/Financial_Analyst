@@ -30,10 +30,10 @@ namespace Financial_Analyst.View
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UnloadingTransactionListInExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,9 +62,9 @@ namespace Financial_Analyst.View
             this.txtCommentForTransaction = new System.Windows.Forms.TextBox();
             this.lblCommentTransaction = new System.Windows.Forms.Label();
             this.lblAccount = new System.Windows.Forms.Label();
+            this.btnAddTransaction = new System.Windows.Forms.Button();
             this.cmbAccountChoise = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnAddTransaction = new System.Windows.Forms.Button();
             this.lblUserTransaction = new System.Windows.Forms.Label();
             this.cmbChoiceUserForTransaction = new System.Windows.Forms.ComboBox();
             this.lblCategoryTransaction = new System.Windows.Forms.Label();
@@ -72,11 +72,19 @@ namespace Financial_Analyst.View
             this.txtSumTransaction = new System.Windows.Forms.TextBox();
             this.lblSumTransaction = new System.Windows.Forms.Label();
             this.grbFilters = new System.Windows.Forms.GroupBox();
+            this.mtbFilterSumMax = new System.Windows.Forms.MaskedTextBox();
+            this.mtbFilterSumMin = new System.Windows.Forms.MaskedTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblFilterSum = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtpEndFilter = new System.Windows.Forms.DateTimePicker();
+            this.dtpBeginFilter = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblCTypeTrans = new System.Windows.Forms.Label();
+            this.cmbTypeTransactionFilter = new System.Windows.Forms.ComboBox();
             this.btnApplyFilters = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblCategoryTransFilters = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbCategoryTransactionsFilters = new System.Windows.Forms.ComboBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -96,6 +104,7 @@ namespace Financial_Analyst.View
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Thistle;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileToolStripMenuItem,
@@ -210,8 +219,8 @@ namespace Financial_Analyst.View
             // colDate
             // 
             this.colDate.DataPropertyName = "Date";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.colDate.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.colDate.DefaultCellStyle = dataGridViewCellStyle1;
             this.colDate.FillWeight = 80F;
             this.colDate.HeaderText = "Дата";
             this.colDate.Name = "colDate";
@@ -221,8 +230,8 @@ namespace Financial_Analyst.View
             // colSum
             // 
             this.colSum.DataPropertyName = "PaymentSum";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.colSum.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.colSum.DefaultCellStyle = dataGridViewCellStyle2;
             this.colSum.HeaderText = "Сумма";
             this.colSum.Name = "colSum";
             this.colSum.ReadOnly = true;
@@ -230,8 +239,8 @@ namespace Financial_Analyst.View
             // colCategory
             // 
             this.colCategory.DataPropertyName = "Category";
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.colCategory.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.colCategory.DefaultCellStyle = dataGridViewCellStyle3;
             this.colCategory.FillWeight = 120F;
             this.colCategory.HeaderText = "Категория";
             this.colCategory.Name = "colCategory";
@@ -241,8 +250,8 @@ namespace Financial_Analyst.View
             // colUser
             // 
             this.colUser.DataPropertyName = "User";
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.colUser.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.colUser.DefaultCellStyle = dataGridViewCellStyle4;
             this.colUser.FillWeight = 120F;
             this.colUser.HeaderText = "Пользователь";
             this.colUser.Name = "colUser";
@@ -393,6 +402,22 @@ namespace Financial_Analyst.View
             this.lblAccount.TabIndex = 9;
             this.lblAccount.Text = "Счёт";
             // 
+            // btnAddTransaction
+            // 
+            this.btnAddTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddTransaction.BackColor = System.Drawing.Color.Thistle;
+            this.btnAddTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddTransaction.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAddTransaction.Location = new System.Drawing.Point(183, 283);
+            this.btnAddTransaction.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddTransaction.Name = "btnAddTransaction";
+            this.btnAddTransaction.Size = new System.Drawing.Size(114, 29);
+            this.btnAddTransaction.TabIndex = 6;
+            this.btnAddTransaction.Text = "Добавить";
+            this.btnAddTransaction.UseVisualStyleBackColor = false;
+            this.btnAddTransaction.Click += new System.EventHandler(this.btnAddTransaction_Click);
+            // 
             // cmbAccountChoise
             // 
             this.cmbAccountChoise.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -414,22 +439,6 @@ namespace Financial_Analyst.View
             this.label3.Size = new System.Drawing.Size(35, 17);
             this.label3.TabIndex = 7;
             this.label3.Text = "руб.";
-            // 
-            // btnAddTransaction
-            // 
-            this.btnAddTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddTransaction.BackColor = System.Drawing.Color.Thistle;
-            this.btnAddTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddTransaction.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAddTransaction.Location = new System.Drawing.Point(183, 283);
-            this.btnAddTransaction.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddTransaction.Name = "btnAddTransaction";
-            this.btnAddTransaction.Size = new System.Drawing.Size(114, 29);
-            this.btnAddTransaction.TabIndex = 6;
-            this.btnAddTransaction.Text = "Добавить";
-            this.btnAddTransaction.UseVisualStyleBackColor = false;
-            this.btnAddTransaction.Click += new System.EventHandler(this.btnAddTransaction_Click);
             // 
             // lblUserTransaction
             // 
@@ -466,6 +475,7 @@ namespace Financial_Analyst.View
             // 
             // cmbChoiceCategoryTransaction
             // 
+            this.cmbChoiceCategoryTransaction.DisplayMember = "Name";
             this.cmbChoiceCategoryTransaction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChoiceCategoryTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmbChoiceCategoryTransaction.FormattingEnabled = true;
@@ -497,93 +507,192 @@ namespace Financial_Analyst.View
             // 
             // grbFilters
             // 
+            this.grbFilters.Controls.Add(this.mtbFilterSumMax);
+            this.grbFilters.Controls.Add(this.mtbFilterSumMin);
+            this.grbFilters.Controls.Add(this.label9);
+            this.grbFilters.Controls.Add(this.lblFilterSum);
+            this.grbFilters.Controls.Add(this.label7);
+            this.grbFilters.Controls.Add(this.dtpEndFilter);
+            this.grbFilters.Controls.Add(this.dtpBeginFilter);
+            this.grbFilters.Controls.Add(this.label6);
+            this.grbFilters.Controls.Add(this.lblCTypeTrans);
+            this.grbFilters.Controls.Add(this.cmbTypeTransactionFilter);
             this.grbFilters.Controls.Add(this.btnApplyFilters);
-            this.grbFilters.Controls.Add(this.label1);
-            this.grbFilters.Controls.Add(this.comboBox1);
             this.grbFilters.Controls.Add(this.lblCategoryTransFilters);
-            this.grbFilters.Controls.Add(this.comboBox2);
+            this.grbFilters.Controls.Add(this.cmbCategoryTransactionsFilters);
             this.grbFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grbFilters.Location = new System.Drawing.Point(701, 452);
+            this.grbFilters.Location = new System.Drawing.Point(701, 379);
             this.grbFilters.Margin = new System.Windows.Forms.Padding(4);
             this.grbFilters.Name = "grbFilters";
             this.grbFilters.Padding = new System.Windows.Forms.Padding(4);
-            this.grbFilters.Size = new System.Drawing.Size(309, 125);
+            this.grbFilters.Size = new System.Drawing.Size(309, 193);
             this.grbFilters.TabIndex = 7;
             this.grbFilters.TabStop = false;
             this.grbFilters.Text = "Фильтры";
             // 
+            // mtbFilterSumMax
+            // 
+            this.mtbFilterSumMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mtbFilterSumMax.Location = new System.Drawing.Point(218, 124);
+            this.mtbFilterSumMax.Mask = "9999999.99";
+            this.mtbFilterSumMax.Name = "mtbFilterSumMax";
+            this.mtbFilterSumMax.Size = new System.Drawing.Size(84, 23);
+            this.mtbFilterSumMax.TabIndex = 27;
+            this.mtbFilterSumMax.ValidatingType = typeof(int);
+            // 
+            // mtbFilterSumMin
+            // 
+            this.mtbFilterSumMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mtbFilterSumMin.Location = new System.Drawing.Point(98, 124);
+            this.mtbFilterSumMin.Mask = "0000000.00";
+            this.mtbFilterSumMin.Name = "mtbFilterSumMin";
+            this.mtbFilterSumMin.Size = new System.Drawing.Size(100, 23);
+            this.mtbFilterSumMin.TabIndex = 26;
+            this.mtbFilterSumMin.ValidatingType = typeof(int);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(205, 124);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(16, 24);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "-";
+            // 
+            // lblFilterSum
+            // 
+            this.lblFilterSum.AutoSize = true;
+            this.lblFilterSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFilterSum.Location = new System.Drawing.Point(8, 127);
+            this.lblFilterSum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFilterSum.Name = "lblFilterSum";
+            this.lblFilterSum.Size = new System.Drawing.Size(50, 17);
+            this.lblFilterSum.TabIndex = 22;
+            this.lblFilterSum.Text = "Сумма";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(166, 27);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(16, 24);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "-";
+            // 
+            // dtpEndFilter
+            // 
+            this.dtpEndFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dtpEndFilter.Location = new System.Drawing.Point(189, 27);
+            this.dtpEndFilter.Name = "dtpEndFilter";
+            this.dtpEndFilter.Size = new System.Drawing.Size(108, 23);
+            this.dtpEndFilter.TabIndex = 20;
+            // 
+            // dtpBeginFilter
+            // 
+            this.dtpBeginFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dtpBeginFilter.Location = new System.Drawing.Point(54, 27);
+            this.dtpBeginFilter.Name = "dtpBeginFilter";
+            this.dtpBeginFilter.Size = new System.Drawing.Size(108, 23);
+            this.dtpBeginFilter.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(8, 30);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 17);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Дата";
+            // 
+            // lblCTypeTrans
+            // 
+            this.lblCTypeTrans.AutoSize = true;
+            this.lblCTypeTrans.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblCTypeTrans.Location = new System.Drawing.Point(8, 64);
+            this.lblCTypeTrans.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCTypeTrans.Name = "lblCTypeTrans";
+            this.lblCTypeTrans.Size = new System.Drawing.Size(114, 17);
+            this.lblCTypeTrans.TabIndex = 10;
+            this.lblCTypeTrans.Text = "Тип транзакции";
+            // 
+            // cmbTypeTransactionFilter
+            // 
+            this.cmbTypeTransactionFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTypeTransactionFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmbTypeTransactionFilter.FormattingEnabled = true;
+            this.cmbTypeTransactionFilter.Items.AddRange(new object[] {
+            "Доход",
+            "Расход",
+            "Все"});
+            this.cmbTypeTransactionFilter.Location = new System.Drawing.Point(127, 61);
+            this.cmbTypeTransactionFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbTypeTransactionFilter.Name = "cmbTypeTransactionFilter";
+            this.cmbTypeTransactionFilter.Size = new System.Drawing.Size(170, 24);
+            this.cmbTypeTransactionFilter.TabIndex = 9;
+            this.cmbTypeTransactionFilter.SelectedIndexChanged += new System.EventHandler(this.cmbTypeTransactionFilter_SelectedIndexChanged);
+            // 
             // btnApplyFilters
             // 
+            this.btnApplyFilters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApplyFilters.BackColor = System.Drawing.Color.Thistle;
             this.btnApplyFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnApplyFilters.Location = new System.Drawing.Point(72, 88);
+            this.btnApplyFilters.Location = new System.Drawing.Point(74, 160);
             this.btnApplyFilters.Margin = new System.Windows.Forms.Padding(4);
             this.btnApplyFilters.Name = "btnApplyFilters";
             this.btnApplyFilters.Size = new System.Drawing.Size(161, 29);
             this.btnApplyFilters.TabIndex = 8;
             this.btnApplyFilters.Text = "Применить";
             this.btnApplyFilters.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(8, 63);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Пользователь";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(127, 56);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(170, 24);
-            this.comboBox1.TabIndex = 4;
+            this.btnApplyFilters.Click += new System.EventHandler(this.btnApplyFilters_Click);
             // 
             // lblCategoryTransFilters
             // 
             this.lblCategoryTransFilters.AutoSize = true;
             this.lblCategoryTransFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblCategoryTransFilters.Location = new System.Drawing.Point(8, 31);
+            this.lblCategoryTransFilters.Location = new System.Drawing.Point(8, 96);
             this.lblCategoryTransFilters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategoryTransFilters.Name = "lblCategoryTransFilters";
             this.lblCategoryTransFilters.Size = new System.Drawing.Size(77, 17);
             this.lblCategoryTransFilters.TabIndex = 3;
             this.lblCategoryTransFilters.Text = "Категория";
             // 
-            // comboBox2
+            // cmbCategoryTransactionsFilters
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(127, 24);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(170, 24);
-            this.comboBox2.TabIndex = 2;
+            this.cmbCategoryTransactionsFilters.DisplayMember = "Name";
+            this.cmbCategoryTransactionsFilters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoryTransactionsFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmbCategoryTransactionsFilters.FormattingEnabled = true;
+            this.cmbCategoryTransactionsFilters.Location = new System.Drawing.Point(127, 93);
+            this.cmbCategoryTransactionsFilters.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbCategoryTransactionsFilters.Name = "cmbCategoryTransactionsFilters";
+            this.cmbCategoryTransactionsFilters.Size = new System.Drawing.Size(170, 24);
+            this.cmbCategoryTransactionsFilters.TabIndex = 2;
             // 
             // txtUserName
             // 
-            this.txtUserName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtUserName.BackColor = System.Drawing.Color.Thistle;
+            this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtUserName.Location = new System.Drawing.Point(799, 3);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.ReadOnly = true;
-            this.txtUserName.Size = new System.Drawing.Size(118, 23);
+            this.txtUserName.Size = new System.Drawing.Size(115, 23);
             this.txtUserName.TabIndex = 10;
             this.txtUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
+            this.lblUser.BackColor = System.Drawing.Color.Thistle;
             this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblUser.Location = new System.Drawing.Point(698, 6);
+            this.lblUser.Location = new System.Drawing.Point(698, 5);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(105, 17);
             this.lblUser.TabIndex = 9;
@@ -719,10 +828,8 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.TextBox txtSumTransaction;
         private System.Windows.Forms.Label lblSumTransaction;
         private System.Windows.Forms.GroupBox grbFilters;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblCategoryTransFilters;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbCategoryTransactionsFilters;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnApplyFilters;
         private System.Windows.Forms.TextBox txtUserName;
@@ -753,5 +860,15 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.TextBox txtBalance;
         private System.Windows.Forms.ComboBox cmbAccuntChoiseForBalance;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblFilterSum;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dtpEndFilter;
+        private System.Windows.Forms.DateTimePicker dtpBeginFilter;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCTypeTrans;
+        private System.Windows.Forms.ComboBox cmbTypeTransactionFilter;
+        private System.Windows.Forms.MaskedTextBox mtbFilterSumMax;
+        private System.Windows.Forms.MaskedTextBox mtbFilterSumMin;
     }
 }

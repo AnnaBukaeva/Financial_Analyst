@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Forms;
 using Financial_Analyst.Logic;
 using Financial_Analyst.Logic.SaveFile;
@@ -12,7 +13,7 @@ namespace Financial_Analyst.View
         private IUser _user;
         private Form _userAuth;
         private List<ITransaction> _transactions;
-
+    
         public frmMain(IUser user, Form userAuth)
         {
             InitializeComponent();
@@ -21,7 +22,11 @@ namespace Financial_Analyst.View
             txtUserName.Text = _user.FIO; 
             
             dgvListTransactions.AutoGenerateColumns = false;
-            RefreshDgvListTransactions();            
+            RefreshDgvListTransactions();
+
+            
+            dtpBeginFilter.Value = FirstDayOfCurrentMonth();
+            dtpEndFilter.Value = LastDayOfCurrentMonth();
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -47,12 +52,25 @@ namespace Financial_Analyst.View
             }
         }
 
+        private void RefreshDgvListTransactions(List<ITransaction> transactions)
+        {
+            dgvListTransactions.Rows.Clear();
+            _transactions = transactions;
+            foreach (ITransaction transaction in _transactions)
+            {
+                dgvListTransactions.Rows.Add(transaction.Date, transaction.PaymentSum, transaction.Category.Name,
+                                             transaction.User.FIO, transaction.Account.Name, transaction.Comment,
+                                             transaction.TransactionID);
+            }
+        }
         private void RefreshCmbChoiceCategoryTransaction() // обновить список категорий в комбо боксе
         {
             cmbChoiceCategoryTransaction.Items.Clear();
+            cmbCategoryTransactionsFilters.Items.Clear(); //
             foreach(ICategory category in CategoryProcessor.GetCategory())
             {
                 cmbChoiceCategoryTransaction.Items.Add(category.Name);
+                cmbCategoryTransactionsFilters.Items.Add(category.Name); //
             }
         }
 
@@ -66,8 +84,6 @@ namespace Financial_Analyst.View
                 cmbAccuntChoiseForBalance.Items.Add(account.Name); //
             }
         }
-
-
 
         private void AccountsToolStripMenuItem_Click(object sender, EventArgs e) // создать счета
         {
@@ -87,28 +103,19 @@ namespace Financial_Analyst.View
             }
         }
 
+        //для отображения категорий, взависимости от выбранного типа транзакций
+        private List<ICategory> FilteredCategories(CategoryType ctype)
+        {
+            return CategoryProcessor.GetCategory()?.Where(t => t.CType == ctype)?.ToList() ?? new List<ICategory>();
+        }
+
+
         private void cmbTypeTransaction_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+            cmbChoiceCategoryTransaction.DataSource = FilteredCategories((CategoryType)cmbTypeTransaction.SelectedIndex);
 
-            //(CategoryType)cmpTypeTransaction.SelectedIndex
-
-            //if ((CategoryType)cmbTypeTransaction.SelectedIndex == 0)
-            //{
-                //cmbChoiceCategoryTransaction.Items.Clear();
-                //foreach (ICategory cat in CategoryProcessor.GetCategory())
-                //{
-                //    cmbChoiceCategoryTransaction.Items.Add(cat.Name);
-                //}
-
-            //}
-            //else
-            //{
-            //    cmbChoiceCategoryTransaction.Items.Clear();
-            //    foreach (ICategory cat in CategoryProcessor.GetCategory())
-            //    {
-            //        cmbChoiceCategoryTransaction.Items.Add(cat.Name);
-            //    }
-            //}
+            // cmbChoiceCategoryTransaction.DataSource = FilteredCategories((CategoryType)cmbTypeTransaction.SelectedIndex + 1);
         }
 
         private void btnAddTransaction_Click(object sender, EventArgs e) //добавить транзакцию
@@ -188,7 +195,7 @@ namespace Financial_Analyst.View
                     TransactionProcessor.RemoveTransactionsList(id);
                 }
 
-                RefreshDgvListTransactions();           
+                RefreshDgvListTransactions();
             }
         }
 
@@ -207,9 +214,11 @@ namespace Financial_Analyst.View
         private void CheckComboBoxChoiceCategoryTransaction()   // проверить комбо бокс выбора категории
         {
             cmbChoiceCategoryTransaction.Items.Clear();
+            cmbCategoryTransactionsFilters.Items.Clear();
             foreach (ICategory categories in CategoryProcessor.GetCategory())
             {
                 cmbChoiceCategoryTransaction.Items.Add(categories.Name);
+                cmbCategoryTransactionsFilters.Items.Add(categories.Name);
             }
         }
 
@@ -231,11 +240,14 @@ namespace Financial_Analyst.View
             // чтобы при запуске формы отображалось первое значение в комбо боксах
             cmbChoiceUserForTransaction.SelectedIndex = 0;
             cmbTypeTransaction.SelectedIndex = 1;
-            cmbChoiceCategoryTransaction.SelectedIndex = 0;                   
+            cmbTypeTransactionFilter.SelectedIndex = 2;
             try    // завернула в try-catch, т.к. если создал нового пользователя, у него еще нет счетов, ошибка высвеч.
             {     
                 cmbAccountChoise.SelectedIndex = 0;
+                cmbChoiceCategoryTransaction.SelectedIndex = 0;
                 cmbAccuntChoiseForBalance.SelectedIndex = 0;
+                cmbCategoryTransactionsFilters.SelectedIndex = 0;
+                
             }
             catch { }        
         }
@@ -282,6 +294,81 @@ namespace Financial_Analyst.View
             }
 
             txtBalance.Text = Convert.ToString( currentAccountForBalance.Balance);
+        }
+
+        //ниже все, связанное с фильтрами
+        private List<ICategory> FilteredCatforiesForFilter(CategoryType ctype = CategoryType.All)
+        {
+            List<ICategory> list = new List<ICategory>();
+            list.Add(CategoryProcessor.SurrogateCategory);
+            if (ctype == CategoryType.All)
+            {
+                list.AddRange(CategoryProcessor.GetCategory());
+            }
+            else
+            {
+                list.AddRange(FilteredCategories(ctype));
+            }
+
+            return list;
+        }
+        private void cmbTypeTransactionFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbCategoryTransactionsFilters.DataSource
+                = FilteredCatforiesForFilter((CategoryType)cmbTypeTransactionFilter.SelectedIndex);
+        }
+        private DateTime FirstDayOfCurrentMonth()
+        {
+            DateTime dt = DateTime.Now;
+            return new DateTime(dt.Year, dt.Month, 01);
+        }
+
+        private DateTime LastDayOfCurrentMonth()
+        {
+            DateTime dt = DateTime.Now;
+            return new DateTime(dt.Year, dt.Month, 01).AddMonths(1).AddDays(-1);
+        }
+
+        private List<ITransaction> FilteredTransactions()
+        {
+            IEnumerable<ITransaction> filtered_list = TransactionProcessor.GetTransactions(_user)?
+                .Where(t => t.Date >= dtpBeginFilter.Value && t.Date <= dtpEndFilter.Value)?? new List<ITransaction>();
+
+            CategoryType ctype = (CategoryType)cmbTypeTransactionFilter.SelectedIndex;
+            if (ctype != CategoryType.All)
+                filtered_list = filtered_list.Where(t => t.Category.CType == ctype);
+
+            ICategory category = (ICategory)cmbCategoryTransactionsFilters.SelectedItem;
+            if (category != CategoryProcessor.SurrogateCategory)
+                filtered_list = filtered_list.Where(t => t.Category.Name == category.Name);
+
+            decimal smin, smax;
+            if (!decimal.TryParse(mtbFilterSumMin.Text, out smin))
+            {
+                smin = decimal.MinValue;
+            }
+
+            if (!decimal.TryParse(mtbFilterSumMax.Text, out smax))
+            {
+                smax = decimal.MaxValue;
+            }
+
+            if (decimal.MinValue != smin)
+            { 
+                filtered_list = filtered_list.Where(t => t.PaymentSum >= smin); 
+            }
+
+            if (decimal.MaxValue != smax)
+            {
+                filtered_list = filtered_list.Where(t => t.PaymentSum <= smax);
+            }
+
+            return filtered_list.ToList();
+        }
+
+        private void btnApplyFilters_Click(object sender, EventArgs e)
+        {
+            RefreshDgvListTransactions(FilteredTransactions());
         }
     }
 }
