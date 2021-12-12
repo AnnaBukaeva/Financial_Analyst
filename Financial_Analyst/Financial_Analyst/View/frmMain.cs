@@ -342,7 +342,7 @@ namespace Financial_Analyst.View
             decimal smin, smax;
             if (!decimal.TryParse(mtbFilterSumMin.Text, out smin))
             {
-                smin = decimal.MinValue;
+                smin = 0;
             }
 
             if (!decimal.TryParse(mtbFilterSumMax.Text, out smax))
@@ -350,14 +350,14 @@ namespace Financial_Analyst.View
                 smax = decimal.MaxValue;
             }
 
-            if (decimal.MinValue != smin)
+            if (0 != smin)
             { 
-                filtered_list = filtered_list.Where(t => t.PaymentSum >= smin); 
+                filtered_list = filtered_list.Where(t => Math.Abs(t.PaymentSum) >= Math.Abs(smin)); 
             }
 
             if (decimal.MaxValue != smax)
             {
-                filtered_list = filtered_list.Where(t => t.PaymentSum <= smax);
+                filtered_list = filtered_list.Where(t => Math.Abs(t.PaymentSum) <= Math.Abs(smax));
             }
 
             return filtered_list.ToList();
