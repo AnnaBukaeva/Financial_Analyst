@@ -102,7 +102,6 @@ namespace Financial_Analyst.View
             return CategoryProcessor.GetCategory()?.Where(t => t.CType == ctype)?.ToList() ?? new List<ICategory>();
         }
 
-
         private void cmbTypeTransaction_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbChoiceCategoryTransaction.DataSource = FilteredCategories((CategoryType)cmbTypeTransaction.SelectedIndex);
@@ -167,6 +166,8 @@ namespace Financial_Analyst.View
             }
 
             RefreshDgvListTransactions();
+            txtSumTransaction.Clear();
+            txtCommentForTransaction.Clear();
         }
 
         private void btnDeleteTransaction_Click(object sender, EventArgs e)
@@ -227,7 +228,7 @@ namespace Financial_Analyst.View
             CheckComboBoxChoiceCategoryTransaction();
             CheckComboBoxUserForTransaction();
 
-            // чтобы при запуске формы отображалось первое значение в комбо боксах
+            // чтобы при запуске формы отображалось некое значение в комбо боксах
             cmbChoiceUserForTransaction.SelectedItem = _user.FIO;
             cmbTypeTransaction.SelectedIndex = 1;
             cmbTypeTransactionFilter.SelectedIndex = 2;
@@ -236,8 +237,7 @@ namespace Financial_Analyst.View
                 cmbAccountChoise.SelectedIndex = 0;
                 cmbChoiceCategoryTransaction.SelectedIndex = 0;
                 cmbAccuntChoiseForBalance.SelectedIndex = 0;
-                cmbCategoryTransactionsFilters.SelectedIndex = 0;
-                
+                cmbCategoryTransactionsFilters.SelectedIndex = 0;            
             }
             catch { }        
         }
@@ -285,7 +285,8 @@ namespace Financial_Analyst.View
                     throw new Exception("Счёт не найден!");
                 }
 
-                txtBalance.Text = Convert.ToString(currentAccountForBalance.Balance);
+                txtAccountBalance.Clear();
+                txtAccountBalance.Text = Convert.ToString(currentAccountForBalance.Balance);  
             }
             catch (Exception ex)
             {

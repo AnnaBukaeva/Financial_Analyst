@@ -92,7 +92,7 @@ namespace Financial_Analyst.View
             this.lblAccountForBalanse = new System.Windows.Forms.Label();
             this.grbBalance = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtBalance = new System.Windows.Forms.TextBox();
+            this.txtAccountBalance = new System.Windows.Forms.TextBox();
             this.cmbAccuntChoiseForBalance = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -284,7 +284,6 @@ namespace Financial_Analyst.View
             // 
             // grbAddTransaction
             // 
-            this.grbAddTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.grbAddTransaction.Controls.Add(this.btnDeleteTransaction);
             this.grbAddTransaction.Controls.Add(this.dtpDate);
             this.grbAddTransaction.Controls.Add(this.lblDate);
@@ -717,7 +716,7 @@ namespace Financial_Analyst.View
             // grbBalance
             // 
             this.grbBalance.Controls.Add(this.label2);
-            this.grbBalance.Controls.Add(this.txtBalance);
+            this.grbBalance.Controls.Add(this.txtAccountBalance);
             this.grbBalance.Controls.Add(this.cmbAccuntChoiseForBalance);
             this.grbBalance.Controls.Add(this.lblAccountForBalanse);
             this.grbBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -739,14 +738,14 @@ namespace Financial_Analyst.View
             this.label2.TabIndex = 21;
             this.label2.Text = "руб.";
             // 
-            // txtBalance
+            // txtAccountBalance
             // 
-            this.txtBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtBalance.Location = new System.Drawing.Point(232, 23);
-            this.txtBalance.Name = "txtBalance";
-            this.txtBalance.Size = new System.Drawing.Size(131, 23);
-            this.txtBalance.TabIndex = 20;
-            this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAccountBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtAccountBalance.Location = new System.Drawing.Point(232, 23);
+            this.txtAccountBalance.Name = "txtAccountBalance";
+            this.txtAccountBalance.Size = new System.Drawing.Size(131, 23);
+            this.txtAccountBalance.TabIndex = 20;
+            this.txtAccountBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // cmbAccuntChoiseForBalance
             // 
@@ -788,6 +787,9 @@ namespace Financial_Analyst.View
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1035, 625);
+            this.MinimumSize = new System.Drawing.Size(1035, 625);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Финансовый помощник";
@@ -857,7 +859,7 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.Label lblAccountForBalanse;
         private System.Windows.Forms.GroupBox grbBalance;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtBalance;
+        private System.Windows.Forms.TextBox txtAccountBalance;
         private System.Windows.Forms.ComboBox cmbAccuntChoiseForBalance;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
