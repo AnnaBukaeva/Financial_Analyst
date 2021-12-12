@@ -93,7 +93,7 @@ namespace Financial_Analyst.View
             this.grbBalance = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtAccountBalance = new System.Windows.Forms.TextBox();
-            this.cmbAccuntChoiseForBalance = new System.Windows.Forms.ComboBox();
+            this.cmbAccountChoiseForBalance = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListTransactions)).BeginInit();
@@ -717,7 +717,7 @@ namespace Financial_Analyst.View
             // 
             this.grbBalance.Controls.Add(this.label2);
             this.grbBalance.Controls.Add(this.txtAccountBalance);
-            this.grbBalance.Controls.Add(this.cmbAccuntChoiseForBalance);
+            this.grbBalance.Controls.Add(this.cmbAccountChoiseForBalance);
             this.grbBalance.Controls.Add(this.lblAccountForBalanse);
             this.grbBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.grbBalance.Location = new System.Drawing.Point(15, 511);
@@ -747,17 +747,17 @@ namespace Financial_Analyst.View
             this.txtAccountBalance.TabIndex = 20;
             this.txtAccountBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // cmbAccuntChoiseForBalance
+            // cmbAccountChoiseForBalance
             // 
-            this.cmbAccuntChoiseForBalance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAccuntChoiseForBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cmbAccuntChoiseForBalance.FormattingEnabled = true;
-            this.cmbAccuntChoiseForBalance.Location = new System.Drawing.Point(62, 23);
-            this.cmbAccuntChoiseForBalance.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbAccuntChoiseForBalance.Name = "cmbAccuntChoiseForBalance";
-            this.cmbAccuntChoiseForBalance.Size = new System.Drawing.Size(148, 24);
-            this.cmbAccuntChoiseForBalance.TabIndex = 19;
-            this.cmbAccuntChoiseForBalance.SelectedIndexChanged += new System.EventHandler(this.cmbAccuntChoiseForBalance_SelectedIndexChanged);
+            this.cmbAccountChoiseForBalance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAccountChoiseForBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmbAccountChoiseForBalance.FormattingEnabled = true;
+            this.cmbAccountChoiseForBalance.Location = new System.Drawing.Point(62, 23);
+            this.cmbAccountChoiseForBalance.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbAccountChoiseForBalance.Name = "cmbAccountChoiseForBalance";
+            this.cmbAccountChoiseForBalance.Size = new System.Drawing.Size(148, 24);
+            this.cmbAccountChoiseForBalance.TabIndex = 19;
+            this.cmbAccountChoiseForBalance.SelectedIndexChanged += new System.EventHandler(this.cmbAccountChoiseForBalance_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -860,7 +860,7 @@ namespace Financial_Analyst.View
         private System.Windows.Forms.GroupBox grbBalance;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtAccountBalance;
-        private System.Windows.Forms.ComboBox cmbAccuntChoiseForBalance;
+        private System.Windows.Forms.ComboBox cmbAccountChoiseForBalance;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblFilterSum;

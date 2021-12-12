@@ -61,6 +61,7 @@ namespace Financial_Analyst.View
                                              transaction.TransactionID);
             }
         }
+
         private void RefreshCmbChoiceCategoryTransaction() // обновить список категорий в комбо боксе
         {
             cmbChoiceCategoryTransaction.DataSource = CategoryProcessor.GetCategory();
@@ -70,11 +71,11 @@ namespace Financial_Analyst.View
         private void RefreshCmbAccountChoise()   // обновить список счетов в комбо боксе
         {
             cmbAccountChoise.Items.Clear();
-            cmbAccuntChoiseForBalance.Items.Clear(); //
+            cmbAccountChoiseForBalance.Items.Clear(); //
             foreach (IAccount account in AccountProcessor.GetAccounts(_user))
             {
                 cmbAccountChoise.Items.Add(account.Name);
-                cmbAccuntChoiseForBalance.Items.Add(account.Name); //
+                cmbAccountChoiseForBalance.Items.Add(account.Name); //
             }
         }
 
@@ -102,7 +103,7 @@ namespace Financial_Analyst.View
             return CategoryProcessor.GetCategory()?.Where(t => t.CType == ctype)?.ToList() ?? new List<ICategory>();
         }
 
-        private void cmbTypeTransaction_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbTypeTransaction_SelectedIndexChanged(object sender, EventArgs e) 
         {
             cmbChoiceCategoryTransaction.DataSource = FilteredCategories((CategoryType)cmbTypeTransaction.SelectedIndex);
         }
@@ -168,9 +169,10 @@ namespace Financial_Analyst.View
             RefreshDgvListTransactions();
             txtSumTransaction.Clear();
             txtCommentForTransaction.Clear();
+            cmbAccountChoiseForBalance_SelectedIndexChanged(null, null); //чтобы обновлялся баланс счёта
         }
 
-        private void btnDeleteTransaction_Click(object sender, EventArgs e)
+        private void btnDeleteTransaction_Click(object sender, EventArgs e) // удалить транзакцию
         {
             if (MessageBox.Show("Удалить выбранные строки?", "Удаление", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
@@ -193,11 +195,11 @@ namespace Financial_Analyst.View
         private void CheckComboBoxAccountChoise() // проверить комбо бокс выбора счетов
         {
             cmbAccountChoise.Items.Clear();
-            cmbAccuntChoiseForBalance.Items.Clear(); //
+            cmbAccountChoiseForBalance.Items.Clear(); //
             foreach (IAccount accounts in AccountProcessor.GetAccounts(_user))
             {
                 cmbAccountChoise.Items.Add(accounts.Name);
-                cmbAccuntChoiseForBalance.Items.Add(accounts.Name); //
+                cmbAccountChoiseForBalance.Items.Add(accounts.Name); //
             }
 
         }
@@ -213,7 +215,7 @@ namespace Financial_Analyst.View
             }
         }
 
-        private void CheckComboBoxUserForTransaction() // проверить комбо бокс выбора пользователя, кот. принадл. транз.
+        private void CheckComboBoxUserForTransaction() //проверить комбо бокс выбора пользователя, кот. принадл. транз.
         {
             cmbChoiceUserForTransaction.Items.Clear();
             foreach (User users in UserProcessor.GetUsers())
@@ -236,7 +238,7 @@ namespace Financial_Analyst.View
             {     
                 cmbAccountChoise.SelectedIndex = 0;
                 cmbChoiceCategoryTransaction.SelectedIndex = 0;
-                cmbAccuntChoiseForBalance.SelectedIndex = 0;
+                cmbAccountChoiseForBalance.SelectedIndex = 0;
                 cmbCategoryTransactionsFilters.SelectedIndex = 0;            
             }
             catch { }        
@@ -267,14 +269,14 @@ namespace Financial_Analyst.View
             about_program.ShowDialog();
         }
 
-        private void cmbAccuntChoiseForBalance_SelectedIndexChanged(object sender, EventArgs e) //просмотр баланса счетов
+        private void cmbAccountChoiseForBalance_SelectedIndexChanged(object sender, EventArgs e) //просмотр баланса счетов
         {
             try
             {
                 IAccount currentAccountForBalance = null;
                 foreach (Account account in AccountProcessor.GetAccounts(_user))
                 {
-                    if (cmbAccuntChoiseForBalance.Text == account.Name)
+                    if (cmbAccountChoiseForBalance.Text == account.Name)
                     {
                         currentAccountForBalance = account;
                         break;

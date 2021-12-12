@@ -68,6 +68,7 @@ namespace Financial_Analyst.View
             this.grbAddAccounts.Size = new System.Drawing.Size(339, 325);
             this.grbAddAccounts.TabIndex = 3;
             this.grbAddAccounts.TabStop = false;
+            this.grbAddAccounts.Text = "Создание счёта";
             // 
             // clbAccountUserAccess
             // 
