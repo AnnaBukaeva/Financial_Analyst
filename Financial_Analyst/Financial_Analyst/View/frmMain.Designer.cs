@@ -164,8 +164,6 @@ namespace Financial_Analyst.View
             // 
             // AnalyticsToolStripMenuItem
             // 
-            this.AnalyticsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3});
             this.AnalyticsToolStripMenuItem.Name = "AnalyticsToolStripMenuItem";
             this.AnalyticsToolStripMenuItem.Size = new System.Drawing.Size(98, 25);
             this.AnalyticsToolStripMenuItem.Text = "Аналитика";
