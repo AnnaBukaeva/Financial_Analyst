@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Forms;
 using Financial_Analyst.Logic;
@@ -22,8 +21,7 @@ namespace Financial_Analyst.View
             txtUserName.Text = _user.FIO; 
             
             dgvListTransactions.AutoGenerateColumns = false;
-            RefreshDgvListTransactions();
-
+            RefreshDgvListTransactions();   
             
             dtpBeginFilter.Value = FirstDayOfCurrentMonth();
             dtpEndFilter.Value = LastDayOfCurrentMonth();
@@ -63,6 +61,7 @@ namespace Financial_Analyst.View
                                              transaction.TransactionID);
             }
         }
+
         private void RefreshCmbChoiceCategoryTransaction() // обновить список категорий в комбо боксе
         {
             cmbChoiceCategoryTransaction.DataSource = CategoryProcessor.GetCategory();
@@ -72,11 +71,11 @@ namespace Financial_Analyst.View
         private void RefreshCmbAccountChoise()   // обновить список счетов в комбо боксе
         {
             cmbAccountChoise.Items.Clear();
-            cmbAccuntChoiseForBalance.Items.Clear(); //
+            cmbAccountChoiseForBalance.Items.Clear(); //
             foreach (IAccount account in AccountProcessor.GetAccounts(_user))
             {
                 cmbAccountChoise.Items.Add(account.Name);
-                cmbAccuntChoiseForBalance.Items.Add(account.Name); //
+                cmbAccountChoiseForBalance.Items.Add(account.Name); //
             }
         }
 
@@ -98,19 +97,15 @@ namespace Financial_Analyst.View
             }
         }
 
-        //для отображения категорий, взависимости от выбранного типа транзакций
+        //для отображения категорий, в зависимости от выбранного типа транзакций
         private List<ICategory> FilteredCategories(CategoryType ctype)
         {
             return CategoryProcessor.GetCategory()?.Where(t => t.CType == ctype)?.ToList() ?? new List<ICategory>();
         }
 
-
-        private void cmbTypeTransaction_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbTypeTransaction_SelectedIndexChanged(object sender, EventArgs e) 
         {
-            
             cmbChoiceCategoryTransaction.DataSource = FilteredCategories((CategoryType)cmbTypeTransaction.SelectedIndex);
-
-            // cmbChoiceCategoryTransaction.DataSource = FilteredCategories((CategoryType)cmbTypeTransaction.SelectedIndex + 1);
         }
 
         private void btnAddTransaction_Click(object sender, EventArgs e) //добавить транзакцию
@@ -172,9 +167,12 @@ namespace Financial_Analyst.View
             }
 
             RefreshDgvListTransactions();
+            txtSumTransaction.Clear();
+            txtCommentForTransaction.Clear();
+            cmbAccountChoiseForBalance_SelectedIndexChanged(null, null); //чтобы обновлялся баланс счёта
         }
 
-        private void btnDeleteTransaction_Click(object sender, EventArgs e)
+        private void btnDeleteTransaction_Click(object sender, EventArgs e) // удалить транзакцию
         {
             if (MessageBox.Show("Удалить выбранные строки?", "Удаление", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
@@ -190,18 +188,18 @@ namespace Financial_Analyst.View
                     TransactionProcessor.RemoveTransactionsList(id);
                 }
 
-                RefreshDgvListTransactions();
+                RefreshDgvListTransactions();           
             }
         }
 
         private void CheckComboBoxAccountChoise() // проверить комбо бокс выбора счетов
         {
             cmbAccountChoise.Items.Clear();
-            cmbAccuntChoiseForBalance.Items.Clear(); //
+            cmbAccountChoiseForBalance.Items.Clear(); //
             foreach (IAccount accounts in AccountProcessor.GetAccounts(_user))
             {
                 cmbAccountChoise.Items.Add(accounts.Name);
-                cmbAccuntChoiseForBalance.Items.Add(accounts.Name); //
+                cmbAccountChoiseForBalance.Items.Add(accounts.Name); //
             }
 
         }
@@ -217,7 +215,7 @@ namespace Financial_Analyst.View
             }
         }
 
-        private void CheckComboBoxUserForTransaction() // проверить комбо бокс выбора пользователя, кот. принадл. транз.
+        private void CheckComboBoxUserForTransaction() //проверить комбо бокс выбора пользователя, кот. принадл. транз.
         {
             cmbChoiceUserForTransaction.Items.Clear();
             foreach (User users in UserProcessor.GetUsers())
@@ -232,17 +230,16 @@ namespace Financial_Analyst.View
             CheckComboBoxChoiceCategoryTransaction();
             CheckComboBoxUserForTransaction();
 
-            // чтобы при запуске формы отображалось первое значение в комбо боксах
-            cmbChoiceUserForTransaction.SelectedIndex = 0;
+            // чтобы при запуске формы отображалось некое значение в комбо боксах
+            cmbChoiceUserForTransaction.SelectedItem = _user.FIO;
             cmbTypeTransaction.SelectedIndex = 1;
             cmbTypeTransactionFilter.SelectedIndex = 2;
-            try    // завернула в try-catch, т.к. если создал нового пользователя, у него еще нет счетов, ошибка высвеч.
+            try   // завернула в try-catch, т.к. если создал нового пользователя, у него еще нет счетов, ошибка высвеч.
             {     
                 cmbAccountChoise.SelectedIndex = 0;
                 cmbChoiceCategoryTransaction.SelectedIndex = 0;
-                cmbAccuntChoiseForBalance.SelectedIndex = 0;
-                cmbCategoryTransactionsFilters.SelectedIndex = 0;
-                
+                cmbAccountChoiseForBalance.SelectedIndex = 0;
+                cmbCategoryTransactionsFilters.SelectedIndex = 0;            
             }
             catch { }        
         }
@@ -272,23 +269,31 @@ namespace Financial_Analyst.View
             about_program.ShowDialog();
         }
 
-        private void cmbAccuntChoiseForBalance_SelectedIndexChanged(object sender, EventArgs e) //просмотр баланса счетов
+        private void cmbAccountChoiseForBalance_SelectedIndexChanged(object sender, EventArgs e) //просмотр баланса счетов
         {
-            IAccount currentAccountForBalance = null;
-            foreach (Account account in AccountProcessor.GetAccounts(_user))
+            try
             {
-                if (cmbAccuntChoiseForBalance.Text == account.Name)
+                IAccount currentAccountForBalance = null;
+                foreach (Account account in AccountProcessor.GetAccounts(_user))
                 {
-                    currentAccountForBalance = account;
-                    break;
+                    if (cmbAccountChoiseForBalance.Text == account.Name)
+                    {
+                        currentAccountForBalance = account;
+                        break;
+                    }
                 }
-            }
-            if (currentAccountForBalance == null)
-            {
-                throw new Exception("Счёт не найден!");
-            }
+                if (currentAccountForBalance == null)
+                {
+                    throw new Exception("Счёт не найден!");
+                }
 
-            txtBalance.Text = Convert.ToString( currentAccountForBalance.Balance);
+                txtAccountBalance.Clear();
+                txtAccountBalance.Text = Convert.ToString(currentAccountForBalance.Balance);  
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!");
+            }          
         }
 
         //ниже все, связанное с фильтрами
@@ -310,7 +315,7 @@ namespace Financial_Analyst.View
         private void cmbTypeTransactionFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbCategoryTransactionsFilters.DataSource
-                = FilteredCatforiesForFilter((CategoryType)cmbTypeTransactionFilter.SelectedIndex);
+               = FilteredCatforiesForFilter((CategoryType)cmbTypeTransactionFilter.SelectedIndex);
         }
         private DateTime FirstDayOfCurrentMonth()
         {
@@ -340,7 +345,7 @@ namespace Financial_Analyst.View
             decimal smin, smax;
             if (!decimal.TryParse(mtbFilterSumMin.Text, out smin))
             {
-                smin = decimal.MinValue;
+                smin = 0;
             }
 
             if (!decimal.TryParse(mtbFilterSumMax.Text, out smax))
@@ -348,14 +353,14 @@ namespace Financial_Analyst.View
                 smax = decimal.MaxValue;
             }
 
-            if (decimal.MinValue != smin)
+            if (0 != smin)
             { 
-                filtered_list = filtered_list.Where(t => t.PaymentSum >= smin); 
+                filtered_list = filtered_list.Where(t => Math.Abs(t.PaymentSum) >= Math.Abs(smin)); 
             }
 
             if (decimal.MaxValue != smax)
             {
-                filtered_list = filtered_list.Where(t => t.PaymentSum <= smax);
+                filtered_list = filtered_list.Where(t => Math.Abs(t.PaymentSum) <= Math.Abs(smax));
             }
 
             return filtered_list.ToList();
