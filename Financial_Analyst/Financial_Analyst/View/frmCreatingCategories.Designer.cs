@@ -74,7 +74,7 @@ namespace Financial_Analyst.View
             this.grbCreatingCategories.Controls.Add(this.txtNameCategory);
             this.grbCreatingCategories.Controls.Add(this.lblNameCategory);
             this.grbCreatingCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grbCreatingCategories.Location = new System.Drawing.Point(373, 4);
+            this.grbCreatingCategories.Location = new System.Drawing.Point(450, 4);
             this.grbCreatingCategories.Name = "grbCreatingCategories";
             this.grbCreatingCategories.Size = new System.Drawing.Size(384, 264);
             this.grbCreatingCategories.TabIndex = 1;
@@ -195,7 +195,7 @@ namespace Financial_Analyst.View
             this.dgvListCategories.ReadOnly = true;
             this.dgvListCategories.RowHeadersVisible = false;
             this.dgvListCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListCategories.Size = new System.Drawing.Size(352, 253);
+            this.dgvListCategories.Size = new System.Drawing.Size(432, 253);
             this.dgvListCategories.TabIndex = 2;
             // 
             // clnName
@@ -229,7 +229,6 @@ namespace Financial_Analyst.View
             this.clnColor.HeaderText = "Цвет";
             this.clnColor.Name = "clnColor";
             this.clnColor.ReadOnly = true;
-            this.clnColor.Visible = false;
             this.clnColor.Width = 80;
             // 
             // frmCreatingCategories
@@ -237,11 +236,13 @@ namespace Financial_Analyst.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(769, 280);
+            this.ClientSize = new System.Drawing.Size(846, 280);
             this.Controls.Add(this.dgvListCategories);
             this.Controls.Add(this.grbCreatingCategories);
-            this.MaximumSize = new System.Drawing.Size(785, 319);
-            this.MinimumSize = new System.Drawing.Size(785, 319);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(862, 319);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(862, 319);
             this.Name = "frmCreatingCategories";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Категории";
