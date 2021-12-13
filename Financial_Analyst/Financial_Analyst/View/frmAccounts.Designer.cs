@@ -225,6 +225,9 @@ namespace Financial_Analyst.View
             this.ClientSize = new System.Drawing.Size(723, 334);
             this.Controls.Add(this.grbAddAccounts);
             this.Controls.Add(this.grbAccounts);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(739, 373);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(739, 373);
             this.Name = "frmAccounts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
